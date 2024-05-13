@@ -9,7 +9,7 @@ if($_SESSION['role']==""){
 
 ?>
 <?php
-$koneksi = mysqli_connect("localhost","root","","kasir");
+include "../koneksi.php";
  
 // Check connection
 if (mysqli_connect_error()){
@@ -187,7 +187,7 @@ if (mysqli_connect_error()){
                         <div class="card shadow mb-4">
                             <?php
 
-                                $koneksi = mysqli_connect("localhost","root","","kasir");
+                                include "../koneksi.php";
                                 if (mysqli_connect_error()){
                                     echo "Koneksi database gagal : " . mysqli_connect_error();
                                 }
@@ -298,7 +298,7 @@ if (mysqli_connect_error()){
                             </div>
                             <div class="card-body">
                                 <?php
-                                    $koneksi = mysqli_connect("localhost","root","","kasir");
+                                    include "../koneksi.php";
  
                                     // Check connection
                                     if (mysqli_connect_error()){

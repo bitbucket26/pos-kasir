@@ -1,5 +1,5 @@
  <?
- $koneksi = mysqli_connect("localhost","root","","kasir");
+ include "../koneksi.php";
  
  // Check connection
  if (mysqli_connect_error()){
