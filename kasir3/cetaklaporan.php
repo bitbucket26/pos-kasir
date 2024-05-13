@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
 <body class="notaprint" style="background-color: white;">
     
     <?php	
-       $koneksi = mysqli_connect("localhost","root","","kasir");
+       include "../koneksi.php";
          
        // Check connection
        if (mysqli_connect_error()){
