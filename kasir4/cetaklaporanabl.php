@@ -26,7 +26,7 @@ if($_SESSION['role']==""){
            echo "Koneksi database gagal : " . mysqli_connect_error();
        }
         
-        $sql=mysqli_query($koneksi, "SELECT * FROM ablkasir1 WHERE nomor='$_GET[id]'");
+        $sql=mysqli_query($koneksi, "SELECT * FROM ablkasir4 WHERE nomor='$_GET[id]'");
         $d=mysqli_fetch_array($sql);
     ?>
 

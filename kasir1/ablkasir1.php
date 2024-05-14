@@ -104,7 +104,9 @@ if($_SESSION['role']==""){
                                                     <label class="labeldata">Nomor</label>
                                                         <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>				
                                                     <label class="labeldata">Tanggal</label>
-                                                        <input type="date" name="tanggal" class="form-control" id="tanggal">				
+                                                    <?php $dt = new DateTime();
+                                                       echo '<input type="date" name="tanggal" class="form-control" id="tanggal" value="' .$dt->format('Y-m-d'). '" readonly>'
+                                                    ?>				
                                                     <label class="labeldata">Nama</label>
                                                         <input type="text" name="nama" class="form-control" id="nama" required>				
                                                     <?php 
@@ -152,8 +154,8 @@ if($_SESSION['role']==""){
                                                             
                                                         }
                                                         </script>
-                                                    <label class="labeldata">Perawat</label>
-                                                                <select name="perawat" class="form-control" id="perawat" required>
+                                                    <label class="labeldata" hidden>Perawat</label>
+                                                                <select name="perawat" class="form-control" id="perawat" required hidden>
                                                                     <option value="-">-</option>
                                                                     <option value="1">1</option>
                                                                     <option value="2">2</option>
@@ -217,7 +219,7 @@ if($_SESSION['role']==""){
                                                 <label class="labeldata">Total Bayar</label>
 
                                                     <input type="number" name="total" class="form-control" id="total" readonly>
-                                                    <input type="button" name="btntotal" class="btn btn-primary" onclick="totals()" value="HITUNG">
+                                                    <input type="button" name="btntotal" class="btn btn-primary" id="btntotal" onclick="totals()" value="HITUNG">
                                                                 <script>
                                                                     function totals(){
                                                                         var a = document.getElementById("nilaix").value;
@@ -229,9 +231,9 @@ if($_SESSION['role']==""){
                                                                     }
                                                                 </script>
                                                 <br>
-                                                <p><label class="labeldata">Terbilang</label>
+                                                <p><label class="labeldata" hidden>Terbilang</label>
 
-                                                    <textarea type="text" name="bilang" class="form-control" id="bilang" readonly></textarea>
+                                                    <textarea type="text" name="bilang" class="form-control" id="bilang" readonly hidden></textarea>
                                             </div>
                                                                               
                                             <!-- Modal simpan -->
@@ -323,9 +325,9 @@ if($_SESSION['role']==""){
             return temp;
         }
 
-        var input = document.getElementById("jaraktempuh");
+        var input = document.getElementById("btntotal");
         input.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
+        if (event.key === "onchange") {
            event.preventDefault();
               const nilai = document.getElementById("total").value;
               let hasil = terbilang(nilai) + "Rupiah";
@@ -333,14 +335,14 @@ if($_SESSION['role']==""){
         }
         });
     </script>
-    <script>
+    <!-- <script>
         function hitungjarak() {
                         var a = document.getElementById("nilaix").value;
                         var b = document.getElementById("jaraktempuh").value;
                         document.getElementById("total").value = (a) * (b);
                         
                     }
-    </script>
+    </script> -->
 
 </body>
 

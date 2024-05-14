@@ -71,7 +71,7 @@ if($_SESSION['role']==""){
 
 
                     <!-- Input Data -->
-                <form action="simpanabl.php" method="post">
+                <form action="simpanabl1.php" method="post">
                     <?php
                         include "../koneksi.php";
          
@@ -104,13 +104,18 @@ if($_SESSION['role']==""){
                                                     <label class="labeldata">Nomor</label>
                                                         <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>				
                                                     <label class="labeldata">Tanggal</label>
-                                                        <input type="date" name="tanggal" class="form-control" id="tanggal">				
+                                                    <?php $dt = new DateTime();
+                                                       echo '<input type="date" name="tanggal" class="form-control" id="tanggal" value="' .$dt->format('Y-m-d'). '" readonly>'
+                                                    ?>				
                                                     <label class="labeldata">Nama</label>
                                                         <input type="text" name="nama" class="form-control" id="nama" required>				
+                                                    <?php 
+                                                        include "pilihalamat.php";
+                                                    ?>
                                                     <label class="labeldata">Alamat KTP</label>
-                                                        <textarea type="text" name="alamatktp" class="form-control" id="alamatktp" required></textarea>
+                                                        <input type="text" name="alamatktp" class="form-control" id="alamatktp" readonly>
                                                     <label class="labeldata">Alamat Tujuan</label>
-                                                        <textarea type="text" name="alamattujuan" class="form-control" id="alamattujuan" required></textarea>
+                                                        <input type="text" name="alamattujuan" class="form-control" id="alamattujuan" readonly>
                                                 </div>
                                                 <div class="col">
                                                     <label class="labeldata">Perawat Pendamping</label>
@@ -121,6 +126,7 @@ if($_SESSION['role']==""){
                                                                     <option value="Satu Provinsi Diluar (Wil.3)">Satu Provinsi Diluar (Wil.3)</option>
                                                                     <option value="Beda Provinsi">Beda Provinsi</option>
                                                                 </select>
+                                                                
 
                                                     
 
@@ -130,24 +136,26 @@ if($_SESSION['role']==""){
                                                         <script>
                                                         function nilaiy(e) {
                                                             
+                                                            // var e = (a) + (c);
                                                             // var a = document.getElementById("perawatpendamping").value;
                                                             console.log(e)
                                                             // minimal 2 = om
                                                             if (e == "Satu Kota"){
-                                                            $("#nilaix").val(8000);
+                                                            $("#nilaix").val(80000);
                                                             } else if(e == "Satu Provinsi (Wil.3)"){
-                                                            $("#nilaix").val(20000);
+                                                            $("#nilaix").val(200000);
                                                             } else if(e == "Satu Provinsi Diluar (Wil.3)"){
-                                                            $("#nilaix").val(34000);
+                                                            $("#nilaix").val(340000);
                                                             } else if(e == "Beda Provinsi"){
-                                                            $("#nilaix").val(44000);
+                                                            $("#nilaix").val(440000);
                                                             } else {
                                                             $("#nilaix").val(0);
                                                             }
+                                                            
                                                         }
                                                         </script>
-                                                    <label class="labeldata">Perawat</label>
-                                                                <select name="perawat" class="form-control" id="perawat" required>
+                                                    <label class="labeldata" hidden>Perawat</label>
+                                                                <select name="perawat" class="form-control" id="perawat" required hidden>
                                                                     <option value="-">-</option>
                                                                     <option value="1">1</option>
                                                                     <option value="2">2</option>
@@ -200,19 +208,32 @@ if($_SESSION['role']==""){
                                                                     <option value="Sae Syamsul Rifai">Sae Syamsul Rifai</option>
                                                                     <option value="Toto Miharjo">Toto Miharjo</option>
                                                                 </select>
-                                            <label class="labeldata">Jarak Tempuh (km)</label>
+                                                <label class="labeldata">Jarak Tempuh (km)</label>
                                                     
-                                                    <input type="number" name="jaraktempuh" class="form-control" id="jaraktempuh" onkeypress="hitungjarak()" required>
+                                                    <input type="number" name="jaraktempuh" class="form-control" id="jaraktempuh" readonly>
+                                                
+                                                <label class="labeldata">Nilai Tetap</label>
+                                                    
+                                                    <input type="number" name="nilaitetap" class="form-control" id="nilaitetap" value="70000" readonly hidden>
 
                                                 <label class="labeldata">Total Bayar</label>
 
                                                     <input type="number" name="total" class="form-control" id="total" readonly>
+                                                    <input type="button" name="btntotal" class="btn btn-primary" id="btntotal" onclick="totals()" value="HITUNG">
+                                                                <script>
+                                                                    function totals(){
+                                                                        var a = document.getElementById("nilaix").value;
+                                                                        var b = document.getElementById("jaraktempuh").value;
+                                                                        var c = document.getElementById("nilaitetap").value;
+                                                                        var d = 10000;
+                                                                        var e = parseInt(a) + parseInt(c);
+                                                                        document.getElementById("total").value = (b * d) + (e);
+                                                                    }
+                                                                </script>
+                                                <br>
+                                                <p><label class="labeldata" hidden>Terbilang</label>
 
-                                                <label class="labeldata">Terbilang</label>
-
-                                                    <textarea type="text" name="bilang" class="form-control" id="bilang" readonly></textarea>
-<br>
-                                                        <br>
+                                                    <textarea type="text" name="bilang" class="form-control" id="bilang" readonly hidden></textarea>
                                             </div>
                                                                               
                                             <!-- Modal simpan -->
@@ -304,9 +325,9 @@ if($_SESSION['role']==""){
             return temp;
         }
 
-        var input = document.getElementById("jaraktempuh");
+        var input = document.getElementById("btntotal");
         input.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
+        if (event.key === "onchange") {
            event.preventDefault();
               const nilai = document.getElementById("total").value;
               let hasil = terbilang(nilai) + "Rupiah";
@@ -314,14 +335,14 @@ if($_SESSION['role']==""){
         }
         });
     </script>
-    <script>
+    <!-- <script>
         function hitungjarak() {
                         var a = document.getElementById("nilaix").value;
                         var b = document.getElementById("jaraktempuh").value;
                         document.getElementById("total").value = (a) * (b);
                         
                     }
-    </script>
+    </script> -->
 
 </body>
 

@@ -115,7 +115,7 @@ if (mysqli_connect_error()){
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-10 mb-4 float-none" style="padding: 20px;">
+                <div class="col-xl-8 mb-4 float-none" style="padding: 20px;">
                         <div class="card border-left-info shadow h-100 py-2 border-bottom-info align-items-left">
                             <form action="" method="GET" >
                                 <h4 style="margin-left: 20px; color:blue;">Filter Berdasarkan Tanggal</h4>
@@ -127,9 +127,9 @@ if (mysqli_connect_error()){
                                             <label for="" >s/d</label>
                                             <input type="date" class="rounded" name="sampaitgl" style="border: solid 1px;" required>
                                             <input class="btn btn-primary btn-md" type="submit" name="filter" value="Tampilkan" >
-                                            <a href="cetaknota.php" target="_blank">
+                                            <!-- <a href="cetaknota.php" target="_blank">
                                             <button type="button" name="btnyes" class="btn btn-danger btn-md" value="Cetak1">Cetak Data Terakhir Input</button>
-                                            </a>
+                                            </a> -->
                                         </div>
                                     </div>
                                 </div>
@@ -189,19 +189,19 @@ if (mysqli_connect_error()){
                                             <td class="text-center"><?php echo $d['kasir']; ?></td>
                                             
                                             <td>
-                                                <a href="updateablkasir1.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
+                                                <!-- <a href="updateablkasir1.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
                                                 <i class="fa fa-edit fa-lg"></i>
-                                                </a>
+                                                </a> -->
                                                 <a href="cetaklaporanabl.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-md">
                                                 <i class="fa fa-print fa-lg" aria-hidden="true" style="color: white;"></i>
                                                 </a>
                                             </td>
                                     </tr>
                                      <!-- Modal Edit Mahasiswa-->
-                                    <div class="modal fade" id="myModal<?php echo $d['nomor']; ?>" role="dialog">
+                                    <!-- <div class="modal fade" id="myModal<?php echo $d['nomor']; ?>" role="dialog">
                                             <div class="modal-dialog">
 
-                                            <!-- Modal content-->
+                                            Modal content
                                             <div class="modal-content">
                                             <div class="modal-header">
                                             <h4 class="modal-title">Ubah Data Pasien</h4>
@@ -219,10 +219,10 @@ if (mysqli_connect_error()){
 
                                             <input type="hidden" name="nomor" value="<?php echo $row['nomor']; ?>">
 
-                                            <!-- <div class="form-group">
+                                            <div class="form-group">
                                             <label>Nomor</label>
                                             <input type="text" name="nomorsep" class="form-control" value="<?php echo $row['']; ?>">      
-                                            </div> -->
+                                            </div>
 
                                             <div class="form-group">
                                             <label>Nama</label>
@@ -244,14 +244,14 @@ if (mysqli_connect_error()){
                                             <input type="text" name="alamattujuan" class="form-control" value="<?php echo $row['alamattujuan']; ?>">      
                                             </div> 
 
-                                            <!-- <div class="form-group">
+                                            <div class="form-group">
                                             <label>Total</label>
                                             <input type="number" name="total" class="form-control" value="<?php echo $row['total']; ?>">      
-                                            </div>  -->
+                                            </div> 
 
                                             <div class="modal-footer">  
                                             <button type="submit" name="update" value="simpan" class="btn btn-info" style="color: white;">Update</button>
-                                            <!-- <a href="hapus.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a> -->
+                                            <a href="hapus.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                                             </div>
                                             <?php 
@@ -263,7 +263,7 @@ if (mysqli_connect_error()){
                                             </div>
 
                                             </div>
-                                    </div>
+                                    </div> -->
                                            
                                     <?php                                     
                                         }
@@ -327,7 +327,7 @@ if (mysqli_connect_error()){
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.html5.min.js"></script> 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.print.min.js"></script> 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.colVis.min.js"></script> 
-
+    
     <script>
         new DataTable('#Tables', {
             responsive: true,
