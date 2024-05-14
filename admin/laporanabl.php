@@ -18,7 +18,7 @@ if (mysqli_connect_error()){
     $thn = date ('Y');
     for($bulan = 1;$bulan < 13;$bulan++)
     {
-        $query = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir1 where YEAR(tanggal)='$thn'");
+        $query = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where YEAR(tanggal)='$thn'");
         $row = $query->fetch_array();
         $total[] = $row['total'];
     }
