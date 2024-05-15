@@ -18,7 +18,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - 404</title>
+    <title>404</title>
 
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
