@@ -71,7 +71,7 @@
 
                             <div class="form-group">
                                 <label for="username">Username</label>
-                                <input class="form-control" type="text" name="username" placeholder="Username atau email" required/>
+                                <input class="form-control" type="text" name="username" placeholder="Username" required/>
                             </div>
 
                             <div class="form-group">

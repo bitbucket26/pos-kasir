@@ -120,13 +120,13 @@ if($_SESSION['role']==""){
                                     <thead>
                                         <tr>
                                             <th class="text-center">No.Nota</th>
-                                            <th style="text-align: center;">No.SEP</th>
-                                            <th style="text-align: center;">No.Medrec</th>
-                                            <th style="text-align: center;">Nama Pasien</th>
-                                            <th style="text-align: center; ">Alamat</th>
-                                            <th style="text-align: center;">Tgl.Bayar</th>
-                                            <th style="text-align: center;">Kasir</th>
-                                            <th style="text-align: center;">Aksi</th>
+                                            <th class="text-center">No.SEP</th>
+                                            <th class="text-center">No.Medrec</th>
+                                            <th class="text-center">Nama Pasien</th>
+                                            <th class="text-center">Alamat</th>
+                                            <th class="text-center">Tgl.Bayar</th>
+                                            <th class="text-center">Kasir</th>
+                                            <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
 
@@ -143,14 +143,14 @@ if($_SESSION['role']==""){
                                             while($d = mysqli_fetch_array($data)){
                                     ?>
                                     <tr>
-                                            <td class="text-center"><?php echo $d['nomornota']; ?></td>
-                                            <td><?php echo $d['nomorsep']; ?></td>
+                                    <td class="text-center"><?php echo $d['nomornota']; ?></td>
+                                            <td class="text-center"><?php echo $d['nomorsep']; ?></td>
                                             <td class="text-center"><?php echo $d['nomormedrec']; ?></td>
-                                            <td><?php echo $d['namapasien']; ?></td>
-                                            <td><?php echo $d['alamat']; ?></td>
+                                            <td class="text-center"><?php echo $d['namapasien']; ?></td>
+                                            <td class="text-center"><?php echo $d['alamat']; ?></td>
                                             
-                                            <td><?php echo date('d-M-Y', strtotime($d['tanggalbayar'])); ?></td>
-                                            <td><?php echo $d['yangmenerima']; ?></td>
+                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalbayar'])); ?></td>
+                                            <td class="text-center"><?php echo $d['yangmenerima']; ?></td>
                                             
                                             <td>
                                                 <a href="update.php?id=<?php echo $d['nomornota']; ?>" type="button" class=" fa fa-edit btn btn-primary btn-md" data-toggle="modal" data-target="#myModal<?php echo $d['nomornota']; ?>"></a>

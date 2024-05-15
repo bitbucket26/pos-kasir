@@ -105,7 +105,7 @@ if($_SESSION['role']==""){
                                                         <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>				
                                                     <label class="labeldata">Tanggal</label>
                                                     <?php $dt = new DateTime();
-                                                       echo '<input type="date" name="tanggal" class="form-control" id="tanggal" value="' .$dt->format('Y-m-d'). '" readonly>'
+                                                       echo '<input type="datetime-local" name="tanggal" class="form-control" id="tanggal" value="' .$dt->format('Y-m-d'). '" readonly>'
                                                     ?>				
                                                     <label class="labeldata">Nama</label>
                                                         <input type="text" name="nama" class="form-control" id="nama" required>				
