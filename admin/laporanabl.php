@@ -35,10 +35,10 @@ if (mysqli_connect_error()){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Laporan Pendapatan Ambulan</title>
+    <title>Laporan Pendapatan</title>
 
-   <!-- Custom fonts for this template -->
-   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -52,6 +52,7 @@ if (mysqli_connect_error()){
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+
     <!-- Custom styles for this page -->
     
     
@@ -98,154 +99,253 @@ if (mysqli_connect_error()){
             
                 <?php
 
-                $day_ses = date ('Y-m-d'); 
+                $day_sesi = date ('Y-m-d'); 
 
-                $query_ses = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir1 where (tanggal)= '$day_ses'");
-                $row_ses = $query_ses->fetch_array();
-                $total_ses[] = $row_ses['total'];
+                $query_sesi = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where (tanggal)= '$day_sesi'");
+                $row_sesi = $query_sesi->fetch_array();
+                $total_sesi[] = $row_sesi['total'];
 
                 ?>
-            <div class="row" style="padding: 5px 10px;">
-                <div class="col-xl-5">
-                    <div class="card border-left-danger shadow h-15 py-2 align-items-left" style="margin-left: 20px; margin-bottom: 20px; padding: 10px; width: 90%;">
-                        <div class="card-body">
-                            <h1 class="card-title text-primary"><?php echo $_SESSION['username'];?></h1>
-                            <h6 class="card-text">Total Pendapatan Ambulance Hari Ini</h6>
-                            <h3 class="card-text text-end">Rp.<?php echo number_format($total_ses[0]);?></h3>
-                        </div>
+ 
+            <div class="row">
+                <div class="card border-left-danger shadow h-100 py-2 align-items-left" style="margin-left: 32px; margin-bottom: 20px; padding: 10px; width: 30%;">
+                    <div class="card-body">
+                        <h1 class="card-title text-primary"><?php echo $_SESSION['username'];?></h1>
+                        <h6 class="card-text">Total Pendapatan Ambulance Hari Ini</h6>
+                        <h3 class="card-text text-end">Rp.<?php echo number_format($total_sesi[0]);?></h3>
                     </div>
                 </div>
             </div>
-            <div class="card shadow mb-4" style="margin-left: 20px; margin-right: 20px;">
+            <div class="row" style="padding: 5px 20px;">
+                <div class="card col-xl-6 shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Laporan Transaksi Per-Individu (Hari Ini)</h6>
+                    </div>
+                    <div class="card-body">
+
+
+                    <?php
+
+                    $day_sesi1 = date ('Y-m-d'); 
+
+                    $query_sesi1 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir1 where (tanggal)= '$day_sesi1'");
+                    $row_sesi1 = $query_sesi1->fetch_array();
+                    $total_sesi1[] = $row_sesi1['total'];
+
+                    $query_sesi2 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir2 where (tanggal)= '$day_sesi1'");
+                    $row_sesi2 = $query_sesi2->fetch_array();
+                    $total_sesi2[] = $row_sesi2['total'];
+
+                    $query_sesi3 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir3 where (tanggal)= '$day_sesi1'");
+                    $row_sesi3 = $query_sesi3->fetch_array();
+                    $total_sesi3[] = $row_sesi3['total'];
+
+                    $query_sesi4 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where (tanggal)= '$day_sesi1'");
+                    $row_sesi4 = $query_sesi4->fetch_array();
+                    $total_sesi4[] = $row_sesi4['total'];
+
+                    $query_sesi5 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir5 where (tanggal)= '$day_sesi1'");
+                    $row_sesi5 = $query_sesi5->fetch_array();
+                    $total_sesi5[] = $row_sesi5['total'];
+
+                    ?>
+
+
+                        <h4 class="small font-weight-bold">Kartini<span
+                                class="float-right">Rp.<?php echo number_format($total_sesi1[0]);?></span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%"
+                                aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h4 class="small font-weight-bold">Nasikin<span
+                                class="float-right">Rp.<?php echo number_format($total_sesi2[0]);?></span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-warning" role="progressbar" style="width: 100%"
+                                aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h4 class="small font-weight-bold">Warnadi<span
+                                class="float-right">Rp.<?php echo number_format($total_sesi3[0]);?></span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar" role="progressbar" style="width: 100%"
+                                aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h4 class="small font-weight-bold">Wanto<span
+                                class="float-right">Rp.<?php echo number_format($total_sesi4[0]);?></span></h4>
+                        <div class="progress mb-4">
+                            <div class="progress-bar bg-info" role="progressbar" style="width: 100%"
+                                aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <h4 class="small font-weight-bold">Dalam<span
+                                class="float-right">Rp.<?php echo number_format($total_sesi5[0]);?></span></h4>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-xl-6">
+                        <div class="card shadow mb-4">
+                            <?php
+
+                                include "../koneksi.php";
+                                if (mysqli_connect_error()){
+                                    echo "Koneksi database gagal : " . mysqli_connect_error();
+                                }
+                                
+                                $day = date ('d-m-Y'); 
+                                $day1 = date ('d-m-Y',strtotime("-1 days"));
+                                $day2 = date ('d-m-Y',strtotime("-2 days"));
+                                $day3 = date ('d-m-Y',strtotime("-3 days"));
+                                $day4 = date ('d-m-Y',strtotime("-4 days"));
+                                $day5 = date ('d-m-Y',strtotime("-5 days"));
+                                $day6 = date ('d-m-Y',strtotime("-6 days"));
+
+                                if (empty($a)) {
+                                    echo "";
+                                    error_reporting(0);
+                                } 
+                                
+
+                                    $query = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day' group by date(tanggal)");
+                                    $row = $query->fetch_array();
+                                    $totals[] = $row['total'];
+                                    // echo json_encode($total);
+
+                                    $query1 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day1' group by date(tanggal)");
+                                    $row1 = $query1->fetch_array();
+                                    $total1[] = $row1['total'];
+
+                                    $query2 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day2' group by date(tanggal)");
+                                    $row2 = $query2->fetch_array();
+                                    $total2[] = $row2['total'];
+
+                                    $query3 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day3' group by date(tanggal)");
+                                    $row3 = $query3->fetch_array();
+                                    $total3[] = $row3['total'];
+
+                                    $query4 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day4' group by date(tanggal)");
+                                    $row4 = $query4->fetch_array();
+                                    $total4[] = $row4['total'];
+
+                                    $query5 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day5' group by date(tanggal)");
+                                    $row5 = $query5->fetch_array();
+                                    $total5[] = $row5['total'];
+
+                                    $query6 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day6' group by date(tanggal)");
+                                    $row6 = $query6->fetch_array();
+                                    $total6[] = $row6['total'];
+
+                                    $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day6' group by date(tanggal)");
+                                    $row7 = $query7->fetch_array();
+                                    $total7[] = $row7['total'];
+                                ?>
+                                <div>
+                                <canvas id="myCharts" style="position: relative; height:80vh; width:50vw; padding: 20px 20px;"></canvas>
+                                </div>
+                                
+                                <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                                <script>
+                                const ctx = document.getElementById('myCharts');
+
+                                new Chart(ctx, {
+                                    type: 'pie',
+                                    data: {
+                                    labels: ['6 Hari Lalu','5 Hari Lalu','4 Hari Lalu','3 Hari Lalu','2 Hari Lalu','1 Hari lalu','Hari Ini'],
+                                    datasets: [{
+                                        label: 'Pendapatan 7 Hari Terakhir',
+                                        data: [<?php echo $total6['0']?>, <?php echo $total5['0'] ?>, <?php echo $total4['0'] ?>, <?php echo $total3['0'] ?>, <?php echo $total2['0'] ?>, <?php echo $total1['0'] ?>, <?php echo $totals['0'] ?>],
+                                        backgroundColor: [
+                                            'rgba(255, 99, 132, 0.2)',
+                                            'rgba(255, 159, 64, 0.2)',
+                                            'rgba(255, 205, 86, 0.2)',
+                                            'rgba(75, 192, 192, 0.2)',
+                                            'rgba(54, 162, 235, 0.2)',
+                                            'rgba(153, 102, 255, 0.2)',
+                                            'rgba(201, 203, 207, 0.2)'
+                                            ],
+                                            borderColor: [
+                                            'rgb(255, 99, 132)',
+                                            'rgb(255, 159, 64)',
+                                            'rgb(255, 205, 86)',
+                                            'rgb(75, 192, 192)',
+                                            'rgb(54, 162, 235)',
+                                            'rgb(153, 102, 255)',
+                                            'rgb(201, 203, 207)'
+                                            ],
+                                        borderWidth: 1
+                                    }]
+                                    },
+                                    options: {
+                                    scales: {
+                                        y: {
+                                        beginAtZero: true
+                                        }
+                                    }
+                                    }
+                                });
+                                </script>
+                            </div>
+                </div> 
+                <!-- Project Card Example -->
+            </div>
+                <div class="col-xl-6">
+
+                    <!-- Tabel Rekap Pendapatan -->
+                    <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Tabel Rekap Ambulance</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Tabel Rekap Pendapatan Ambulance Per-Bulan</h5>
                             </div>
                             <div class="card-body">
-                                <table class="DataTable table-striped" id="Tables" style="width: 100%;">
+                                <?php
+                                    include "../koneksi.php";
+ 
+                                    // Check connection
+                                    if (mysqli_connect_error()){
+                                        echo "Koneksi database gagal : " . mysqli_connect_error();
+                                    }
+                                    $result = mysqli_query($koneksi,"select year(tanggal) as year, month(tanggal) as month, sum(total) as total
+                                                                    from abladmin group by year(tanggal), month(tanggal)");
+                                ?>
+                                <table id="example" class="DataTable table-striped" style="width:100%;">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">Nomor</th>
-                                            <th style="text-align: center;">Nama</th>
-                                            <th style="text-align: center;">Alamat</th>
-                                            <th style="text-align: center;">Tujuan</th>
-                                            <th style="text-align: center;">Tanggal</th>
-                                            <!-- <th style="text-align: center;">Total</th> -->
-                                            <th style="text-align: center;">Kasir</th>
-                                            <th style="text-align: center;">Aksi</th>
+                                            
+                                            <th class="text-center">Tahun</th>
+                                            <th class="text-center">Bulan</th>
+                                            <th class="text-center">Total</th>
                                         </tr>
                                     </thead>
-
-                                    <?php 
-                                        include '../koneksi.php';
-                                        $no = 1;
-                                        if(isset($_GET['filter'])) {
-                                            $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
-                                            $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
-                                            $data = mysqli_query($koneksi,"SELECT * from ablkasir1 where tanggal BETWEEN '$daritgl' AND '$sampaitgl'");
-                                        }else{
-                                            $data = mysqli_query($koneksi,"SELECT * from ablkasir1");
-                                        }
-                                            while($d = mysqli_fetch_array($data)){
-                                    ?>
-                                    <!-- <tbody> -->
-                                    <tr>
-                                            <td class="text-center"><?php echo $d['nomor']; ?></td>
-                                            <td><?php echo $d['nama']; ?></td>
-                                            <td class="text-center"><?php echo $d['alamatktp']; ?></td>
-                                            <td class="text-center"><?php echo $d['alamattujuan']; ?></td>
-                                            <td><?php echo date('d-M-Y', strtotime($d['tanggal'])); ?></td>
-                                            <!-- <td class="text-center"><?php echo $d['total']; ?></td> -->
-                                            <td class="text-center"><?php echo $d['kasir']; ?></td>
-                                            
-                                            <td>
-                                                <a href="updateablkasir1.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
-                                                <i class="fa fa-edit fa-lg"></i>
-                                                </a>
-                                                <a href="cetaklaporanabl.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-md">
-                                                <i class="fa fa-print fa-lg" aria-hidden="true" style="color: white;"></i>
-                                                </a>
-                                            </td>
-                                    </tr>
-                                     <!-- Modal Edit Mahasiswa-->
-                                    <div class="modal fade" id="myModal<?php echo $d['nomor']; ?>" role="dialog">
-                                            <div class="modal-dialog">
-
-                                            <!-- Modal content-->
-                                            <div class="modal-content">
-                                            <div class="modal-header">
-                                            <h4 class="modal-title">Ubah Data Pasien</h4>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            </div>
-                                            <div class="modal-body">
-                                            <form action="updateablkasir1.php" method="GET">
-
-                                                <?php
-                                                include '../koneksi.php';
-                                                $id = $d['nomor']; 
-                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM ablkasir1 WHERE nomor='$id'");
-                                                while ($row = mysqli_fetch_array($query_edit)) {
-                                                ?>
-
-                                            <input type="hidden" name="nomor" value="<?php echo $row['nomor']; ?>">
-
-                                            <!-- <div class="form-group">
-                                            <label>Nomor</label>
-                                            <input type="text" name="nomorsep" class="form-control" value="<?php echo $row['']; ?>">      
-                                            </div> -->
-
-                                            <div class="form-group">
-                                            <label>Nama</label>
-                                            <input type="text" name="nama" class="form-control" value="<?php echo $row['nama']; ?>">      
-                                            </div>
-
-                                            <div class="form-group">
-                                            <label>Alamat</label>
-                                            <input type="text" name="alamatktp" class="form-control" value="<?php echo $row['alamatktp']; ?>">      
-                                            </div>
-
-                                            <div class="form-group">
-                                            <label>Tanggal</label>
-                                            <input type="date" name="tanggal" class="form-control" value="<?php echo $row['tanggal']; ?>" readonly>      
-                                            </div> 
-
-                                            <div class="form-group">
-                                            <label>Tujuan</label>
-                                            <input type="text" name="alamattujuan" class="form-control" value="<?php echo $row['alamattujuan']; ?>">      
-                                            </div> 
-
-                                            <!-- <div class="form-group">
-                                            <label>Total</label>
-                                            <input type="number" name="total" class="form-control" value="<?php echo $row['total']; ?>">      
-                                            </div>  -->
-
-                                            <div class="modal-footer">  
-                                            <button type="submit" name="update" value="simpan" class="btn btn-info" style="color: white;">Update</button>
-                                            <!-- <a href="hapus.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a> -->
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                            </div>
+                                    <tbody>
                                             <?php 
-                                            }
-                                            ?>  
-                                                
-                                            </form>
-                                            </div>
-                                            </div>
-
-                                            </div>
-                                    </div>
-                                           
-                                    <?php                                     
-                                        }
-                                    ?>
-                                    <!-- </tbody> -->
+                                    
+                                                $i=0;
+                                                while($row = mysqli_fetch_array($result)) {
+                                                $monthNum  = $row["month"];
+                                                $dateObj   = DateTime::createFromFormat('!m', $monthNum);
+                                                $monthName = $dateObj->format('F');
+                                                $yearNum  = $row["year"];
+                                                $dateObj   = DateTime::createFromFormat('!Y', $yearNum);
+                                                $yearName = $dateObj->format ('Y');
+                                    
+                                            ?>
+                                        <tr>
+                                            
+                                            <td class="text-center"><?php echo $yearName; ?></td>
+                                            <td class="text-center"><?php echo $monthName; ?></td>
+                                            <td><?php echo number_format($row["total"]); ?></td>
+                                        </tr>
+                                            <?php
+                                                $i++;
+                                                    }
+                                            ?>
+                                    </tbody>
                                 </table>
                             </div>
-            </div>
-            
-                            
+                    </div>
                         
-            </div>
-            
+                </div>
+        </div>
             
         </div>
     </div>       
@@ -286,6 +386,7 @@ if (mysqli_connect_error()){
 
     
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
@@ -300,18 +401,10 @@ if (mysqli_connect_error()){
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.colVis.min.js"></script> 
 
     <script>
-        new DataTable('#Tables', {
-            responsive: true,
+        new DataTable('#example', {
             layout: {
                 topStart: {
-                    buttons: [{
-                    extend: 'print',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5]
-                    
-                    }
-                },
-                ]
+                    buttons: ['print']
                 }
             }
         });

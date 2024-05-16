@@ -27,7 +27,7 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link collapsed" href="abladmin.php">
+                <a class="nav-link collapsed" href="laporanabl.php">
                     <i class="fas fa-fw fa fa-book"></i>
                     <span>LAPORAN AMBULANCE</span></a>
             </li>

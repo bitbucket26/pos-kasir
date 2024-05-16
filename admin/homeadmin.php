@@ -76,7 +76,7 @@ if($_SESSION['role']==""){
                     mysqli_query($koneksi, "delete from admin where tanggalbayar='$tahun1'")
                                                     or die(mysqli_error($koneksi));
                 ?>
-                    <div class="col-xl-10 mb-4 float-none">
+                    <div class="col-xl-6 mb-4 float-none">
                         <div class="card border-left-info shadow h-100 py-2 border-bottom-info align-items-left">
                             <form action="" method="GET" >
                                 <h4 style="margin-left: 20px; color:blue;">Filter Berdasarkan Tanggal</h4>
