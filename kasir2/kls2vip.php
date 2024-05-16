@@ -1,4 +1,4 @@
-<?php
+<?php 
 date_default_timezone_set('Asia/Jakarta');
 session_start();
 
@@ -148,7 +148,6 @@ if($_SESSION['role']==""){
                                         <div class="card">
                                             <div class="row" style="width: 100%; margin-left: 1px; padding: 10px 10px;">
                                                     <label class="labeldata" for="">Tanggal Bayar</label>
-
                                                     <?php $dt = new DateTime();
                                                        echo '<input type="date" name="tanggalbayar" class="form-control" id="tanggalbayar" value="' .$dt->format('Y-m-d'). '" readonly>'
                                                     ?>
@@ -170,15 +169,16 @@ if($_SESSION['role']==""){
                                                     
                                                     <label class="labeldata" for="">Terbilang</label>           
 
-                                                        <textarea type="text" name="bilang" class="form-control" id="2vipterbilang" readonly></textarea>
+                                                        <textarea type="text" name="bilang" class="form-control" id="2vipterbilang" required></textarea>
                                                     
                                                         <input type="text" name="nota1" id="nota12vip" class="form-control" onkeypress="jumlah2vip()" readonly hidden>
                                                     
                                                         <input type="text" name="nota2" id="nota22vip" class="form-control" onkeypress="jumlah2vip()" readonly hidden>
-                                                        <input type="text" name="iduser" id="iduser" class="form-control" value="3" readonly hidden>
+                                                        <input type="text" name="iduser" id="iduser" class="form-control" value="2" hidden>
                                                         <input type="number" name="realcoastbpjs" class="form-control" value="0" hidden>
                                                     <input type="number" name="ditanggungjr" class="form-control" value="0" hidden>
-                                                   
+                                                    
+
                                                         <br>
                                             </div>
                                                                                 

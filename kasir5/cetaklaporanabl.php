@@ -128,7 +128,7 @@ if($_SESSION['role']==""){
                 <?=$d['supir']?>
                 </div>
                 <div class="col-3 text-end border border-dark" id="nb">
-                <?=$d['total']?>
+                <?php echo number_format ($d['total'])?>
                 </div>
             </div>
 
@@ -152,10 +152,62 @@ if($_SESSION['role']==""){
                 <div class="col-9 text-end border border-dark"><b>
                 Jumlah</b>
                 </div>
-                <div class="col-3 text-end border border-dark" id="totale">
-                <?=$d['total']?>
+                <div class="col-3 text-end border border-dark" id="totale"><b>
+                <?php echo number_format ($d['total'])?></b>
                 </div>
             </div>
+            <br> 
+            <!-- Baris 9 -->
+        <div class="row">
+            <div class="col-1 ">
+            </div>
+            <div class="col-4 fw-bold text-center">
+            
+            </div>
+            <div class="col-1 ">
+            </div>
+            <div class="col-1 ">
+            </div>
+            <div class="col-4 text-center">
+            Indramayu, <?=date('d-M-Y', strtotime($d['tanggal']));?>
+            </div>
+            <div class="col-1 ">
+            </div>      
+        </div>
+
+        <!-- Baris 10 -->
+        <div class="row">
+            <div class="col-1 ">
+            </div>
+            <div class="col-4 fw-bold text-center">
+            
+            </div>
+            <div class="col-1 ">
+            </div>
+            <div class="col-1 ">
+            </div>
+            <div class="col-4 fw-bold text-center">
+            Yang Menerima
+            </div>
+            <div class="col-1 ">
+            </div>      
+        </div>
+        <br><br><br>
+        <!-- Baris 11 -->
+        <div class="row">
+            <div class="col-1 ">
+            </div>
+            <div class="col-4 fw-bold text-center text-capitalize">
+            </div>
+            <div class="col-1 ">
+            </div>
+            <div class="col-1 ">
+            </div>
+            <div class="col-4 fw-bold text-center text-capitalize"><u>
+            <?=$d['kasir']?></u>
+            </div>
+            <div class="col-1 ">
+            </div>      
         </div>
     </div>
     <br>

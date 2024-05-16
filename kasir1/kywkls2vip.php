@@ -169,7 +169,7 @@ if($_SESSION['role']==""){
                                                     
                                                     <label class="labeldata" for="">Terbilang</label>           
 
-                                                        <textarea type="text" name="bilang" class="form-control" id="2vipterbilang" readonly></textarea>
+                                                        <textarea type="text" name="bilang" class="form-control" id="2vipterbilang" required></textarea>
                                                     
                                                         <input type="number" name="nota1" id="nota1kyw2vip" class="form-control" onkeypress="jumlahkyw2vip()" readonly hidden>
                                                     

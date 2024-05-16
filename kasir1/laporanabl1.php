@@ -127,9 +127,9 @@ if (mysqli_connect_error()){
                                             <label for="" >s/d</label>
                                             <input type="date" class="rounded" name="sampaitgl" style="border: solid 1px;" required>
                                             <input class="btn btn-primary btn-md" type="submit" name="filter" value="Tampilkan" >
-                                            <!-- <a href="cetaknota.php" target="_blank">
+                                            <a href="cetaknotaabl.php" target="_blank">
                                             <button type="button" name="btnyes" class="btn btn-danger btn-md" value="Cetak1">Cetak Data Terakhir Input</button>
-                                            </a> -->
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -185,7 +185,7 @@ if (mysqli_connect_error()){
                                             <td class="text-center"><?php echo $d['alamattujuan']; ?></td>
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggal'])); ?></td>
                                             <td class="text-center"><?php echo $d['jaraktempuh']; ?></td>
-                                            <td class="text-center"><?php echo $d['total']; ?></td>
+                                            <td class="text-center"><?php echo number_format($d['total']); ?></td>
                                             <td class="text-center"><?php echo $d['kasir']; ?></td>
                                             
                                             <td>

@@ -167,19 +167,17 @@ if($_SESSION['role']==""){
 
                                                     <label class="labeldata" for="">Terbilang</label>           
 
-                                                        <textarea type="text" name="bilang" class="form-control" id="1vipterbilang" readonly></textarea>
+                                                        <textarea type="text" name="bilang" class="form-control" id="1vipterbilang" required></textarea>
                                                         
                                                    
                                                         <input type="text" name="nota1" id="nota11vip" class="form-control" onkeypress="jumlah1vip()" readonly hidden>
                                                     
                                                         <input type="text" name="nota2" id="nota21vip" class="form-control" onkeypress="jumlah1vip()" readonly hidden>
-                                                        <input type="text" name="iduser" id="iduser" class="form-control" value="6" readonly hidden>
-                                                        
+
                                                     <input type="number" name="realcoastbpjs" class="form-control" value="0" hidden>
                                                     <input type="number" name="ditanggungjr" class="form-control" value="0" hidden>
-                                                    <input type="number" name="tarifkelas2" class="form-control" value="0" hidden>
-            
-                                                        <br>
+                                                    <input type="number" name="tarifkelas2" class="form-control"  value="0" hidden>
+                                                    <input type="text" name="iduser" class="form-control" value="2" hidden>
 
 
                                             </div>
@@ -208,17 +206,16 @@ if($_SESSION['role']==""){
 
         </div>
        
-                <!-- /.container-fluid -->
+        </div>
 
-                </div>
-
-<!-- Footer -->
-<?php 
-    include "footer.php";
-?>
-<!-- End of Footer -->
-</div>
-</div>
+            <!-- Footer -->
+            <?php 
+                include "footer.php";
+            ?>
+            <!-- End of Footer -->
+    </div>
+    </div>
+    
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">

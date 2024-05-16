@@ -105,7 +105,7 @@ if($_SESSION['role']==""){
                                                         <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>				
                                                     <label class="labeldata">Tanggal</label>
                                                     <?php $dt = new DateTime();
-                                                       echo '<input type="datetime-local" name="tanggal" class="form-control" id="tanggal" value="' .$dt->format('Y-m-d'). '" readonly>'
+                                                       echo '<input type="date" name="tanggal" class="form-control" id="tanggal" value="' .$dt->format('Y-m-d'). '" readonly>'
                                                     ?>				
                                                     <label class="labeldata">Nama</label>
                                                         <input type="text" name="nama" class="form-control" id="nama" required>				
@@ -120,6 +120,7 @@ if($_SESSION['role']==""){
                                                 <div class="col">
                                                     <label class="labeldata">Perawat Pendamping</label>
                                                                 <select name="perawatpendamping" class="form-control" id="perawatpendamping" onchange="nilaiy(this.value)" required>
+                                                                    <option value="k">-pilih-</option>
                                                                     <option value="Tidak">Tidak</option>
                                                                     <option value="Satu Kota">Satu Kota</option>
                                                                     <option value="Satu Provinsi (Wil.3)">Satu Provinsi (Wil.3)</option>
@@ -212,7 +213,7 @@ if($_SESSION['role']==""){
                                                     
                                                     <input type="number" name="jaraktempuh" class="form-control" id="jaraktempuh" readonly>
                                                 
-                                                <label class="labeldata">Nilai Tetap</label>
+                                                <label class="labeldata" hidden>Nilai Tetap</label>
                                                     
                                                     <input type="number" name="nilaitetap" class="form-control" id="nilaitetap" value="70000" readonly hidden>
 

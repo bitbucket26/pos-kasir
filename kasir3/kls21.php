@@ -166,16 +166,15 @@ if($_SESSION['role']==""){
                                                     
                                                     <label class="labeldata" for="">Terbilang</label>           
 
-                                                        <textarea type="text" name="bilang" class="form-control" id="21terbilang" readonly></textarea>
+                                                        <textarea type="text" name="bilang" class="form-control" id="21terbilang" required></textarea>
                                                     
-                                                        <input type="text" name="nota1" id="nota121" class="form-control" onkeypress="jumlah21()" hidden>
+                                                        <input type="text" name="nota1" id="nota121" class="form-control" onkeypress="jumlah21()" readonly hidden>
                                                     
-                                                        <input type="text" name="nota2" id="nota221" class="form-control" onkeypress="jumlah21()" hidden >
-                                                        <input type="text" name="iduser" id="iduser" class="form-control" value="4" readonly hidden>
+                                                        <input type="text" name="nota2" id="nota221" class="form-control" onkeypress="jumlah21()" readonly hidden >
+                                                        <input type="text" name="iduser" id="iduser" class="form-control" value="2" readonly hidden>
                                                         <input type="number" name="realcoastbpjs" class="form-control" value="0" hidden>
                                                     <input type="number" name="ditanggungjr" class="form-control" value="0" hidden>
                                                     <input type="number" name="realcoast" class="form-control"  value="0" hidden>
-                                                    
 
                                                         <br>
                                             </div>
@@ -202,6 +201,8 @@ if($_SESSION['role']==""){
 
         </div>
                 <!-- /.container-fluid -->
+
+
                 </div>
 
 <!-- Footer -->
@@ -211,7 +212,7 @@ if($_SESSION['role']==""){
 <!-- End of Footer -->
 </div>
 </div>
-            
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>

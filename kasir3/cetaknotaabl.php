@@ -26,8 +26,10 @@ if($_SESSION['role']==""){
            echo "Koneksi database gagal : " . mysqli_connect_error();
        }
         
-        $sql=mysqli_query($koneksi, "SELECT * FROM kasir4 WHERE nomornota='$_GET[id]'");
-        $d=mysqli_fetch_array($sql);
+        
+        $no=1;
+        $data=mysqli_query($koneksi, "SELECT * FROM ablkasir3 WHERE nomor IN (SELECT MAX(nomor) FROM ablkasir3)");
+        while($d=mysqli_fetch_array($data)){
     ?>
 
     <div class="container-xxl">
@@ -38,17 +40,9 @@ if($_SESSION['role']==""){
             <br>
         <!-- Judul Nota -->
         <div class="d-flex justify-content-center">
-            <label for="" class=""><b>BUKTI PENERIMAAN UANG DARI PASIEN RAWAT INA</b>P</label>
+            <label class=""><b>RINCIAN PEMBAYARAN</b></label>
         </div>
-        <div class="d-flex justify-content-center">
-            <label for="" class=""><b>PERMENKES NO.3 TAHUN 2023</b></label>
-        </div>
-        
-        <!-- Nomor Nota -->
-        <div class="colspan-12 text-end fw-bold">
-                <td class="barisnota " style="text-align:right;">No.Nota :</td>
-                <td class="barisnotaisi"><?=$d['nomornota']?></td>
-        </div>
+        <br>
        
         <!-- Isi Kolom Nota -->
         
@@ -58,32 +52,32 @@ if($_SESSION['role']==""){
             <div class="row col-12"></div>
             <div class="row">
                 <div class="col-2 align-items-start">
-                Nomor SEP
+                No.Nota
                 </div>
                 <div class="col-4">:
-                <?=$d['nomorsep']?>
+                <?=$d['nomor']?>
                 </div>
                 <div class="col-2">
-                Hak Rawat Kelas
+                Tujuan
                 </div>
                 <div class="col-4">:
-                <?=$d['hakrawatkelas']?>
+                <?=$d['alamattujuan']?>
                 </div>
             </div>
 
             <!-- Baris 2 -->
             <div class="row">
                 <div class="col-2 ">
-                Nomor Medrec
+                Nama Lengkap
                 </div>
                 <div class="col-4">:
-                <?=$d['nomormedrec']?>
+                <?=$d['nama']?>
                 </div>
                 <div class="col-2 text-capitalize"> 
-                R. Perawatan
+                Jarak
                 </div>
                 <div class="col-4 text-capitalize">:
-                <?=$d['ruangperawatan']?>
+                <?=$d['jaraktempuh']?> km
                 </div>
             
             </div>
@@ -91,126 +85,81 @@ if($_SESSION['role']==""){
             <!-- Baris 3 -->
             <div class="row">
                 <div class="col-2">
-                Nama Pasien
+                Alamat Pasien
                 </div>
                 <div class="col-4 text-capitalize">:
-                <?=$d['namapasien']?>
+                <?=$d['alamatktp']?>
                 </div>
                 <div class="col-2">
-                Dirawat Kelas
                 </div>
-                <div class="col-4">:
-                <?=$d['dirawatkelas']?>
+                <div class="col-4">
                 </div>
-            </div>
-
-            <!-- Baris 4 -->
-            <div class="row" >
-                <div class="col-2">
-                Alamat
-                </div>
-                <div class="col-4 text-capitalize">:
-                <?=$d['alamat']?>
-                </div>
-                <div class="col-2">
-                Mulai Tanggal
-                </div>
-                <div class="col-4">:
-                <?=date('d-M-Y', strtotime($d['mulaitanggal']));?> S/d <?=date('d-M-Y', strtotime($d['sampaitanggal']));?>
-                </div>       
             </div>
         </div>
     </div>
     <br>
 
 
-        <!-- Baris 5 Perhitungan -->
+        <!-- Baris 4 Perhitungan -->
     <div class="row">  
         <div class="card">
-            <div class="row col-12"></div>
+            <!-- <div class="row col-12"></div> -->
             <div class="row align-items-end" >
-                <div class="col-1 align-items-start">
+                <div class="col-1 text-center border border-dark">
+                No.
                 </div>
-                <div class="col-3 text-end">
-                Real Coast 
+                <div class="col-5 text-start border border-dark">
+                Jenis Layanan
                 </div>
-                <div class="col-3 text-start" name="rc">
-                = Rp. <?php echo number_format ($d['realcoast'])?>,-
+                <div class="col-3 border border-dark" name="rc">
+                Supir / Perawat
                 </div>
-                <div class="col-1"></div>
-                <div class="col-4 text-center">
-                Paling Besar 75%
+                <div class="col-3 text-end border border-dark">
+                Jumlah
                 </div>
             </div>
-
-            <div class="row col-12"></div>
+            <!-- Baris 5 -->
             <div class="row align-items-end" >
-                <div class="col-1 align-items-start">
+                <div class="col-1 text-center border border-dark">
+                1
                 </div>
-                <div class="col-3 text-end">
-                Terif INA CBG Kelas 1 
+                <div class="col-5 text-start border border-dark">
+                Sewa Mobil ambulance
                 </div>
-                <div class="col-3 " name="tarif1">
-                = Rp. <?php echo number_format ($d['tarifkelas1'])?>,-
+                <div class="col-3 border border-dark" name="rc">
+                <?=$d['supir']?>
                 </div>
-                <!-- <div class="col-1"></div> -->
-                <div class="col-5 text-end">
-                <u>Tarif INA CBG Kelas 1 = Rp. <?php echo number_format ($d['nota2'])?>,-</u>
+                <div class="col-3 text-end border border-dark" id="nb">
+                <?php echo number_format ($d['total'])?>
                 </div>
             </div>
 
             <!-- Baris 6 -->
-            <div class="row align-items-end">
-                <div class="col-1">
-                
+            <div class="row align-items-end" >
+                <div class="col-1 text-center border border-dark">
+                2
                 </div>
-                <div class="col-3 text-end">
-                Terif INA CBG Kelas 2
+                <div class="col-5 text-start border border-dark">
+                Jasa Perawat Pendamping
                 </div>
-                <div class="col-3" name="" >
-                = Rp. <?php echo number_format ($d['nota1'])?>,-
+                <div class="col-3 text-start border border-dark" id="na" name="rc">
+                <!-- <?=$d['nilai']?> -->0
                 </div>
-                <div class="col-1"></div>
-                <div class="col-4 text-center"><u>
-                
-                </div>
-            </div>
-
-            <!-- Baris 7 -->
-            <div class="row" >
-                <div class="col-1 ">
-                </div>
-                <div class="col-3 fw-bold">
-                </div>
-                
-                <div class="col-3"><u>&emsp;Rp. <?php echo number_format ($d['nota1'])?>,-</u>
-                </div>
-                <div class="col-5 fw-bold fst-italic">
-                Terbilang : 
-                </div>       
-            </div>
-            <!-- Baris 8 -->
-            <div class="row" style="border-bottom: solid 1px;" >
-            <div class="col-1 ">
-                </div>
-                <div class="col-3 fw-bold text-end">
-                TOTAL BAYAR
-                </div>
-                <div class="col-3 fw-bold">
-                <U>
-                = Rp. <?php echo number_format ($d['total'])?>,- </U>
-                </div>
-                <div class="col-5 fw-bold fst-italic text-start ">
-                <?=$d['bilang']?>
+                <div class="col-3 text-end border border-dark" >
+                <!-- <?=$d['nilai']?> -->0
                 </div>
             </div>
-        </div>
-    </div>
-    <br>
-
-
-
-        <!-- Baris 9 -->
+            <!-- baris 7  -->
+            <div class="row align-items-end" >
+                <div class="col-9 text-end border border-dark"><b>
+                Jumlah</b>
+                </div>
+                <div class="col-3 text-end border border-dark" id="totale"><b>
+                <?php echo number_format ($d['total'])?></b>
+                </div>
+            </div>
+            <br> 
+            <!-- Baris 9 -->
         <div class="row">
             <div class="col-1 ">
             </div>
@@ -222,7 +171,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 text-center">
-            Indramayu, <?=date('d-M-Y', strtotime($d['tanggalbayar']));?>
+            Indramayu, <?=date('d-M-Y', strtotime($d['tanggal']));?>
             </div>
             <div class="col-1 ">
             </div>      
@@ -233,7 +182,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 fw-bold text-center">
-            Yang Membayar
+            
             </div>
             <div class="col-1 ">
             </div>
@@ -250,27 +199,27 @@ if($_SESSION['role']==""){
         <div class="row">
             <div class="col-1 ">
             </div>
-            <div class="col-4 fw-bold text-center text-capitalize"><u>
-            <?=$d['yangmembayar']?></u>
+            <div class="col-4 fw-bold text-center text-capitalize">
             </div>
             <div class="col-1 ">
             </div>
             <div class="col-1 ">
             </div>
             <div class="col-4 fw-bold text-center text-capitalize"><u>
-            <?=$d['yangmenerima']?></u>
+            <?=$d['kasir']?></u>
             </div>
             <div class="col-1 ">
             </div>      
         </div>
-        
+    </div>
+    <br>
     <?php
-        
+        }
     ?>
     </div>
         <script>
             window.print()
-            header("location:homekasir4.php");
+            header("location:homekasir3.php");
         </script>
 
 </body>

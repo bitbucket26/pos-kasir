@@ -25,33 +25,27 @@ if (mysqli_connect_error()){
                             $query = mysqli_query($koneksi,"SELECT sum(total) as total from kasir5 where DAY(tanggalbayar)= '$day' group by date(tanggalbayar)");
                             $row = $query->fetch_array();
                             $totals[] = $row['total'];
-                            // echo json_encode($total);
-
+                         
                             $query1 = mysqli_query($koneksi,"SELECT sum(total) as total from kasir5 where DAY(tanggalbayar)= '$day1' group by date(tanggalbayar)");
                             $row1 = $query1->fetch_array();
                             $total1[] = $row1['total'];
-                            // echo json_encode($total1);
-
+                         
                             $query2 = mysqli_query($koneksi,"SELECT sum(total) as total from kasir5 where DAY(tanggalbayar)= '$day2' group by date(tanggalbayar)");
                             $row2 = $query2->fetch_array();
                             $total2[] = $row2['total'];
-                            // echo json_encode($total2);
-
+                           
                             $query3 = mysqli_query($koneksi,"SELECT sum(total) as total from kasir5 where DAY(tanggalbayar)= '$day3' group by date(tanggalbayar)");
                             $row3 = $query3->fetch_array();
                             $total3[] = $row3['total'];
-                            // echo json_encode($total3);
-
+                           
                             $query4 = mysqli_query($koneksi,"SELECT sum(total) as total from kasir5 where DAY(tanggalbayar)= '$day4' group by date(tanggalbayar)");
                             $row4 = $query4->fetch_array();
                             $total4[] = $row4['total'];
-                            // echo json_encode($total4);
-
+                           
                             $query5 = mysqli_query($koneksi,"SELECT sum(total) as total from kasir5 where DAY(tanggalbayar)= '$day5' group by date(tanggalbayar)");
                             $row5 = $query5->fetch_array();
                             $total5[] = $row5['total'];
-                            // echo json_encode($total5);
-
+                            
                             $query6 = mysqli_query($koneksi,"SELECT sum(total) as total from kasir5 where DAY(tanggalbayar)= '$day6' group by date(tanggalbayar)");
                             $row6 = $query6->fetch_array();
                             $total6[] = $row6['total'];

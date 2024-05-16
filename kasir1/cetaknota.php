@@ -40,7 +40,7 @@ if($_SESSION['role']==""){
             <br>
         <!-- Judul Nota -->
         <div class="d-flex justify-content-center">
-            <label for="" class=""><b>BUKTI PENERIMAAN UANG DARI PASIEN RAWAT INAP</b></label>
+            <label for="" class=""><b>BUKTI PENERIMAAN UANG DARI PASIEN RAWAT INA</b>P</label>
         </div>
         <div class="d-flex justify-content-center">
             <label for="" class=""><b>PERMENKES NO.3 TAHUN 2023</b></label>
@@ -58,7 +58,7 @@ if($_SESSION['role']==""){
     <div class="row">  
         <div class="card border border-dark" style="border-radius: 15px;">
             <div class="row col-12"></div>
-            <div class="row" >
+            <div class="row">
                 <div class="col-2 align-items-start">
                 Nomor SEP
                 </div>
@@ -136,11 +136,11 @@ if($_SESSION['role']==""){
                 <div class="col-3 text-end">
                 Real Coast 
                 </div>
-                <div class="col-2" name="rc">
-                = Rp. <?=$d['realcoast']?>,-
+                <div class="col-3 text-start" name="rc">
+                = Rp. <?php echo number_format ($d['realcoast'])?>,-
                 </div>
-                <div class="col"></div>
-                <div class="col-5 text-center">
+                <div class="col-1"></div>
+                <div class="col-4 text-center">
                 Paling Besar 75%
                 </div>
             </div>
@@ -152,28 +152,29 @@ if($_SESSION['role']==""){
                 <div class="col-3 text-end">
                 Terif INA CBG Kelas 1 
                 </div>
-                <div class="col-2" name="tarif1">
-                = Rp. <?=$d['tarifkelas1']?>,-
+                <div class="col-3 " name="tarif1">
+                = Rp. <?php echo number_format ($d['tarifkelas1'])?>,-
                 </div>
-                <div class="col"></div>
-                <div class="col-5 text-center">
-                <u>Tarif INA CBG Kelas 1 = Rp. <?=$d['nota2']?>,-</u>
+                <!-- <div class="col-1"></div> -->
+                <div class="col-5 text-end">
+                <u>Tarif INA CBG Kelas 1 = Rp. <?php echo number_format ($d['nota2'])?>,-</u>
                 </div>
             </div>
 
             <!-- Baris 6 -->
-            <div class="row align-items-end" >
+            <div class="row align-items-end">
                 <div class="col-1">
                 
                 </div>
                 <div class="col-3 text-end">
                 Terif INA CBG Kelas 2
                 </div>
-                <div class="col-2" name="" >
-                = Rp. <?=$d['nota1']?>,-
+                <div class="col-3" name="" >
+                = Rp. <?php echo number_format ($d['nota1'])?>,-
                 </div>
                 <div class="col-1"></div>
-                <div class="col-5 text-center">
+                <div class="col-4 text-center"><u>
+                
                 </div>
             </div>
 
@@ -184,26 +185,23 @@ if($_SESSION['role']==""){
                 <div class="col-3 fw-bold">
                 </div>
                 
-                <div class="col-3"><u>&emsp;Rp. <?=$d['nota1']?>,-</u>
+                <div class="col-3"><u>&emsp;Rp. <?php echo number_format ($d['nota1'])?>,-</u>
                 </div>
                 <div class="col-5 fw-bold fst-italic">
                 Terbilang : 
-                </div>
+                </div>       
             </div>
-            
-
-            <!-- Baris 7 -->
-            <div class="row" style="border-bottom: solid 1px;">
-            <div class="col-1 ">
+            <!-- Baris 8 -->
+            <div class="row" style="border-bottom: solid 1px;" >
+                <div class="col-1 ">
                 </div>
                 <div class="col-3 fw-bold text-end">
                 TOTAL BAYAR
                 </div>
-                <div class="col-3 fw-bold">
-                <U>
-                = Rp. <?=$d['total']?>,- </U>
+                <div class="col-3 fw-bold"><U>
+                = Rp. <?php echo number_format ($d['total'])?>,-</U>
                 </div>
-                <div class="col-5 fw-bold fst-italic ">
+                <div class="col-5 fw-bold fst-italic text-start ">
                 <?=$d['bilang']?>
                 </div>
             </div>
@@ -213,7 +211,7 @@ if($_SESSION['role']==""){
 
 
 
-        <!-- Baris 8 -->
+        <!-- Baris 9 -->
         <div class="row">
             <div class="col-1 ">
             </div>
@@ -231,7 +229,7 @@ if($_SESSION['role']==""){
             </div>      
         </div>
 
-        <!-- Baris 9 -->
+        <!-- Baris 10 -->
         <div class="row">
             <div class="col-1 ">
             </div>
@@ -249,7 +247,7 @@ if($_SESSION['role']==""){
             </div>      
         </div>
         <br><br><br>
-        <!-- Baris 10 -->
+        <!-- Baris 11 -->
         <div class="row">
             <div class="col-1 ">
             </div>
@@ -265,16 +263,16 @@ if($_SESSION['role']==""){
             </div>
             <div class="col-1 ">
             </div>      
-        </div>      
+        </div>
+        
     <?php
-        }    
+        }
     ?>
-</div>
-
-    <script>
-            window.print();
-            header("location:home.php");
-    </script>
+    </div>
+        <script>
+            window.print()
+            header("location:homekasir1.php");
+        </script>
     
 </body>
 </html>

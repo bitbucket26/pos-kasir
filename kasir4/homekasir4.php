@@ -1,5 +1,4 @@
 <?php 
-date_default_timezone_set('Asia/Jakarta');
 session_start();
 
 // cek apakah yang mengakses halaman ini sudah login
@@ -115,18 +114,18 @@ if($_SESSION['role']==""){
                             <h6 class="m-0 font-weight-bold text-primary">Data Pasien</h6>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive">
+                            <!-- <div class="table-responsive"> -->
                                 <table class="DataTable table-sm table-striped table-bordered text-capitalize" id="DataTable" width="100%" cellspacing="0" style="text-align: center;">
                                     <thead>
                                         <tr>
                                             <th class="text-center">No.Nota</th>
-                                            <th class="text-center">No.SEP</th>
-                                            <th class="text-center">No.Medrec</th>
-                                            <th class="text-center">Nama Pasien</th>
-                                            <th class="text-center">Alamat</th>
-                                            <th class="text-center">Tgl.Bayar</th>
-                                            <th class="text-center">Kasir</th>
-                                            <th class="text-center">Aksi</th>
+                                            <th style="text-align: center;">No.SEP</th>
+                                            <th style="text-align: center;">No.Medrec</th>
+                                            <th style="text-align: center;">Nama Pasien</th>
+                                            <th style="text-align: center; ">Alamat</th>
+                                            <th style="text-align: center;">Tgl.Bayar</th>
+                                            <th style="text-align: center;">Kasir</th>
+                                            <th style="text-align: center;">Aksi</th>
                                         </tr>
                                     </thead>
 
@@ -142,15 +141,16 @@ if($_SESSION['role']==""){
                                         }
                                             while($d = mysqli_fetch_array($data)){
                                     ?>
+                                    <!-- <tbody> -->
                                     <tr>
-                                    <td class="text-center"><?php echo $d['nomornota']; ?></td>
+                                            <td class="text-center"><?php echo $d['nomornota']; ?></td>
                                             <td class="text-center"><?php echo $d['nomorsep']; ?></td>
                                             <td class="text-center"><?php echo $d['nomormedrec']; ?></td>
                                             <td class="text-center"><?php echo $d['namapasien']; ?></td>
                                             <td class="text-center"><?php echo $d['alamat']; ?></td>
                                             
-                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalbayar'])); ?></td>
-                                            <td class="text-center"><?php echo $d['yangmenerima']; ?></td>
+                                            <td><?php echo date('d-M-Y', strtotime($d['tanggalbayar'])); ?></td>
+                                            <td><?php echo $d['yangmenerima']; ?></td>
                                             
                                             <td>
                                                 <a href="update.php?id=<?php echo $d['nomornota']; ?>" type="button" class=" fa fa-edit btn btn-primary btn-md" data-toggle="modal" data-target="#myModal<?php echo $d['nomornota']; ?>"></a>
@@ -159,8 +159,8 @@ if($_SESSION['role']==""){
                                                 </a>
                                             </td>
                                     </tr>
-                                            <!-- Modal Edit Mahasiswa-->
-                                            <div class="modal fade" id="myModal<?php echo $d['nomornota']; ?>" role="dialog">
+                                     <!-- Modal Edit Mahasiswa-->
+                                    <div class="modal fade" id="myModal<?php echo $d['nomornota']; ?>" role="dialog">
                                             <div class="modal-dialog">
 
                                             <!-- Modal content-->
@@ -198,9 +198,8 @@ if($_SESSION['role']==""){
 
                                             <div class="form-group">
                                             <label>Tanggal Bayar</label>
-                                            <input type="date" name="tanggalbayar" class="form-control" value="<?php echo $row['tanggalbayar']; ?>">      
-                                            </div>
-                                                
+                                            <input type="date" name="tanggalbayar" class="form-control" value="<?php echo $row['tanggalbayar']; ?>" readonly>      
+                                            </div> 
 
                                             <!-- <div class="form-group">
                                             <label>Total Awal</label>
@@ -209,20 +208,26 @@ if($_SESSION['role']==""){
 
                                             <div class="form-group">
                                             <label>Kurangi Total</label>
-                                            <input type="number" name="kurangi" class="form-control" id="kurangi">      
+                                            <input type="number" name="kurangi" class="form-control" id="kurangi" >      
                                             </div>
 
                                             <div class="form-group">
                                             <label>Total</label>
                                             <input type="number" name="total" class="form-control" id="totalakhir" readonly>   
                                             </div>
-                                            <button type="button" class="btn btn-primary btn-xl" onclick="kurangitotal()">Hitung</button> -->
+                                            <button type="button" class="btn btn-primary btn-xl" onclick="kurangitotal()" >Hitung</button> -->
 
+                                            <!-- <input type="text" name="tarifkelas1" id="tarif1" value="<?php echo $row['tarifkelas1']; ?>" readonly hidden>
+                                            <input type="text" name="tarifkelas2" id="tarif2" value="<?php echo $row['tarifkelas2']; ?>" readonly hidden>
+                                            <input type="text" name="realcoast" id="realcost" value="<?php echo $row['realcoast']; ?>" readonly hidden> -->
+
+                                            <!-- <input type="text" name="nota1" id="not1jr2vip" class="form-control" onclick="kurangitotal()" readonly hidden>
                                                     
+                                            <input type="text" name="nota2" id="not2jr2vip" class="form-control" onclick="kurangitotal()" readonly hidden>         -->
 
                                             <div class="modal-footer">  
                                             <button type="submit" name="update" value="simpan" class="btn btn-info">Update</button>
-                                            <!-- <a href="hapus.php?id=<?php echo $d['nomornota']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a> -->
+                                            <a href="hapus.php?id=<?php echo $d['nomornota']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                                             </div>
                                             <?php 
@@ -234,13 +239,14 @@ if($_SESSION['role']==""){
                                             </div>
 
                                             </div>
-                                            </div>
-                                    <?php 
+                                    </div>
+                                           
+                                    <?php                                     
                                         }
                                     ?>
-                                    </tbody>
-                                    </table>
-                            </div>
+                                    <!-- </tbody> -->
+                                </table>
+                            <!-- </div> -->
                         </div>
                     </div>
 
@@ -304,7 +310,7 @@ if($_SESSION['role']==""){
                     buttons: [{
                     extend: 'print',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6]
+                        columns: [0, 1, 2, 3, 4, 5, 6,]
                     
                     }
                 },
@@ -318,8 +324,14 @@ if($_SESSION['role']==""){
         function kurangitotal() {
         var a = document.getElementById("totalawal").value;
         var b = document.getElementById("kurangi").value;
-        // var c = parseInt (a) - parseInt (b);
-        document.getElementById("totalakhir").innerHTML = (a) - (b);
+        var c = parseInt (a) - parseInt (b);
+        // var d = document.getElementById("tarif1").value * 75/100;
+        // var e = document.getElementById("tarif2").value * 75/100;
+
+        
+        document.getElementById("totalakhir").value = (c);
+        // document.getElementById("not1jr2vip").value = (e);
+        // document.getElementById("not2jr2vip").value = (d);
         }
     </script>
 

@@ -1,5 +1,5 @@
-<?php 
-date_default_timezone_set('Asia/Jakarta');
+<?php
+date_default_timezone_set('Asia/Jakarta'); 
 session_start();
 
 // cek apakah yang mengakses halaman ini sudah login
@@ -180,12 +180,6 @@ if (mysqli_connect_error()){
             </footer>
             <!-- End of Footer -->
 
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
@@ -212,7 +206,6 @@ if (mysqli_connect_error()){
 
     
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
@@ -228,6 +221,7 @@ if (mysqli_connect_error()){
 
     <script>
         new DataTable('#example', {
+            responsive: true,
             layout: {
                 topStart: {
                     buttons: ['print']

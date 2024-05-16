@@ -52,7 +52,6 @@ if($_SESSION['role']==""){
                     </div>
 
                 </div>
-                <!-- /.container-fluid -->
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">

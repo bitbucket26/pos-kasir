@@ -153,6 +153,7 @@ if($_SESSION['role']==""){
                                                     <?php $dt = new DateTime();
                                                        echo '<input type="date" name="tanggalbayar" class="form-control" id="tanggalbayar" value="' .$dt->format('Y-m-d'). '" readonly>'
                                                     ?>
+                                                    
                                                     <label class="labeldata" for="">Real Coast BPJS</label>
 
                                                         <input type="number" name="realcoastbpjs" class="form-control" id="rcbpjsrjr2vip" onchange="jumlahjr2vip()" required>
@@ -179,12 +180,12 @@ if($_SESSION['role']==""){
                                                     
                                                     <label class="labeldata" for="">Terbilang</label>           
 
-                                                        <textarea type="text" name="bilang" class="form-control" id="2vipterbilang" readonly></textarea>
+                                                        <textarea type="text" name="bilang" class="form-control" id="2vipterbilang" required></textarea>
                                                     
                                                         <input type="text" name="nota1" id="nota1jr2vip" class="form-control" onkeypress="jumlahjr2vip()" readonly hidden>
                                                     
                                                         <input type="text" name="nota2" id="nota2jr2vip" class="form-control" onkeypress="jumlahjr2vip()" readonly hidden>
-                                                        <input type="text" name="iduser" id="iduser" class="form-control" value="6" readonly hidden>
+                                                        <input type="text" name="iduser" id="iduser" class="form-control" value="2" hidden>
 
                                                         <br>
                                             </div>
@@ -210,17 +211,17 @@ if($_SESSION['role']==""){
 
 
         </div>
-                <!-- /.container-fluid -->
 
-                </div>
+        </div>
 
-<!-- Footer -->
-<?php 
-    include "footer.php";
-?>
-<!-- End of Footer -->
-</div>
-</div>
+            <!-- Footer -->
+            <?php 
+                include "footer.php";
+            ?>
+            <!-- End of Footer -->
+    </div>
+    </div>
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>

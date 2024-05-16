@@ -16,18 +16,18 @@ $tanggalbayar = $_GET['tanggalbayar'];
 
 
 //query update
-mysqli_query($koneksi, "UPDATE kasir5
+mysqli_query($koneksi, "UPDATE kasir5 
                                 SET nomorsep='$nomorsep', 
                                 namapasien='$namapasien', 
                                 alamat='$alamat', 
-                                tanggalbayar='$tanggalbayar' 
+                                tanggalbayar='$tanggalbayar'
                                  WHERE nomornota='$id' ");
                                 // mysqli_query($koneksi, $query);
 mysqli_query($koneksi, "UPDATE admin
                                 SET nomorsep='$nomorsep', 
                                 namapasien='$namapasien', 
                                 alamat='$alamat', 
-                                tanggalbayar='$tanggalbayar' 
+                                tanggalbayar='$tanggalbayar'
                                  WHERE nomornota='$id' ");
                                 // mysqli_query($koneksi, $query_adm);
 

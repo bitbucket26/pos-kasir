@@ -73,7 +73,7 @@ if($_SESSION['role']==""){
                     <!-- Input Data -->
                     <form action="simpan.php" method="post">
                     <?php
-                        $koneksi = mysqli_connect("localhost","root","","kasir");
+                        include "../koneksi.php";
          
                         // Check connection
                         if (mysqli_connect_error()){
@@ -156,9 +156,14 @@ if($_SESSION['role']==""){
                                             <div class="row" style="width: 100%; margin-left: 1px; padding: 10px 10px;">
                                                     <label class="labeldata" for="">Tanggal Bayar</label>
                                         
+                                                    
+                                                    
                                                     <?php $dt = new DateTime();
                                                        echo '<input type="date" name="tanggalbayar" class="form-control" id="tanggalbayar" value="' .$dt->format('Y-m-d'). '" readonly>'
                                                     ?>
+
+
+
                                                     <label class="labeldata" for="">Tarif INA CBG Kelas 1</label>
                                                     
                                                         <input type="number" name="tarifkelas1" class="form-control" id="jr21kls1" onchange="jumlahjr21()" required>
@@ -173,7 +178,7 @@ if($_SESSION['role']==""){
                                                     
                                                     <label class="labeldata" for="">Terbilang</label>           
 
-                                                        <textarea type="text" name="bilang" class="form-control" id="jr21terbilang" readonly></textarea>
+                                                        <textarea type="text" name="bilang" class="form-control" id="jr21terbilang" required></textarea>
                                                     
                                                         <input type="text" name="nota1" id="nota1jr21" class="form-control" onkeypress="jumlahjr21()" readonly hidden>
                                                     
@@ -181,10 +186,10 @@ if($_SESSION['role']==""){
 
 
 
-                                                    <input type="number" name="realcoastbpjs" class="form-control" id="rcbpjs" value="0" hidden>
-                                                    <input type="number" name="ditanggungjr" class="form-control" id="tanggungjr" value="0" hidden>
-                                                    <input type="number" name="realcoast" class="form-control" id="rc" value="0" hidden>
-                                                    <input type="text" name="iduser" id="iduser" class="form-control" value="4" readonly hidden>
+                                                    <input type="number" name="realcoastbpjs" class="form-control" value="0" hidden>
+                                                    <input type="number" name="ditanggungjr" class="form-control" value="0" hidden>
+                                                    <input type="number" name="realcoast" class="form-control"  value="0" hidden>
+                                                    <input type="text" name="iduser" class="form-control" value="2" hidden>
                                                         <br>
                                             </div>
                                                                               
@@ -220,7 +225,7 @@ if($_SESSION['role']==""){
 <!-- End of Footer -->
 </div>
 </div>
-
+            
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>

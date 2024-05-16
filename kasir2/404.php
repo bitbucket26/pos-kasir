@@ -53,7 +53,6 @@ if($_SESSION['role']==""){
 
                 </div>
 
-
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -63,7 +62,7 @@ if($_SESSION['role']==""){
                 </div>
             </footer>
             <!-- End of Footer -->
-            
+
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>

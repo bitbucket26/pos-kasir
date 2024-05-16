@@ -27,7 +27,7 @@ mysqli_query($koneksi, "UPDATE admin
                                 SET nomorsep='$nomorsep', 
                                 namapasien='$namapasien', 
                                 alamat='$alamat', 
-                                tanggalbayar='$tanggalbayar' 
+                                tanggalbayar='$tanggalbayar'
                                  WHERE nomornota='$id' ");
                                 // mysqli_query($koneksi, $query_adm);
 
