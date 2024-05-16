@@ -156,7 +156,7 @@ if($_SESSION['role']==""){
 
                                                         <input type="number" name="tarifkelas1" class="form-control" id="21kls1" onchange="jumlah21()" required>
 
-                                                    <label class="labeldata" for="">Tarif INA CBG Kelas 2</label>
+                                                    <label class="labeldata" for="">Tarif INA CBG Kelas 2 (Enter)</label>
 
                                                         <input type="number" name="tarifkelas2" class="form-control" id="21kls2" onkeypress="jumlah21()" required>
 
