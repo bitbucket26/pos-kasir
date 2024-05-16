@@ -40,7 +40,7 @@ if($_SESSION['role']==""){
             <br>
         <!-- Judul Nota -->
         <div class="d-flex justify-content-center">
-            <label for="" class=""><b>BUKTI PENERIMAAN UANG DARI PASIEN RAWAT INA</b>P</label>
+            <label for="" class=""><b>BUKTI PENERIMAAN UANG DARI PASIEN RAWAT INAP</b></label>
         </div>
         <div class="d-flex justify-content-center">
             <label for="" class=""><b>PERMENKES NO.3 TAHUN 2023</b></label>
@@ -207,9 +207,6 @@ if($_SESSION['role']==""){
             </div>
         </div>
     </div>
-    <br>
-
-
 
         <!-- Baris 9 -->
         <div class="row">
@@ -246,13 +243,13 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>      
         </div>
-        <br><br><br>
+        <br><br>
         <!-- Baris 11 -->
         <div class="row">
             <div class="col-1 ">
             </div>
-            <div class="col-4 fw-bold text-center text-capitalize"><u>
-            <?=$d['yangmembayar']?></u>
+            <div class="col-4 fw-bold text-center text-capitalize">
+            <u><?=$d['yangmembayar']?></u>
             </div>
             <div class="col-1 ">
             </div>

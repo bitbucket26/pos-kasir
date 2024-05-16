@@ -29,7 +29,7 @@ if (mysqli_connect_error()){
   $sql_abladmin = "INSERT INTO abladmin VALUES('$nomor','$tanggal','$nama','$alamatktp','$alamattujuan','$perawatpendamping','$nilai','$perawat','$ruangan','$supir','$jaraktempuh','$total','$kasir','$bilang')";
   mysqli_query($koneksi, $sqlabl);
   mysqli_query($koneksi, $sql_abladmin);
-  header ("location: homekasir1.php");
+  header ("location: homeabl.php");
    
 
 ?>

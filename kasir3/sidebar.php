@@ -17,7 +17,7 @@
             <li class="nav-item active">
                 <a class="nav-link" href="homekasir3.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>DASHBOARD KASIR</span></a>
             </li>
 
             <!-- Divider -->
@@ -75,31 +75,42 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="kywkls1vip.php">KELAS 1 NAIK VIP</a>
                         <a class="collapse-item" href="kywkls2vip.php">KELAS 2 NAIK VIP</a>
-                        <a class="collapse-item" href="404.php">KELAS 2 NAIK KELAS 1</a>
+                        <!-- <a class="collapse-item" href="404.php">KELAS 2 NAIK KELAS 1</a> -->
                         <div class="collapse-divider"></div>
                     </div>
                 </div>
             </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="ablkasir3.php">
-                    <i class="fas fa-ambulance"></i>
-                    <span>AMBULANCE</span></a>
-                </a>
-            </li>
-             <!-- Divider -->
-             <hr class="sidebar-divider">
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="laporan.php">
                     <i class="fas fa-fw fa fa-book"></i>
                     <span>LAPORAN KASIR</span></a>
             </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <div class="sidebar-heading">
+                Transaksi Ambulan
+            </div>
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <li class="nav-item active">
+                <a class="nav-link collapsed" href="homeabl.php">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>DASHBOARD AMBULAN</span></a>
+                </a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+
             <li class="nav-item">
-                <a class="nav-link collapsed" href="laporanabl3.php">
+                <a class="nav-link collapsed" href="ablkasir3.php">
+                    <i class="fas fa-ambulance"></i>
+                    <span>INPUT AMBULAN</span></a>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="laporanabl.php">
                     <i class="fa fa-ambulance"></i>
-                    <span>LAPORAN AMBULANCE</span></a>
+                    <span>LAPORAN AMBULAN</span></a>
             </li>
 
                         <!-- Divider -->

@@ -149,7 +149,7 @@ if (mysqli_connect_error()){
                                             
                                             <td class="text-center"><?php echo $yearName; ?></td>
                                             <td class="text-center"><?php echo $monthName; ?></td>
-                                            <td><?php echo number_format($row["total"]); ?></td>
+                                            <td class="text-center"><?php echo number_format($row["total"]); ?></td>
                                         </tr>
                                             <?php
                                                 $i++;

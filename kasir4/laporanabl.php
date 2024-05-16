@@ -1,5 +1,5 @@
-<?php
-date_default_timezone_set('Asia/Jakarta'); 
+<?php 
+date_default_timezone_set('Asia/Jakarta');
 session_start();
 
 // cek apakah yang mengakses halaman ini sudah login
@@ -18,7 +18,7 @@ if (mysqli_connect_error()){
     $thn = date ('Y');
     for($bulan = 1;$bulan < 13;$bulan++)
     {
-        $query = mysqli_query($koneksi,"SELECT sum(total) as total from kasir4 where YEAR(tanggalbayar)='$thn'");
+        $query = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where YEAR(tanggal)='$thn'");
         $row = $query->fetch_array();
         $total[] = $row['total'];
     }
@@ -35,10 +35,10 @@ if (mysqli_connect_error()){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Laporan Pendapatan</title>
+    <title>Laporan Pendapatan Ambulan</title>
 
-    <!-- Custom fonts for this template -->
-    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+   <!-- Custom fonts for this template -->
+   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -52,7 +52,6 @@ if (mysqli_connect_error()){
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap5.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-
     <!-- Custom styles for this page -->
     
     
@@ -96,21 +95,136 @@ if (mysqli_connect_error()){
                 <!-- End of Topbar -->
 
             
-            <?php 
-                    include 'card.php';
-                    // require 'sesi.php';
-                ?>
-            <div class="row" style="padding: 5px 20px;">
-                
+            
                 <?php
-                    include 'chart.php';    
-                ?>
-                <div class="col-xl-6">
 
-                    <!-- Tabel Rekap Pendapatan -->
+                $day_ses = date ('Y-m-d'); 
+
+                $query_ses = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where (tanggal)= '$day_ses'");
+                $row_ses = $query_ses->fetch_array();
+                $total_ses[] = $row_ses['total'];
+
+                ?>
+            <div class="row" style="padding: 10px 10px;">
+                <div class="col-xl-4">
+                    <div class="card border-left-danger shadow h-15 py-2 align-items-left">
+                        <div class="card-body">
+                            <h1 class="card-title text-primary"><?php echo $_SESSION['username'];?></h1>
+                            <h6 class="card-text">Total Pendapatan Ambulance Hari Ini</h6>
+                            <h3 class="card-text text-end">Rp.<?php echo number_format($total_ses[0]);?></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="padding: 10px 10px;">
+                <div class="col-xl-6" >
+                    <div class="card shadow mb-4">
+                    <?php
+
+                    include "../koneksi.php";
+                    
+                    // Check connection
+                    if (mysqli_connect_error()){
+                        echo "Koneksi database gagal : " . mysqli_connect_error();
+                    }
+                        $day = date ('d-m-Y'); 
+                        $day1 = date ('d-m-Y',strtotime("-1 days"));
+                        $day2 = date ('d-m-Y',strtotime("-2 days"));
+                        $day3 = date ('d-m-Y',strtotime("-3 days"));
+                        $day4 = date ('d-m-Y',strtotime("-4 days"));
+                        $day5 = date ('d-m-Y',strtotime("-5 days"));
+                        $day6 = date ('d-m-Y',strtotime("-6 days"));
+
+                        if (empty($a)) {
+                            echo "";
+                            error_reporting(0);
+                        } 
+                        
+
+                            $query = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where DAY(tanggal)= '$day' group by date(tanggal)");
+                            $row = $query->fetch_array();
+                            $totals[] = $row['total'];
+                         
+                            $query1 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where DAY(tanggal)= '$day1' group by date(tanggal)");
+                            $row1 = $query1->fetch_array();
+                            $total1[] = $row1['total'];
+                         
+                            $query2 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where DAY(tanggal)= '$day2' group by date(tanggal)");
+                            $row2 = $query2->fetch_array();
+                            $total2[] = $row2['total'];
+                           
+                            $query3 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where DAY(tanggal)= '$day3' group by date(tanggal)");
+                            $row3 = $query3->fetch_array();
+                            $total3[] = $row3['total'];
+                           
+                            $query4 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where DAY(tanggal)= '$day4' group by date(tanggal)");
+                            $row4 = $query4->fetch_array();
+                            $total4[] = $row4['total'];
+                           
+                            $query5 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where DAY(tanggal)= '$day5' group by date(tanggal)");
+                            $row5 = $query5->fetch_array();
+                            $total5[] = $row5['total'];
+                            
+                            $query6 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where DAY(tanggal)= '$day6' group by date(tanggal)");
+                            $row6 = $query6->fetch_array();
+                            $total6[] = $row6['total'];
+
+                            $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where DAY(tanggal)= '$day6' group by date(tanggal)");
+                            $row7 = $query7->fetch_array();
+                            $total7[] = $row7['total'];
+                        ?>
+                        <div>
+                        <canvas id="myCharts" style="position: relative; height:100vh; width:80vw; padding: 10px 10px;"></canvas>
+                        </div>
+                        
+                        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                        <script>
+                        const ctx = document.getElementById('myCharts');
+
+                        new Chart(ctx, {
+                            type: 'bar',
+                            data: {
+                            labels: ['6 Hari Lalu','5 Hari Lalu','4 Hari Lalu','3 Hari Lalu','2 Hari Lalu','1 Hari lalu','Hari Ini'],
+                            datasets: [{
+                                label: 'Pendapatan 7 Hari Terakhir',
+                                data: [<?php echo $total6['0']?>, <?php echo $total5['0'] ?>, <?php echo $total4['0'] ?>, <?php echo $total3['0'] ?>, <?php echo $total2['0'] ?>, <?php echo $total1['0'] ?>, <?php echo $totals['0'] ?>],
+                                backgroundColor: [
+                                    'rgba(255, 99, 132, 0.2)',
+                                    'rgba(255, 159, 64, 0.2)',
+                                    'rgba(255, 205, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(54, 162, 235, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(201, 203, 207, 0.2)'
+                                    ],
+                                    borderColor: [
+                                    'rgb(255, 99, 132)',
+                                    'rgb(255, 159, 64)',
+                                    'rgb(255, 205, 86)',
+                                    'rgb(75, 192, 192)',
+                                    'rgb(54, 162, 235)',
+                                    'rgb(153, 102, 255)',
+                                    'rgb(201, 203, 207)'
+                                    ],
+                                borderWidth: 1
+                            }]
+                            },
+                            options: {
+                            scales: {
+                                y: {
+                                beginAtZero: true
+                                }
+                            }
+                            }
+                        });
+                        </script>
+                        </div>
+                </div>
+                <div class="col-xl-6">
                     <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Tabel Rekap Pendapatan Per-Bulan</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Tabel Rekap Pendapatan Ambulan Per-Bulan</h5>
                             </div>
                             <div class="card-body">
                                 <?php
@@ -120,10 +234,10 @@ if (mysqli_connect_error()){
                                     if (mysqli_connect_error()){
                                         echo "Koneksi database gagal : " . mysqli_connect_error();
                                     }
-                                    $result = mysqli_query($koneksi,"select year(tanggalbayar) as year, month(tanggalbayar) as month, sum(total) as total
-                                                                    from kasir4 group by year(tanggalbayar), month(tanggalbayar)");
+                                    $result = mysqli_query($koneksi,"select year(tanggal) as year, month(tanggal) as month, sum(total) as total
+                                                                    from ablkasir4 group by year(tanggal), month(tanggal)");
                                 ?>
-                                <table id="example" class="DataTable table-striped" style="width:100%;">
+                                <table id="example1" class="DataTable table-striped" style="width:100%;">
                                     <thead>
                                         <tr>
                                             
@@ -159,17 +273,9 @@ if (mysqli_connect_error()){
                                 </table>
                             </div>
                     </div>
-                        
-                </div>
-                    <!-- Chart Bar -->
-                    
-
                 </div>
             </div>
-            
-        </div>
-    </div>       
-
+            </div>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -220,7 +326,7 @@ if (mysqli_connect_error()){
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.colVis.min.js"></script> 
 
     <script>
-        new DataTable('#example', {
+        new DataTable('#example1', {
             responsive: true,
             layout: {
                 topStart: {

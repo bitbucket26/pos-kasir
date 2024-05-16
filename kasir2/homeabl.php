@@ -1,5 +1,4 @@
 <?php 
-date_default_timezone_set('Asia/Jakarta');
 session_start();
 
 // cek apakah yang mengakses halaman ini sudah login
@@ -7,21 +6,6 @@ if($_SESSION['role']==""){
     header("location:index.php?pesan=gagal");
 }
 
-?>
-<?php
-include "../koneksi.php";
- 
-// Check connection
-if (mysqli_connect_error()){
-	echo "Koneksi database gagal : " . mysqli_connect_error();
-}
-    $thn = date ('Y');
-    for($bulan = 1;$bulan < 13;$bulan++)
-    {
-        $query = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where YEAR(tanggal)='$thn'");
-        $row = $query->fetch_array();
-        $total[] = $row['total'];
-    }
 ?>
 
 <!DOCTYPE html>
@@ -35,28 +19,18 @@ if (mysqli_connect_error()){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Laporan Pendapatan Ambulan</title>
+    <title>Data Pasien</title>
 
-   <!-- Custom fonts for this template -->
-   <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom fonts for this template -->
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../path/to/font-awesome/css/font-awesome.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/2.0.0/css/dataTables.bootstrap5.css" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap5.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
-    <!-- Custom styles for this page -->
-    
-    
-  
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.bootstrap5.css">
 
 </head>
 
@@ -65,8 +39,8 @@ if (mysqli_connect_error()){
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-         <!-- Sidebar -->
-         <?php 
+        <!-- Sidebar -->
+        <?php 
             include "sidebar.php";
         ?>
         <!-- End of Sidebar -->
@@ -94,27 +68,13 @@ if (mysqli_connect_error()){
                 </nav>
                 <!-- End of Topbar -->
 
-            
-            
-                <?php
 
-                $day_ses = date ('Y-m-d'); 
+                
 
-                $query_ses = mysqli_query($koneksi,"SELECT sum(total) as total from ablkasir4 where (tanggal)= '$day_ses'");
-                $row_ses = $query_ses->fetch_array();
-                $total_ses[] = $row_ses['total'];
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
-                ?>
-            <div class="row" style="padding: 5px 10px;">
-                <div class="col-xl-5">
-                    <div class="card border-left-danger shadow h-15 py-2 align-items-left" style="margin-left: 20px; margin-bottom: 20px; padding: 10px; width: 90%;">
-                        <div class="card-body">
-                            <h1 class="card-title text-primary"><?php echo $_SESSION['username'];?></h1>
-                            <h6 class="card-text">Total Pendapatan Ambulance Hari Ini</h6>
-                            <h3 class="card-text text-end">Rp.<?php echo number_format($total_ses[0]);?></h3>
-                        </div>
-                    </div>
-                </div>
+                <div class="row" style="padding: 5px 10px;">
                 <div class="col-xl-8 mb-4 float-none" style="padding: 20px;">
                         <div class="card border-left-info shadow h-100 py-2 border-bottom-info align-items-left">
                             <form action="" method="GET" >
@@ -147,7 +107,7 @@ if (mysqli_connect_error()){
             </div>
             <div class="card shadow mb-4" style="margin-left: 20px; margin-right: 20px;">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Tabel Rekap Ambulance</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Data Ambulan</h5>
                             </div>
                             <div class="card-body">
                                 <table class="DataTable table-striped" id="Tables" style="width: 100%;">
@@ -171,9 +131,9 @@ if (mysqli_connect_error()){
                                         if(isset($_GET['filter'])) {
                                             $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
                                             $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
-                                            $data = mysqli_query($koneksi,"SELECT * from ablkasir4 where tanggal BETWEEN '$daritgl' AND '$sampaitgl'");
+                                            $data = mysqli_query($koneksi,"SELECT * from ablkasir2 where tanggal BETWEEN '$daritgl' AND '$sampaitgl'");
                                         }else{
-                                            $data = mysqli_query($koneksi,"SELECT * from ablkasir4");
+                                            $data = mysqli_query($koneksi,"SELECT * from ablkasir2");
                                         }
                                             while($d = mysqli_fetch_array($data)){
                                     ?>
@@ -189,39 +149,39 @@ if (mysqli_connect_error()){
                                             <td class="text-center"><?php echo $d['kasir']; ?></td>
                                             
                                             <td>
-                                                <!-- <a href="updateablkasir4.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
+                                                <a href="updateabl.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
                                                 <i class="fa fa-edit fa-lg"></i>
-                                                </a> -->
+                                                </a>
                                                 <a href="cetaklaporanabl.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-md">
                                                 <i class="fa fa-print fa-lg" aria-hidden="true" style="color: white;"></i>
                                                 </a>
                                             </td>
                                     </tr>
                                      <!-- Modal Edit Mahasiswa-->
-                                    <!-- <div class="modal fade" id="myModal<?php echo $d['nomor']; ?>" role="dialog">
+                                     <div class="modal fade" id="myModal<?php echo $d['nomor']; ?>" role="dialog">
                                             <div class="modal-dialog">
 
-                                            Modal content
+                                            <!-- Modal content -->
                                             <div class="modal-content">
                                             <div class="modal-header">
                                             <h4 class="modal-title">Ubah Data Pasien</h4>
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body">
-                                            <form action="updateablkasir4.php" method="GET">
+                                            <form action="updateabl.php" method="GET">
 
                                                 <?php
                                                 include '../koneksi.php';
                                                 $id = $d['nomor']; 
-                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM ablkasir4 WHERE nomor='$id'");
+                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM ablkasir2 WHERE nomor='$id'");
                                                 while ($row = mysqli_fetch_array($query_edit)) {
                                                 ?>
 
                                             <input type="hidden" name="nomor" value="<?php echo $row['nomor']; ?>">
 
                                             <div class="form-group">
-                                            <label>Nomor</label>
-                                            <input type="text" name="nomorsep" class="form-control" value="<?php echo $row['']; ?>">      
+                                            <label>Tanggal</label>
+                                            <input type="date" name="tanggal" class="form-control" value="<?php echo $row['tanggal']; ?>">      
                                             </div>
 
                                             <div class="form-group">
@@ -233,15 +193,20 @@ if (mysqli_connect_error()){
                                             <label>Alamat</label>
                                             <input type="text" name="alamatktp" class="form-control" value="<?php echo $row['alamatktp']; ?>">      
                                             </div>
-
-                                            <div class="form-group">
-                                            <label>Tanggal</label>
-                                            <input type="date" name="tanggal" class="form-control" value="<?php echo $row['tanggal']; ?>" readonly>      
-                                            </div> 
-
+                                            
                                             <div class="form-group">
                                             <label>Tujuan</label>
                                             <input type="text" name="alamattujuan" class="form-control" value="<?php echo $row['alamattujuan']; ?>">      
+                                            </div> 
+
+                                            <div class="form-group">
+                                            <label>Supir</label>
+                                            <input type="text" name="supir" class="form-control" value="<?php echo $row['supir']; ?>">      
+                                            </div>
+
+                                            <div class="form-group">
+                                            <label>Jarak Tampuh</label>
+                                            <input type="text" name="jaraktempuh" class="form-control" value="<?php echo $row['jaraktempuh']; ?>">      
                                             </div> 
 
                                             <div class="form-group">
@@ -251,7 +216,7 @@ if (mysqli_connect_error()){
 
                                             <div class="modal-footer">  
                                             <button type="submit" name="update" value="simpan" class="btn btn-info" style="color: white;">Update</button>
-                                            <a href="hapus.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
+                                            <a href="hapusabl.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                                             </div>
                                             <?php 
@@ -263,8 +228,7 @@ if (mysqli_connect_error()){
                                             </div>
 
                                             </div>
-                                    </div> -->
-                                           
+                                    </div>  
                                     <?php                                     
                                         }
                                     ?>
@@ -277,7 +241,7 @@ if (mysqli_connect_error()){
             </div>
             
         </div>
-    </div>       
+       
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
@@ -346,6 +310,7 @@ if (mysqli_connect_error()){
         });
     </script>
 
+    
 </body>
 
 </html>
