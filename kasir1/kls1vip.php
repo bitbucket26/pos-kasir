@@ -157,9 +157,9 @@ if($_SESSION['role']==""){
 
                                                         <input type="number" name="realcoast" class="form-control" id="1viprealcoast" onchange="jumlah1vip()" required>
 
-                                                    <label class="labeldata" for="">Tarif INA CBG Kelas 1 (Enter)</label>
+                                                    <label class="labeldata" style="color: red;">Tarif INA CBG Kelas 1 (Enter)</label>
 
-                                                        <input type="number" name="tarifkelas1" class="form-control" id="1vipkls1" onkeypress="jumlah1vip()" required>
+                                                        <input type="number" style="border:2px solid Tomato;" name="tarifkelas1" class="form-control" id="1vipkls1" onkeypress="jumlah1vip()" required>
 
                                                     <label class="labeldata" for="">TOTAL</label>
 

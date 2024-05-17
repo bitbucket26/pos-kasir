@@ -159,13 +159,13 @@ if($_SESSION['role']==""){
 
                                                         <input type="number" name="tarifkelas1" class="form-control" id="2vipkls1" onchange="jumlah2vip()" required>
 
-                                                    <label class="labeldata" for="">Tarif INA CBG Kelas 2 (Enter)</label>
+                                                    <label class="labeldata" style="color: red;">Tarif INA CBG Kelas 2 (Enter)</label>
 
-                                                        <input type="number" name="tarifkelas2" class="form-control" id="2vipkls2" onkeypress="jumlah2vip()" required>
+                                                        <input type="number" style="border:2px solid Tomato;" name="tarifkelas2" class="form-control" id="2vipkls2" onkeypress="jumlah2vip()" required>
 
                                                     <label class="labeldata" for="">TOTAL</label>
 
-                                                        <input type="text" name="total" class="form-control" id="2viptotal" readonly>
+                                                        <input type="text"  name="total" class="form-control" id="2viptotal" readonly>
                                                     
                                                     <label class="labeldata" for="">Terbilang</label>           
 

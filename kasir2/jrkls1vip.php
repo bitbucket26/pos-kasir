@@ -135,9 +135,9 @@ if($_SESSION['role']==""){
                                                                     <option value="2">2</option>
                                                                     <option value="3">3</option>
                                                             </select>
-                                                    <label class="labeldata" for="">Yang Membayar</label>
+                                                    <label class="labeldata" >Yang Membayar</label>
                                                         <input type="text" class="form-control" name="yangmembayar" id="yangmembayar" required>
-                                                    <label class="labeldata" for="">Yang Menerima</label>
+                                                    <label class="labeldata" >Yang Menerima</label>
                                                     <input type="text" class="form-control" name="yangmenerima" id="yangmenerima" value="<?php echo $_SESSION['username']; ?>" readonly>			
                                                 </div>
                                             </div>
@@ -171,9 +171,9 @@ if($_SESSION['role']==""){
 
                                                         <input type="number" name="realcoast" class="form-control" id="rc" onchange="jumlahjr1vip()" readonly>
 
-                                                    <label class="labeldata" >Tarif INA CBG Kelas 1 (Enter)</label>
+                                                    <label class="labeldata" style="color: red;">Tarif INA CBG Kelas 1 (Enter)</label>
 
-                                                        <input type="number" name="tarifkelas1" class="form-control" id="jr1vipkls1" onkeypress="jumlahjr1vip()" required>
+                                                        <input type="number" style="border:2px solid Tomato;" name="tarifkelas1" class="form-control" id="jr1vipkls1" onkeypress="jumlahjr1vip()" required>
 
                                                         <input type="number" name="tarifkelas2" class="form-control" id="jr1vipkls2" value="0" hidden>
 
