@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="homekasir3.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="homekasir1.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                     <img class="img-profile rounded-circle"
@@ -15,7 +15,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="homekasir3.php">
+                <a class="nav-link" href="homekasir1.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>DASHBOARD KASIR</span></a>
             </li>
@@ -40,7 +40,7 @@
                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
                         <a class="collapse-item" href="jrkls1vip.php">KELAS 1 NAIK VIP</a>
                         <a class="collapse-item" href="jrkls2vip.php">KELAS 2 NAIK VIP</a>
-                        <a class="collapse-item" href="jrkls21.php">KELAS 2 NAIK KELAS 1</a>
+                        <a class="collapse-item" href="jrumum.php">JR UMUM</a>
                     </div>
                 </div>
             </li>
@@ -102,7 +102,7 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="ablkasir3.php">
+                <a class="nav-link collapsed" href="ablkasir1.php">
                     <i class="fas fa-ambulance"></i>
                     <span>INPUT AMBULAN</span></a>
                 </a>

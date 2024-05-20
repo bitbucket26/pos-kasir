@@ -40,7 +40,7 @@
                         <!-- <h6 class="collapse-header">Custom Components:</h6> -->
                         <a class="collapse-item" href="jrkls1vip.php">KELAS 1 NAIK VIP</a>
                         <a class="collapse-item" href="jrkls2vip.php">KELAS 2 NAIK VIP</a>
-                        <a class="collapse-item" href="jrkls21.php">KELAS 2 NAIK KELAS 1</a>
+                        <a class="collapse-item" href="jrumum.php">JR UMUM</a>
                     </div>
                 </div>
             </li>

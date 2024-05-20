@@ -21,7 +21,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>JR Kelas 2 Naik Kelas 1</title>
+    <title>JR UMUM</title>
 
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -90,7 +90,7 @@ if($_SESSION['role']==""){
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">JR - KELAS 2 NAIK KELAS 1</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">JR - UMUM</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -162,27 +162,25 @@ if($_SESSION['role']==""){
                                                        echo '<input type="date" name="tanggalbayar" class="form-control" id="tanggalbayar" value="' .$dt->format('Y-m-d'). '" readonly>'
                                                     ?>
 
+                                                    <label class="labeldata" for="">Real Coast</label>
 
+                                                        <input type="number" name="realcoast" class="form-control" id="jrumumrealcoast" onchange="jumlahjrumum()" required>
 
-                                                    <label class="labeldata" for="">Tarif INA CBG Kelas 1</label>
-                                                    
-                                                        <input type="number" name="tarifkelas1" class="form-control" id="jr21kls1" onchange="jumlahjr21()" required>
+                                                    <label class="labeldata" style="color: red;">Ditanggung JR</label>
 
-                                                    <label class="labeldata" style="color: red;">Tarif INA CBG Kelas 2 (Enter)</label>
-
-                                                        <input type="number" style="border:2px solid Tomato;" name="tarifkelas2" class="form-control" id="jr21kls2" onkeypress="jumlahjr21()" required>
+                                                        <input type="number" style="border:2px solid Tomato;" name="ditanggungjr" class="form-control" id="tanggungjr" onkeypress="jumlahjrumum()" required>
 
                                                     <label class="labeldata" for="">TOTAL</label>
 
-                                                        <input type="text" name="total" class="form-control" id="jr21total" readonly>
+                                                        <input type="text" name="total" class="form-control" id="jrumumtotal" readonly>
                                                     
                                                     <label class="labeldata" for="">Terbilang</label>           
 
-                                                        <textarea type="text" name="bilang" class="form-control" id="jr21terbilang" required></textarea>
+                                                        <textarea type="text" name="bilang" class="form-control" id="jrumumterbilang" required></textarea>
                                                     
-                                                        <input type="text" name="nota1" id="nota1jr21" class="form-control" onkeypress="jumlahjr21()" readonly hidden>
+                                                        <input type="text" name="nota1" id="nota1jrumum" class="form-control" onkeypress="jumlahjrumum()" readonly hidden>
                                                     
-                                                        <input type="text" name="nota2" id="nota2jr21" class="form-control" onkeypress="jumlahjr21()" readonly hidden>
+                                                        <input type="text" name="nota2" id="nota2jrumum" class="form-control" onkeypress="jumlahjrumum()" readonly hidden>
 
 
 
@@ -282,13 +280,13 @@ if($_SESSION['role']==""){
             return temp;
         }
 
-        var input = document.getElementById("jr21kls2");
+        var input = document.getElementById("tanggungjr");
         input.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
            event.preventDefault();
-              const nilai = document.getElementById("jr21total").value;
+              const nilai = document.getElementById("jrumumtotal").value;
               let hasil = terbilang(nilai) + "Rupiah";
-              document.getElementById("jr21terbilang").value = hasil;
+              document.getElementById("jrumumterbilang").value = hasil;
         }
         });
     </script>
