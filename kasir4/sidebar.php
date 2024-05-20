@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="homekasir1.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="homekasir4.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                     <img class="img-profile rounded-circle"
@@ -15,7 +15,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="homekasir1.php">
+                <a class="nav-link" href="homekasir4.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>DASHBOARD KASIR</span></a>
             </li>
@@ -102,7 +102,7 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="ablkasir1.php">
+                <a class="nav-link collapsed" href="ablkasir4.php">
                     <i class="fas fa-ambulance"></i>
                     <span>INPUT AMBULAN</span></a>
                 </a>
