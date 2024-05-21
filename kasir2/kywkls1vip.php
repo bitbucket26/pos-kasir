@@ -94,17 +94,17 @@ if($_SESSION['role']==""){
                                         <div class="card">
                                             <div class="row" style="padding: 10px 10px;">
                                                 <div class="col">
-                                                    <label class="labeldata" for="">No.Nota</label>
+                                                    <label class="labeldata" >No.Nota</label>
                                                         <input type="text" value="<?php echo $kodeauto;?>" name="nomornota" class="form-control" id="nomornota" readonly>
-                                                    <label class="labeldata" for="">No.SEP</label>
+                                                    <label class="labeldata" >No.SEP</label>
                                                         <input type="text" name="nomorsep" class="form-control" id="nomorsep" required>					
-                                                    <label class="labeldata" for="">Nama Pasien</label>
+                                                    <label class="labeldata" >Nama Pasien</label>
                                                         <input type="text" name="namapasien" class="form-control" id="namapasien" required>				
-                                                    <label class="labeldata" for="">Alamat</label>
+                                                    <label class="labeldata" >Alamat</label>
                                                         <textarea type="text" name="alamat" class="form-control" id="alamat" required></textarea>
                                                 </div>
                                                 <div class="col">
-                                                    <label class="labeldata" for="">Ruang Perawatan</label>
+                                                    <label class="labeldata" >Ruang Perawatan</label>
                                                         <?php 
                                                             include "ruangan.php";
                                                         ?>
@@ -116,15 +116,15 @@ if($_SESSION['role']==""){
                                                                     <option value="2">2</option>
                                                                     <option value="3">3</option>
                                                                 </select>
-                                                    <label class="labeldata" for="">Mulai Tanggal</label>
+                                                    <label class="labeldata" >Mulai Tanggal</label>
                                                         <input type="date" class="form-control" name="mulaitanggal" id="mulaitanggal" required>
-                                                    <label class="labeldata" for="">Sampai Tanggal</label>
+                                                    <label class="labeldata" >Sampai Tanggal</label>
                                                         <input type="date" class="form-control" name="sampaitanggal" id="sampaitanggal" required>
                                                 </div>
                                                 <div class="col">
-                                                    <label class="labeldata" for="">Nomor Medrec</label>
+                                                    <label class="labeldata" >Nomor Medrec</label>
                                                         <input type="number" class="form-control" name="nomormedrec" id="nomormedrec" required>
-                                                    <label class="labeldata" for="">Dirawat Kelas</label>
+                                                    <label class="labeldata" >Dirawat Kelas</label>
                                                             <select name="dirawatkelas" class="form-control" id="dirawatkelas" required>
                                                                     <option value="X"></option>
                                                                     <option value="VIP">VIP</option>
@@ -132,9 +132,9 @@ if($_SESSION['role']==""){
                                                                     <option value="2">2</option>
                                                                     <option value="3">3</option>
                                                             </select>
-                                                    <label class="labeldata" for="">Yang Membayar</label>
+                                                    <label class="labeldata" >Yang Membayar</label>
                                                         <input type="text" class="form-control" name="yangmembayar" id="yangmembayar" required>
-                                                    <label class="labeldata" for="">Yang Menerima</label>
+                                                    <label class="labeldata" >Yang Menerima</label>
                                                     <input type="text" class="form-control" name="yangmenerima" id="yangmenerima" value="<?php echo $_SESSION['username']; ?>" readonly>			
                                                 </div>
                                             </div>
@@ -147,13 +147,13 @@ if($_SESSION['role']==""){
                                     <div class="col-sm-3">
                                         <div class="card">
                                             <div class="row" style="width: 100%; margin-left: 1px; padding: 10px 10px;">
-                                                    <label class="labeldata" for="">Tanggal Bayar</label>
+                                                    <label class="labeldata" >Tanggal Bayar</label>
                                                     
                                                     <?php $dt = new DateTime();
                                                        echo '<input type="date" name="tanggalbayar" class="form-control" id="tanggalbayar" value="' .$dt->format('Y-m-d'). '" readonly>'
                                                     ?>
 
-                                                    <label class="labeldata" for="">Real Coast</label>
+                                                    <label class="labeldata" >Real Coast</label>
 
                                                         <input type="number" name="realcoast" class="form-control" id="rckry1vip" onchange="jumlahkyw1vip()" required>
 
@@ -161,11 +161,11 @@ if($_SESSION['role']==""){
 
                                                         <input type="number"style="border:2px solid Tomato;"  name="tarifkelas1" class="form-control" id="tr1kry1vip" onkeypress="jumlahkyw1vip()" required>
 
-                                                    <label class="labeldata" for="">TOTAL</label>
+                                                    <label class="labeldata" >TOTAL</label>
 
                                                         <input type="text"  name="total" class="form-control" id="kry1viptotal" readonly>
                                                     
-                                                    <label class="labeldata" for="">Terbilang</label>           
+                                                    <label class="labeldata" >Terbilang</label>           
 
                                                         <textarea type="text" name="bilang" class="form-control" id="1vipterbilang" required></textarea>
                                                     

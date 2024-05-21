@@ -135,9 +135,9 @@ if($_SESSION['role']==""){
                                                                     <option value="2">2</option>
                                                                     <option value="3">3</option>
                                                             </select>
-                                                    <label class="labeldata" for="">Yang Membayar</label>
+                                                    <label class="labeldata" >Yang Membayar</label>
                                                         <input type="text" class="form-control" name="yangmembayar" id="yangmembayar" required>
-                                                    <label class="labeldata" for="">Yang Menerima</label>
+                                                    <label class="labeldata" >Yang Menerima</label>
                                                     <input type="text" class="form-control" name="yangmenerima" id="yangmenerima" value="<?php echo $_SESSION['username']; ?>" readonly>			
                                                 </div>
                                             </div>
