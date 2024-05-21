@@ -178,9 +178,9 @@ if($_SESSION['role']==""){
 
                                                         <textarea type="text" name="bilang" class="form-control" id="jrumumterbilang" required></textarea>
                                                     
-                                                        <input type="text" name="nota1" id="nota1jrumum" class="form-control" onkeypress="jumlahjrumum()" readonly hidden>
+                                                        <input type="text" name="nota1" id="nota1jrumum" class="form-control" value="0" readonly hidden>
                                                     
-                                                        <input type="text" name="nota2" id="nota2jrumum" class="form-control" onkeypress="jumlahjrumum()" readonly hidden>
+                                                        <input type="text" name="nota2" id="nota2jrumum" class="form-control" value="0" readonly hidden>
 
 
 
