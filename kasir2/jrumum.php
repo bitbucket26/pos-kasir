@@ -166,7 +166,7 @@ if($_SESSION['role']==""){
 
                                                         <input type="number" name="realcoast" class="form-control" id="jrumumrealcoast" onchange="jumlahjrumum()" required>
 
-                                                    <label class="labeldata" style="color: red;">Ditanggung JR</label>
+                                                    <label class="labeldata" style="color: red;">Ditanggung JR (Enter)</label>
 
                                                         <input type="number" style="border:2px solid Tomato;" name="ditanggungjr" class="form-control" id="tanggungjr" onkeypress="jumlahjrumum()" required>
 
