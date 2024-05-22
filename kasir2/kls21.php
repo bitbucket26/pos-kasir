@@ -162,7 +162,7 @@ if($_SESSION['role']==""){
 
                                                     <label class="labeldata" >TOTAL</label>
 
-                                                        <input type="text" style="border:2px solid Tomato;" name="total" class="form-control" id="21total" readonly>
+                                                        <input type="text" style="border:2px solid Tomato;" name="total" class="form-control" id="21total" >
                                                     
                                                     <label class="labeldata" >Terbilang</label>           
 
@@ -270,6 +270,45 @@ if($_SESSION['role']==""){
         }
 
         var input = document.getElementById("21kls2");
+        input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+           event.preventDefault();
+              const nilai = document.getElementById("21total").value;
+              let hasil = terbilang(nilai) + "Rupiah";
+              document.getElementById("21terbilang").value = hasil;
+        }
+        });
+    </script>
+    <script>
+        Math.fmod = function (a,b) { return Number((a - (Math.floor(a / b) * b)).toPrecision(8)); };
+        function terbilang(nilai) {
+            const huruf = ["", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas"];
+            let temp = "";
+            if (nilai < 12) {
+                temp = " "+ huruf[nilai];
+            } else if (nilai <20) {
+                temp = terbilang(nilai - 10)+ " Belas";
+            } else if (nilai < 100) {
+                temp = terbilang(Math.floor(nilai/10))+" Puluh"+ terbilang(nilai % 10);
+            } else if (nilai < 200) {
+                temp = " Seratus" + terbilang(nilai - 100);
+            } else if (nilai < 1000) {
+                temp = terbilang(Math.floor(nilai/100)) + " Ratus" + terbilang(nilai % 100);
+            } else if (nilai < 2000) {
+                temp = " Seribu" + terbilang(nilai - 1000);
+            } else if (nilai < 1000000) {
+                temp = terbilang(Math.floor(nilai/1000)) + " Ribu" + terbilang(nilai % 1000);
+            } else if (nilai < 1000000000) {
+                temp = terbilang(Math.floor(nilai/1000000)) + " Juta" + terbilang(nilai % 1000000);
+            } else if (nilai < 1000000000000) {
+                temp = terbilang(Math.floor(nilai/1000000000)) + " Milyar" + terbilang(Math.fmod(nilai,1000000000));
+            } else if (nilai < 1000000000000000) {
+                temp = terbilang(Math.floor(nilai/1000000000000)) + " Trilyun" + terbilang(Math.fmod(nilai,1000000000000));
+            }     
+            return temp;
+        }
+
+        var input = document.getElementById("21total");
         input.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
            event.preventDefault();
