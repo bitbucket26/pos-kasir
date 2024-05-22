@@ -149,9 +149,9 @@ if($_SESSION['role']==""){
                                             <td class="text-center"><?php echo $d['nomormedrec']; ?></td>
                                             <td class="text-center"><?php echo $d['namapasien']; ?></td>
                                             <td class="text-center"><?php echo $d['alamat']; ?></td>
-                                            <td><?php echo date('d-M-Y', strtotime($d['tanggalbayar'])); ?></td>
-                                            <td><?php echo $d['total']; ?></td>
-                                            <td><?php echo $d['yangmenerima']; ?></td>
+                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalbayar'])); ?></td>
+                                            <td class="text-center"><?php echo number_format($d['total']); ?></td>
+                                            <td class="text-center"><?php echo $d['yangmenerima']; ?></td>
                                             
                                             <td>
                                                 <a href="update.php?id=<?php echo $d['nomornota']; ?>" type="button" class=" fa fa-edit btn btn-primary btn-md" data-toggle="modal" data-target="#myModal<?php echo $d['nomornota']; ?>"></a>
