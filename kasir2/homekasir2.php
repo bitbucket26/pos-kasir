@@ -124,6 +124,7 @@ if($_SESSION['role']==""){
                                             <th style="text-align: center;">Nama Pasien</th>
                                             <th style="text-align: center; ">Alamat</th>
                                             <th style="text-align: center;">Tgl.Bayar</th>
+                                            <th style="text-align: center;">Total</th>
                                             <th style="text-align: center;">Kasir</th>
                                             <th style="text-align: center;">Aksi</th>
                                         </tr>
@@ -148,8 +149,8 @@ if($_SESSION['role']==""){
                                             <td class="text-center"><?php echo $d['nomormedrec']; ?></td>
                                             <td class="text-center"><?php echo $d['namapasien']; ?></td>
                                             <td class="text-center"><?php echo $d['alamat']; ?></td>
-                                            
                                             <td><?php echo date('d-M-Y', strtotime($d['tanggalbayar'])); ?></td>
+                                            <td><?php echo $d['total']; ?></td>
                                             <td><?php echo $d['yangmenerima']; ?></td>
                                             
                                             <td>

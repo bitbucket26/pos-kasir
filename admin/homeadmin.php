@@ -125,6 +125,7 @@ if($_SESSION['role']==""){
                                             <th class="text-center">Nama Pasien</th>
                                             <th class="text-center">Alamat</th>
                                             <th class="text-center">Tgl.Bayar</th>
+                                            <th class="text-center">Total</th>
                                             <th class="text-center">Kasir</th>
                                         </tr>
                                     </thead>
@@ -148,6 +149,7 @@ if($_SESSION['role']==""){
                                                 <td class="text-center"><?php echo $d['namapasien']; ?></td>
                                                 <td class="text-center"><?php echo $d['alamat']; ?></td>
                                                 <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalbayar'])); ?></td>
+                                                <td class="text-center"><?php echo $d['total']; ?></td>
                                                 <td class="text-center"><?php echo $d['yangmenerima']; ?></td>
                                         </tr>
                             </div>
