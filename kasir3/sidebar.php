@@ -75,6 +75,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="kywkls1vip.php">KELAS 1 NAIK VIP</a>
                         <a class="collapse-item" href="kywkls2vip.php">KELAS 2 NAIK VIP</a>
+                        <a class="collapse-item" href="kywkls21.php">KELAS 2 NAIK KELAS 1</a>
                         <!-- <a class="collapse-item" href="404.php">KELAS 2 NAIK KELAS 1</a> -->
                         <div class="collapse-divider"></div>
                     </div>

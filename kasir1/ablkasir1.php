@@ -113,9 +113,9 @@ if($_SESSION['role']==""){
                                                         include "pilihalamat.php";
                                                     ?>
                                                     <label class="labeldata">Alamat KTP</label>
-                                                        <input type="text" name="alamatktp" class="form-control" id="alamatktp" readonly>
+                                                        <input type="text" name="alamatktp" class="form-control" id="alamatktp" >
                                                     <label class="labeldata">Alamat Tujuan</label>
-                                                        <input type="text" name="alamattujuan" class="form-control" id="alamattujuan" readonly>
+                                                        <input type="text" name="alamattujuan" class="form-control" id="alamattujuan" >
                                                 </div>
                                                 <div class="col">
                                                     <label class="labeldata">Perawat Pendamping</label>
@@ -167,6 +167,7 @@ if($_SESSION['role']==""){
                                                     <label class="labeldata">Ruangan</label>
                                                     <select name="ruangan" class="form-control" id="ruangan" required>
                                                         <option value="x"></option>
+                                                        <option value="IGD">IGD</option>
                                                         <option value="Kidang Kencana 1">Kidang Kencana 1</option>
                                                         <option value="Kidang Kencana 2">Kidang Kencana 2</option>
                                                         <option value="Kidang Kencana 3">Kidang Kencana 3</option>
@@ -187,6 +188,8 @@ if($_SESSION['role']==""){
                                                         <option value="NICU">NICU</option>
                                                         <option value="Malgova">Malgova</option>
                                                     </select>
+                                                    <label class="labeldata">Yang Membayar</label>
+                                                    <input type="text" class="form-control" name="yangmembayar" id="yangmembayar">			
                                                     <label class="labeldata">Kasir</label>
                                                     <input type="text" class="form-control" name="kasir" id="kasir" value="<?php echo $_SESSION['username']; ?>" readonly>			
                                                 </div>
@@ -211,7 +214,7 @@ if($_SESSION['role']==""){
                                                                 </select>
                                                 <label class="labeldata">Jarak Tempuh (km)</label>
                                                     
-                                                    <input type="number" name="jaraktempuh" class="form-control" id="jaraktempuh" readonly>
+                                                    <input type="number" step="0.01" name="jaraktempuh" class="form-control" id="jaraktempuh" >
                                                 
                                                 <label class="labeldata" hidden>Nilai Tetap</label>
                                                     

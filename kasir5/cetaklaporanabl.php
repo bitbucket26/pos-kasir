@@ -86,7 +86,7 @@ if($_SESSION['role']==""){
                 Alamat Pasien
                 </div>
                 <div class="col-4 text-capitalize">:
-                <?=$d['alamatktp']?>
+                <?=$d['alamatktp']?>-<?=$d['alamattujuan']?>
                 </div>
                 <div class="col-2">
                 </div>
