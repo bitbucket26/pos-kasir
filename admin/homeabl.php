@@ -124,7 +124,7 @@ if($_SESSION['role']==""){
                                             <th class="text-center">Alamat</th>
                                             <th class="text-center">Tujuan</th>
                                             <th class="text-center">Tanggal</th>
-                                            <!-- <th class="text-center">Total</th> -->
+                                            <th class="text-center">Total</th>
                                             <th class="text-center">Kasir</th>
                                             <!-- <th class="text-center">Aksi</th> -->
                                         </tr>
@@ -145,10 +145,10 @@ if($_SESSION['role']==""){
                                         <tr>
                                             <td class="text-center"><?php echo $d['nomor']; ?></td>
                                             <td><?php echo $d['nama']; ?></td>
-                                            <td class="text-center"><?php echo $d['alamatktp']; ?></td>
+                                            <td class="text-center"><?php echo $d['alamatktp']; ?>-<?php echo $d['alamattujuan']; ?></td>
                                             <td class="text-center"><?php echo $d['alamattujuan']; ?></td>
                                             <td><?php echo date('d-M-Y', strtotime($d['tanggal'])); ?></td>
-                                            <!-- <td class="text-center"><?php echo $d['total']; ?></td> -->
+                                            <td class="text-center"><?php echo number_format ($d['total']); ?></td>
                                             <td class="text-center"><?php echo $d['kasir']; ?></td>
                                         </tr>
                             </div>
@@ -213,7 +213,7 @@ if($_SESSION['role']==""){
                     buttons: [{
                     extend: 'print',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5]
+                        columns: [0, 1, 2, 3, 4, 5, 6]
                     
                     }
                 },
