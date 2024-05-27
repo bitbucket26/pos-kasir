@@ -180,7 +180,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 fw-bold text-center">
-            
+            Yang Membayar
             </div>
             <div class="col-1 ">
             </div>
@@ -197,7 +197,8 @@ if($_SESSION['role']==""){
         <div class="row">
             <div class="col-1 ">
             </div>
-            <div class="col-4 fw-bold text-center text-capitalize">
+            <div class="col-4 fw-bold text-center text-capitalize"><u>
+            <?=$d['yangmembayar']?></u>    
             </div>
             <div class="col-1 ">
             </div>
