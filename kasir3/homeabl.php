@@ -141,7 +141,7 @@ if($_SESSION['role']==""){
                                     <tr>
                                             <td class="text-center"><?php echo $d['nomor']; ?></td>
                                             <td class="text-center"><?php echo $d['nama']; ?></td>
-                                            <td class="text-center"><?php echo $d['alamatktp']; ?></td>
+                                            <td class="text-center"><?php echo $d['alamatktp']; ?>-<?php echo $d['alamattujuan']; ?></td>
                                             <td class="text-center"><?php echo $d['alamattujuan']; ?></td>
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggal'])); ?></td>
                                             <td class="text-center"><?php echo $d['jaraktempuh']; ?></td>
