@@ -146,8 +146,8 @@ if($_SESSION['role']==""){
                                                 <td class="text-center"><?php echo $d['nomornota']; ?></td>
                                                 <td class="text-center"><?php echo $d['nomorsep']; ?></td>
                                                 <td class="text-center"><?php echo $d['nomormedrec']; ?></td>
-                                                <td class="text-center"><?php echo $d['namapasien']; ?></td>
-                                                <td class="text-center"><?php echo $d['alamat']; ?></td>
+                                                <td class="text-start"><?php echo $d['namapasien']; ?></td>
+                                                <td class="text-start"><?php echo $d['alamat']; ?></td>
                                                 <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalbayar'])); ?></td>
                                                 <td class="text-center"><?php echo number_format($d['total']); ?></td>
                                                 <td class="text-center"><?php echo $d['yangmenerima']; ?></td>

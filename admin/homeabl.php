@@ -144,10 +144,10 @@ if($_SESSION['role']==""){
                                         ?>
                                         <tr>
                                             <td class="text-center"><?php echo $d['nomor']; ?></td>
-                                            <td><?php echo $d['nama']; ?></td>
+                                            <td class="text-center"><?php echo $d['nama']; ?></td>
                                             <td class="text-center"><?php echo $d['alamatktp']; ?>-<?php echo $d['alamattujuan']; ?></td>
                                             <td class="text-center"><?php echo $d['alamattujuan']; ?></td>
-                                            <td><?php echo date('d-M-Y', strtotime($d['tanggal'])); ?></td>
+                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggal'])); ?></td>
                                             <td class="text-center"><?php echo number_format ($d['total']); ?></td>
                                             <td class="text-center"><?php echo $d['kasir']; ?></td>
                                         </tr>
