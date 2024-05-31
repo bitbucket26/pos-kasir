@@ -74,6 +74,14 @@ if($cek > 0){
 		$_SESSION['role'] = "kasir5";
 		// alihkan ke halaman dashboard pengurus
 		header("location:kasir5/homekasir5.php");
+
+	}else if($data['role']=="diklat"){
+		session_start();
+		// buat session login dan username
+		$_SESSION['username'] = $username;
+		$_SESSION['role'] = "diklat";
+		// alihkan ke halaman dashboard pengurus
+		header("location:diklat/home.php");
  
 	}else{
  

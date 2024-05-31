@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Pasien</title>
+    <title>Data Ambulance</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -103,7 +103,7 @@ if($_SESSION['role']==""){
                             if(isset($_GET['filter'])) {
                                     $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
                                     $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
-                                    echo " Berikut Adalah Data Pasien Dari Tanggal ".$daritgl. " S/d Tanggal " .$sampaitgl ;
+                                    echo " Berikut Adalah Data Dari Tanggal ".$daritgl. " S/d Tanggal " .$sampaitgl ;
                             }
                         ?>
                     </div>

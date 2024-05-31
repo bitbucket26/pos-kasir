@@ -1,7 +1,7 @@
 <?php 
-date_default_timezone_set('Asia/Jakarta');
 session_start();
 
+// cek apakah yang mengakses halaman ini sudah login
 if($_SESSION['role']==""){
     header("location:index.php?pesan=gagal");
 }
@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Pasien Rawat Inap</title>
+    <title>Data Magang</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -68,15 +68,14 @@ if($_SESSION['role']==""){
                 </nav>
                 <!-- End of Topbar -->
 
+
+                
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                <?php 
-                    include "../koneksi.php";
-                    $tahun1 = date ('Y', strtotime("-1 years"));
-                    mysqli_query($koneksi, "delete from admin where tanggalbayar='$tahun1'")
-                                                    or die(mysqli_error($koneksi));
-                ?>
-                    <div class="col-xl-6 mb-4 float-none">
+
+                <div class="row" style="padding: 5px 10px;">
+                <div class="col-xl-8 mb-4 float-none" style="padding: 20px;">
                         <div class="card border-left-info shadow h-100 py-2 border-bottom-info align-items-left">
                             <form action="" method="GET" >
                                 <h4 style="margin-left: 20px; color:blue;">Filter Berdasarkan Tanggal</h4>
@@ -88,88 +87,93 @@ if($_SESSION['role']==""){
                                             <label for="" >s/d</label>
                                             <input type="date" class="rounded" name="sampaitgl" style="border: solid 1px;" required>
                                             <input class="btn btn-primary btn-md" type="submit" name="filter" value="Tampilkan" >
-                                            <!-- <a href="hapus1tahun.php">
-                                                <button type="button" name="btnok" class="btn btn-danger btn-md">Hapus Data Tahun Lalu</button>
+                                            <!-- <a href="cetaknotaabl.php" target="_blank">
+                                            <button type="button" name="btnyes" class="btn btn-danger btn-md" value="Cetak1">Cetak Data Terakhir Input</button> -->
                                             </a>
-                                            <?php 
-                                            ?> -->
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-                        <?php 
-                            include '../koneksi.php';
-                            if(isset($_GET['filter'])) {
-                                    $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
-                                    $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
-                                    echo " Berikut Adalah Data Pasien Dari Tanggal ".$daritgl. " S/d Tanggal " .$sampaitgl ;
-                            }
-                        ?>
-                    </div>
-                    
-                
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Pasien Rawat Inap</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="DataTable table-sm table-striped table-bordered text-capitalize" id="DataTable" width="100%" cellspacing="0" style="text-align: center;">
+                    <?php 
+                        include '../koneksi.php';
+                        if(isset($_GET['filter'])) {
+                                $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
+                                $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
+                                echo " Berikut Adalah Data Dari Tanggal ".$daritgl. " S/d Tanggal " .$sampaitgl ;
+                        }
+                    ?>
+                </div>
+            </div>
+            <div class="card shadow mb-4" style="margin-left: 20px; margin-right: 20px;">
+                            <div class="card-header py-3">
+                                <h5 class="m-0 font-weight-bold text-primary">Data Magang</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="DataTable table-striped" id="Tables" style="width: 100%;">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">No.Nota</th>
-                                            <th class="text-center">No.SEP</th>
-                                            <th class="text-center">No.Medrec</th>
-                                            <th class="text-center">Nama Pasien</th>
-                                            <th class="text-center">Alamat</th>
+                                            <th class="text-center">No.</th>
+                                            <th class="text-center">Instansi</th>
+                                            <th class="text-center">Pendidikan</th>
+                                            <th class="text-center">Tgl.Mulai</th>
+                                            <th class="text-center">Tgl.Selesai</th>
+                                            <th class="text-center">Jml.Bulan</th>
+                                            <th class="text-center">Jml.Peserta</th>
+                                            <th class="text-center">R.Magang</th>
                                             <th class="text-center">Tgl.Bayar</th>
                                             <th class="text-center">Total</th>
-                                            <th class="text-center">Kasir</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <?php 
-                                            include '../koneksi.php';
-                                            $no = 1;
-                                            if(isset($_GET['filter'])) {
-                                                $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
-                                                $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
-                                                $data = mysqli_query($koneksi,"SELECT * from admin where tanggalbayar BETWEEN '$daritgl' AND '$sampaitgl'");
-                                            }else{
-                                                $data = mysqli_query($koneksi,"SELECT * from admin");
-                                            }
-                                                while($d = mysqli_fetch_array($data)){
-                                        ?>
-                                        <tr>
-                                                <td class="text-center"><?php echo $d['nomornota']; ?></td>
-                                                <td class="text-center"><?php echo $d['nomorsep']; ?></td>
-                                                <td class="text-center"><?php echo $d['nomormedrec']; ?></td>
-                                                <td class="text-start"><?php echo $d['namapasien']; ?></td>
-                                                <td class="text-start"><?php echo $d['alamat']; ?></td>
-                                                <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalbayar'])); ?></td>
-                                                <td class="text-center"><?php echo number_format($d['total']); ?></td>
-                                                <td class="text-center"><?php echo $d['yangmenerima']; ?></td>
-                                        </tr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                                        <?php 
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
-            </div>
-        </div>
-    </div>
 
+                                    <?php 
+                                        include '../koneksi.php';
+                                        $no = 1;
+                                        if(isset($_GET['filter'])) {
+                                            $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
+                                            $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
+                                            $data = mysqli_query($koneksi,"SELECT * from adminmagang where tanggalpembayaran BETWEEN '$daritgl' AND '$sampaitgl'");
+                                        }else{
+                                            $data = mysqli_query($koneksi,"SELECT * from adminmagang");
+                                        }
+                                            while($d = mysqli_fetch_array($data)){
+                                    ?>
+                                    
+                                    <tr>
+                                            <td class="text-center"><?php echo $d['nomor']; ?></td>
+                                            <td class="text-center"><?php echo $d['instansi']; ?></td>
+                                            <td class="text-center"><?php echo $d['pendidikan']; ?>
+                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalmulai'])); ?></td>
+                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalselesai'])); ?></td>
+                                            <td class="text-center"><?php echo $d['jumlahbulan']; ?></td>
+                                            <td class="text-center"><?php echo $d['jumlahpeserta']; ?></td>
+                                            <td class="text-center"><?php echo $d['ruangmagang']; ?></td>
+                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?></td>
+                                            <td class="text-center"><?php echo number_format($d['total']); ?></td>
+
+                                    </tr>
+                                    <?php                                     
+                                        }
+                                    ?>
+                                    
+                                </table>
+                            </div>
+            </div>
+                            
+                        
+            </div>
+            
+        </div>
+       
 
             <!-- Footer -->
-            <?php 
-                include "footer.php";
-            ?>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; RSUD Indramayu 2024</span>
+                    </div>
+                </div>
+            </footer>
             <!-- End of Footer -->
 
     <!-- Scroll to Top Button-->
@@ -179,9 +183,9 @@ if($_SESSION['role']==""){
 
     <!-- Logout Modal-->
     <?php
-    include "logoutmodal.php"; 
+    include "logoutmodal.php" 
     ?>
-                                        
+
     <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -193,8 +197,13 @@ if($_SESSION['role']==""){
     <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdn.datatables.net/v/dt/dt-2.0.2/datatables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/dataTables.buttons.js"></script> 
@@ -205,16 +214,16 @@ if($_SESSION['role']==""){
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.html5.min.js"></script> 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.print.min.js"></script> 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.colVis.min.js"></script> 
-
+    
     <script>
-        new DataTable('#DataTable', {
+        new DataTable('#Tables', {
             responsive: true,
             layout: {
                 topStart: {
                     buttons: [{
                     extend: 'print',
                     exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                        columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
                     
                     }
                 },
@@ -223,7 +232,6 @@ if($_SESSION['role']==""){
             }
         });
     </script>
-
 
     
 </body>

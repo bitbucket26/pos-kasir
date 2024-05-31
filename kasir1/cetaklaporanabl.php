@@ -29,7 +29,7 @@ if($_SESSION['role']==""){
         $sql=mysqli_query($koneksi, "SELECT * FROM ablkasir1 WHERE nomor='$_GET[id]'");
         $d=mysqli_fetch_array($sql);
     ?>
-
+<section class="sheet padding-10mm" style="font-size:14px;">
     <div class="container-xxl">
         <!-- KOP -->
         <div class="d-flex justify-content-center w-100%" >
@@ -220,6 +220,6 @@ if($_SESSION['role']==""){
             window.print()
             header("location:homeabl.php");
         </script>
-
+</section>
 </body>
 </html>

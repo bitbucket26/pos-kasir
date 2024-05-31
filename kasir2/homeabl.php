@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Pasien</title>
+    <title>Data Ambulan</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -100,7 +100,7 @@ if($_SESSION['role']==""){
                         if(isset($_GET['filter'])) {
                                 $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
                                 $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
-                                echo " Berikut Adalah Data Pasien Dari Tanggal ".$daritgl. " S/d Tanggal " .$sampaitgl ;
+                                echo " Berikut Adalah Data Dari Tanggal ".$daritgl. " S/d Tanggal " .$sampaitgl ;
                         }
                     ?>
                 </div>
@@ -164,7 +164,7 @@ if($_SESSION['role']==""){
                                             <!-- Modal content -->
                                             <div class="modal-content">
                                             <div class="modal-header">
-                                            <h4 class="modal-title">Ubah Data Pasien</h4>
+                                            <h4 class="modal-title">Ubah Data</h4>
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body">

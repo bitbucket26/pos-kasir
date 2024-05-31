@@ -9,28 +9,62 @@
                 <div class="sidebar-brand-text mx-2">KASIR RANAP <sup></sup></div>
             </a>
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="homeadmin.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>DATA PASIEN</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="homeabl.php">
-                    <i class="fas fa-ambulance"></i>
-                    <span>DATA AMBULANCE</span></a>
-            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="laporan.php">
-                    <i class="fas fa-fw fa fa-book"></i>
-                    <span>LAPORAN KASIR</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-heartbeat"></i>
+                    <span>PASIEN RANAP</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <!-- <h6 class="collapse-header">Custom Components:</h6> -->
+                        <a class="collapse-item" href="homeadmin.php">Data Pasien</a>
+                        <a class="collapse-item" href="laporan.php">Laporan</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                    aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-smile"></i>
+                    <span>AMBULAN</span>
+                </a>
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" href="homeabl.php">Data Ambulan</a>
+                        <a class="collapse-item" href="laporanabl.php">Laporan Ambulan</a>
+                    </div>
+                </div>
             </li>
             
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="laporanabl.php">
-                    <i class="fas fa-fw fa fa-book"></i>
-                    <span>LAPORAN AMBULANCE</span></a>
+             <!-- Nav Item - Pages Collapse Menu -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>DIKLAT</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="homemagang.php">Data Magang</a>
+                        <a class="collapse-item" href="laporanmagang.php">Laporan Magang</a>
+
+                        <!-- Divider -->
+                        <hr class="sidebar-divider d-none d-md-block">
+                        
+                        <a class="collapse-item" href="homepraktek.php">Data Praktek</a>
+                        <a class="collapse-item" href="laporanpraktek.php">Laporan Praktek</a>
+                        <!-- Divider -->
+                        <hr class="sidebar-divider d-none d-md-block">
+                    </div>
+                </div>
             </li>
+           
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Pasien</title>
+    <title>Data Pasien Rawat Inap</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -111,7 +111,7 @@ if($_SESSION['role']==""){
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Pasien</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Data Pasien Rawat Inap</h6>
                         </div>
                         <div class="card-body">
                             <!-- <div class="table-responsive"> -->

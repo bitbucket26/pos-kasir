@@ -1,4 +1,4 @@
-<?php 
+<section?php 
 session_start();
 
 // cek apakah yang mengakses halaman ini sudah login
@@ -16,7 +16,7 @@ if($_SESSION['role']==""){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Nota</title>
 </head>
-<body class="notaprint" style="background-color: white;">  
+<bs class="notaprint" style="background-color: white;">  
 
     <?php
         
@@ -31,7 +31,7 @@ if($_SESSION['role']==""){
         $data=mysqli_query($koneksi, "SELECT * FROM kasir2 WHERE nomornota IN (SELECT MAX(nomornota) FROM kasir2)");
         while($d=mysqli_fetch_array($data)){
     ?>
-
+<section class="sheet padding-10mm" style="font-size:14px;">
 <div class="container-xxl">
         <!-- KOP -->
         <div class="d-flex justify-content-center w-100%" >
@@ -270,6 +270,6 @@ if($_SESSION['role']==""){
             window.print()
             header("location:homekasir2.php");
         </script>
-    
+</section>
 </body>
 </html>

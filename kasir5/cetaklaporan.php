@@ -29,8 +29,8 @@ if($_SESSION['role']==""){
         $sql=mysqli_query($koneksi, "SELECT * FROM kasir5 WHERE nomornota='$_GET[id]'");
         $d=mysqli_fetch_array($sql);
     ?>
-
-    <div class="container-xxl">
+<section class="sheet padding-10mm" style="font-size:14px;">
+        <div class="container-xxl">
         <!-- KOP -->
         <div class="d-flex justify-content-center w-100%" >
             <img src="../img/kop.png">
@@ -269,6 +269,6 @@ if($_SESSION['role']==""){
             window.print()
             header("location:homekasir5.php");
         </script>
-
+</section>
 </body>
 </html>

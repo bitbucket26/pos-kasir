@@ -13,6 +13,8 @@ if($_SESSION['role']==""){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css"> -->
+    <!-- <style>@page portrait { size: 210mm 140mm }</style> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Nota</title>
 </head>
@@ -29,10 +31,10 @@ if($_SESSION['role']==""){
         $sql=mysqli_query($koneksi, "SELECT * FROM kasir1 WHERE nomornota='$_GET[id]'");
         $d=mysqli_fetch_array($sql);
     ?>
-
+<section class="sheet padding-10mm" style="font-size:14px;">
     <div class="container-xxl">
         <!-- KOP -->
-        <div class="d-flex justify-content-center w-100%" >
+        <div class="d-flex justify-content-center w-100%" style="">
             <img src="../img/kop.png">
         </div>
             <br>
@@ -269,6 +271,6 @@ if($_SESSION['role']==""){
             window.print()
             header("location:homekasir1.php");
         </script>
-
+</section>
 </body>
 </html>

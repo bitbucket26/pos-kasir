@@ -11386,3 +11386,12 @@ body.sidebar-toggled footer.sticky-footer {
 	display: inline-block;
 	margin: 100px auto;
 }
+
+/* @media print {
+  @page {
+    size: 9.5in 11in;
+  }
+} */
+
+/* body.receipt .sheet { width: 190mm; height: 120mm }
+@media print { body.receipt { width: 190mm } } */
