@@ -240,7 +240,7 @@ if($_SESSION['role']==""){
                                                 <div class="col">
                                                     
                                                     <label class="labeldata">PELATIHAN PESERTA DIDIK</label>
-                                                                <select name="pendidikan" class="form-control" id="pendidikan" onchange="nilaii(this.value)" required>
+                                                                <select name="tambahan" class="form-control" id="tambahan" onchange="nilaii(this.value)" required>
                                                                     <option value="O">-pilih-</option>
                                                                     <option value="YA">YA</option>
                                                                     <option value="TIDAK">TIDAK</option>
@@ -256,6 +256,12 @@ if($_SESSION['role']==""){
                                                             // minimal 2 = om
                                                             if (e == "YA"){
                                                             $("#nilai1").val(300000),$("#nilai2").val(150000),$("#nilai3").val(150000);
+                                                            } else {
+                                                            if (e == "TIDAK"){
+                                                            $("#nilai1").val(0),$("#nilai2").val(0),$("#nilai3").val(0);
+                                                            } else {
+                                                            if (e == "O"){
+                                                            $("#nilai1").val(0),$("#nilai2").val(0),$("#nilai3").val(0);
                                                             } else {
                                                             $("#nilai1").val(0),$("#nilai2").val(0),$("#nilai3").val(0);
                                                             }
