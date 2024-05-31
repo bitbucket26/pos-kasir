@@ -110,7 +110,7 @@ if($_SESSION['role']==""){
                                 <h5 class="m-0 font-weight-bold text-primary">Data Ambulan</h5>
                             </div>
                             <div class="card-body">
-                                <table class="DataTable table-striped" id="Tables" style="width: 100%;">
+                                <table class="DataTable table-striped" id="Tables" style="width: 100%; font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th class="text-center">Nomor</th>

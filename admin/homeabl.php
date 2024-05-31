@@ -116,7 +116,7 @@ if($_SESSION['role']==""){
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="DataTable table-sm table-striped table-bordered text-capitalize" id="DataTableabl" width="100%" cellspacing="0" style="text-align: center;">
+                                <table class="DataTable table-sm table-striped table-bordered text-capitalize" id="DataTableabl" width="100%" cellspacing="0" style="text-align: center; font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th class="text-center">Nomor</th>
