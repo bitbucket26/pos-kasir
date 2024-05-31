@@ -84,7 +84,7 @@ if($_SESSION['role']==""){
         echo "Koneksi database gagal : " . mysqli_connect_error();
     }
 
-    $sql = mysqli_query($koneksi, "select max(nomor) as maxID from praktek");
+    $sql = mysqli_query($koneksi, "select max(nomor) as maxID from adminpraktek");
     $data = mysqli_fetch_array($sql) or die( mysqli_error($data));
     $kode = $data['maxID'];
     $kode++;

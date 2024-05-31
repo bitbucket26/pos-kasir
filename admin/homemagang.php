@@ -142,7 +142,7 @@ if($_SESSION['role']==""){
                                     <tr>
                                             <td class="text-center"><?php echo $d['nomor']; ?></td>
                                             <td class="text-center"><?php echo $d['instansi']; ?></td>
-                                            <td class="text-center"><?php echo $d['pendidikan']; ?>
+                                            <td class="text-center"><?php echo $d['pendidikan']; ?></td>
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalmulai'])); ?></td>
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalselesai'])); ?></td>
                                             <td class="text-center"><?php echo $d['jumlahbulan']; ?></td>
