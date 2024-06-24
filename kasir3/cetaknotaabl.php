@@ -143,7 +143,7 @@ if($_SESSION['role']==""){
                 Jasa Perawat Pendamping
                 </div>
                 <div class="col-3 text-start border border-dark" id="na" name="rc">
-                <?=$d['nilai']?>
+                <?=$d['perawat']?>
                 </div>
                 <div class="col-3 text-end border border-dark" >
                 <?=$d['nilai']?>
