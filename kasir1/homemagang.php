@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Pasien Rawat Inap</title>
+    <title>Data Magang</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -74,7 +74,8 @@ if($_SESSION['role']==""){
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <div class="col-xl-10 mb-4 float-none">
+                <div class="row" style="padding: 5px 10px;">
+                <div class="col-xl-8 mb-4 float-none" style="padding: 20px;">
                         <div class="card border-left-info shadow h-100 py-2 border-bottom-info align-items-left">
                             <form action="" method="GET" >
                                 <h4 style="margin-left: 20px; color:blue;">Filter Berdasarkan Tanggal</h4>
@@ -86,7 +87,7 @@ if($_SESSION['role']==""){
                                             <label for="" >s/d</label>
                                             <input type="date" class="rounded" name="sampaitgl" style="border: solid 1px;" required>
                                             <input class="btn btn-primary btn-md" type="submit" name="filter" value="Tampilkan" >
-                                            <a href="cetaknota.php" target="_blank">
+                                            <a href="cetaklapterakhirmagang.php" target="_blank">
                                             <button type="button" name="btnyes" class="btn btn-danger btn-md" value="Cetak1">Cetak Data Terakhir Input</button>
                                             </a>
                                         </div>
@@ -94,39 +95,35 @@ if($_SESSION['role']==""){
                                 </div>
                             </form>
                         </div>
-                        
-                    
-                    
                     <?php 
                         include '../koneksi.php';
                         if(isset($_GET['filter'])) {
                                 $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
                                 $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
-                                echo " Berikut Adalah Data Pasien Dari Tanggal ".$daritgl. " S/d Tanggal " .$sampaitgl ;
+                                echo " Berikut Adalah Data Dari Tanggal ".$daritgl. " S/d Tanggal " .$sampaitgl ;
                         }
                     ?>
-                    </div>
-                    
-                
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Pasien Rawat Inap</h6>
-                        </div>
-                        <div class="card-body">
-                            <!-- <div class="table-responsive"> -->
-                                <table class="DataTable table-sm table-striped table-bordered text-capitalize" id="DataTable" width="100%" cellspacing="0" style="text-align: center; font-size: 12px;">
+                </div>
+            </div>
+            <div class="card shadow mb-4" style="margin-left: 20px; margin-right: 20px;">
+                            <div class="card-header py-3">
+                                <h5 class="m-0 font-weight-bold text-primary">Data Magang</h5>
+                            </div>
+                            <div class="card-body">
+                                <table class="DataTable table-striped" id="Tabless" style="width: 100%; font-size: 12px;">
                                     <thead>
                                         <tr>
-                                            <th class="text-center">No.Nota</th>
-                                            <th style="text-align: center;">No.SEP</th>
-                                            <th style="text-align: center;">No.Medrec</th>
-                                            <th style="text-align: center;">Nama Pasien</th>
-                                            <th style="text-align: center; ">Alamat</th>
-                                            <th style="text-align: center;">Tgl.Bayar</th>
-                                            <th style="text-align: center;">Total</th>
-                                            <th style="text-align: center;">Kasir</th>
-                                            <th style="text-align: center;">Aksi</th>
+                                            <th class="text-center">No.</th>
+                                            <th class="text-center">Instansi</th>
+                                            <th class="text-center">Pendidikan</th>
+                                            <th class="text-center">Tgl.Mulai</th>
+                                            <th class="text-center">Tgl.Selesai</th>
+                                            <th class="text-center">Jml.Bulan</th>
+                                            <th class="text-center">Jml.Peserta</th>
+                                            <th class="text-center">R.Magang</th>
+                                            <th class="text-center">Tgl.Transaksi</th>
+                                            <th class="text-center">Total</th>
+                                            <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
 
@@ -136,99 +133,120 @@ if($_SESSION['role']==""){
                                         if(isset($_GET['filter'])) {
                                             $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
                                             $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
-                                            $data = mysqli_query($koneksi,"SELECT * from kasir1 where tanggalbayar BETWEEN '$daritgl' AND '$sampaitgl'");
+                                            $data = mysqli_query($koneksi,"SELECT * from adminmagang where tanggapembayaran BETWEEN '$daritgl' AND '$sampaitgl'");
                                         }else{
-                                            $data = mysqli_query($koneksi,"SELECT * from kasir1");
+                                            $data = mysqli_query($koneksi,"SELECT * from adminmagang");
                                         }
                                             while($d = mysqli_fetch_array($data)){
                                     ?>
                                     <!-- <tbody> -->
                                     <tr>
-                                            <td class="text-center"><?php echo $d['nomornota']; ?></td>
-                                            <td class="text-center"><?php echo $d['nomorsep']; ?></td>
-                                            <td class="text-center"><?php echo $d['nomormedrec']; ?></td>
-                                            <td class="text-center"><?php echo $d['namapasien']; ?></td>
-                                            <td class="text-center"><?php echo $d['alamat']; ?></td>
-                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalbayar'])); ?></td>
+                                            <td class="text-center"><?php echo $d['nomor']; ?></td>
+                                            <td class="text-center"><?php echo $d['instansi']; ?></td>
+                                            <td class="text-center"><?php echo $d['pendidikan']; ?></td>
+                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalmulai'])); ?></td>
+                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalselesai'])); ?></td>
+                                            <td class="text-center"><?php echo $d['jumlahbulan']; ?></td>
+                                            <td class="text-center"><?php echo $d['jumlahpeserta']; ?></td>
+                                            <td class="text-center"><?php echo $d['ruangmagang']; ?></td>
+                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?></td>
                                             <td class="text-center"><?php echo number_format($d['total']); ?></td>
-                                            <td class="text-center"><?php echo $d['yangmenerima']; ?></td>
-                                            
+
                                             <td>
-                                                <a href="update.php?id=<?php echo $d['nomornota']; ?>" type="button" class=" fa fa-edit btn btn-primary btn-md" data-toggle="modal" data-target="#myModal<?php echo $d['nomornota']; ?>"></a>
-                                                <!-- <a href="sortir.php?id=<?php echo $d['nomornota']; ?>" target="_blank" class="btn btn-info btn-md"> -->
+                                                <!-- <a href="update.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
+                                                <i class="fa fa-edit fa-lg"></i>
+                                                </a> -->
+                                                <a href="cetaklaporanmagang.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-md">
                                                 <i class="fa fa-print fa-lg" aria-hidden="true" style="color: white;"></i>
                                                 </a>
                                             </td>
                                     </tr>
+
                                      <!-- Modal Edit Mahasiswa-->
-                                    <div class="modal fade" id="myModal<?php echo $d['nomornota']; ?>" role="dialog">
+                                    <div class="modal fade" id="myModal<?php echo $d['nomor']; ?>" role="dialog">
                                             <div class="modal-dialog">
 
-                                            <!-- Modal content-->
+                                            <!-- Modal content -->
                                             <div class="modal-content">
                                             <div class="modal-header">
-                                            <h4 class="modal-title">Ubah Data Pasien</h4>
+                                            <h4 class="modal-title">Ubah Data Magang</h4>
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body">
-                                            <form action="update.php" method="GET">
 
+                                    <form action="update.php" method="GET">
                                                 <?php
                                                 include '../koneksi.php';
-                                                $id = $d['nomornota']; 
-                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM kasir1 WHERE nomornota='$id'");
+                                                $id = $d['nomor']; 
+                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM adminmagang WHERE nomor='$id'");
                                                 while ($row = mysqli_fetch_array($query_edit)) {
                                                 ?>
 
-                                            <input type="hidden" name="nomornota" value="<?php echo $row['nomornota']; ?>">
+                                            <input type="hidden" name="nomor" value="<?php echo $row['nomor']; ?>">
 
                                             <div class="form-group">
-                                            <label>Nomor SEP</label>
-                                            <input type="text" name="nomorsep" class="form-control" value="<?php echo $row['nomorsep']; ?>">      
-                                            </div>
-
-                                            <div class="form-group">
-                                            <label>Nama Pasien</label>
-                                            <input type="text" name="namapasien" class="form-control" value="<?php echo $row['namapasien']; ?>">      
-                                            </div>
-
-                                            <div class="form-group">
-                                            <label>Alamat</label>
-                                            <input type="text" name="alamat" class="form-control" value="<?php echo $row['alamat']; ?>">      
-                                            </div>
-
-                                            <div class="form-group">
-                                            <label>Tanggal Bayar</label>
-                                            <input type="date" name="tanggalbayar" class="form-control" value="<?php echo $row['tanggalbayar']; ?>" readonly>      
+                                            <label>Instansi</label>
+                                            <input type="text" name="instansi" class="form-control" value="<?php echo $row['instansi']; ?>">      
                                             </div> 
 
-                                            <!-- <div class="form-group">
-                                            <label>Total Awal</label>
-                                            <input type="number" name="totalawal" class="form-control" id="totalawal" value="<?php echo $row['total']; ?>" readonly>      
+                                            <div class="form-group">
+                                            <label>Pendidikan</label>
+                                            <input type="text" name="pendidikan" class="form-control" value="<?php echo $row['pendidikan']; ?>">      
                                             </div>
 
                                             <div class="form-group">
-                                            <label>Kurangi Total</label>
-                                            <input type="number" name="kurangi" class="form-control" id="kurangi" >      
+                                            <label>Nilai</label>
+                                            <input type="text" name="nilai" class="form-control" value="<?php echo $row['nilai']; ?>">      
                                             </div>
+
+                                            <div class="form-group">
+                                            <label>Tanggal Mulai</label>
+                                            <input type="date" name="tanggalmulai" class="form-control" value="<?php echo $row['tanggalmulai']; ?>">      
+                                            </div> 
+
+                                            <div class="form-group">
+                                            <label>Tanggal Selesai</label>
+                                            <input type="date" name="tanggalselesai" class="form-control" value="<?php echo $row['tanggalselesai']; ?>">      
+                                            </div> 
+
+                                            <div class="form-group">
+                                            <label>Jumlah Bulan</label>
+                                            <input type="number" name="jumlahbulan" class="form-control" value="<?php echo $row['jumlahbulan']; ?>">      
+                                            </div> 
+
+                                            <div class="form-group">
+                                            <label>Jumlah Peserta</label>
+                                            <input type="number" name="jumlahpeserta" class="form-control" value="<?php echo $row['jumlahpeserta']; ?>">      
+                                            </div>
+
+                                            <div class="form-group">
+                                            <label>Ruang Magang</label>
+                                            <input type="text" name="ruangmagang" class="form-control" value="<?php echo $row['ruangmagang']; ?>">      
+                                            </div> 
+
+                                            <div class="form-group">
+                                            <label>Tanggal Transaksi</label>
+                                            <input type="date" name="tanggalpembayaran" class="form-control" value="<?php echo $row['tanggalpembayaran']; ?>">      
+                                            </div> 
+
+                                            <div class="form-group">
+                                            <label>Keterangan</label>
+                                            <input type="text" name="keterangan" class="form-control" value="<?php echo $row['keterangan']; ?>" style="height: 100px">    
+                                            </div> 
 
                                             <div class="form-group">
                                             <label>Total</label>
-                                            <input type="number" name="total" class="form-control" id="totalakhir" readonly>   
-                                            </div>
-                                            <button type="button" class="btn btn-primary btn-xl" onclick="kurangitotal()" >Hitung</button> -->
+                                            <input type="number" name="total" class="form-control" value="<?php echo $row['total']; ?>">      
+                                            </div> 
 
-                                            <!-- <input type="text" name="tarifkelas1" id="tarif1" value="<?php echo $row['tarifkelas1']; ?>" readonly hidden>
-                                            <input type="text" name="tarifkelas2" id="tarif2" value="<?php echo $row['tarifkelas2']; ?>" readonly hidden>
-                                            <input type="text" name="realcoast" id="realcost" value="<?php echo $row['realcoast']; ?>" readonly hidden> -->
-
-                                            <!-- <input type="text" name="nota1" id="not1jr2vip" class="form-control" onclick="kurangitotal()" readonly hidden>
-                                                    
-                                            <input type="text" name="nota2" id="not2jr2vip" class="form-control" onclick="kurangitotal()" readonly hidden>         -->
+                                            <div class="form-group">
+                                            <label>Terbilang</label>
+                                            <input type="text" name="bilang" class="form-control" value="<?php echo $row['bilang']; ?>" style="height: 100px">      
+                                            </div> 
 
                                             <div class="modal-footer">  
                                             <button type="submit" name="update" value="simpan" class="btn btn-info">Update</button>
-                                            <a href="hapus.php?id=<?php echo $d['nomornota']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
+                                            <a href="hapus.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                                             </div>
                                             <?php 
@@ -247,27 +265,24 @@ if($_SESSION['role']==""){
                                     ?>
                                     <!-- </tbody> -->
                                 </table>
-                            <!-- </div> -->
-                        </div>
-                    </div>
-
-                </div>
-                <!-- /.container-fluid -->
-
+                            </div>
             </div>
-            <!-- End of Main Content -->
+                            
+                        
+            </div>
+            
+        </div>
+       
 
             <!-- Footer -->
-            <?php 
-                include "footer.php";
-            ?>
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; RSUD Indramayu 2024</span>
+                    </div>
+                </div>
+            </footer>
             <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
 
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
@@ -276,9 +291,9 @@ if($_SESSION['role']==""){
 
     <!-- Logout Modal-->
     <?php
-    include "logoutmodal.php"; 
+    include "logoutmodal.php" 
     ?>
-                                        
+
     <!-- Bootstrap core JavaScript -->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -290,8 +305,13 @@ if($_SESSION['role']==""){
     <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdn.datatables.net/v/dt/dt-2.0.2/datatables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/dataTables.buttons.js"></script> 
@@ -302,40 +322,31 @@ if($_SESSION['role']==""){
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.html5.min.js"></script> 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.print.min.js"></script> 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.colVis.min.js"></script> 
-
+    
     <script>
-        new DataTable('#DataTable', {
+        new DataTable('#Tabless', {
             responsive: true,
             layout: {
                 topStart: {
-                    buttons: [{
-                    extend: 'print',
-                    exportOptions: {
-                        columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    buttons: [
+                    {
+                        extend: 'print',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
+                    }
+                    },
+                    {
+                        extend: 'excel',
+                        exportOptions: {
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7]
                     
                     }
-                },
+                    },
                 ]
                 }
             }
         });
     </script>
-
-    <script>
-        function kurangitotal() {
-        var a = document.getElementById("totalawal").value;
-        var b = document.getElementById("kurangi").value;
-        var c = parseInt (a) - parseInt (b);
-        // var d = document.getElementById("tarif1").value * 75/100;
-        // var e = document.getElementById("tarif2").value * 75/100;
-
-        
-        document.getElementById("totalakhir").value = (c);
-        // document.getElementById("not1jr2vip").value = (e);
-        // document.getElementById("not2jr2vip").value = (d);
-        }
-    </script>
-
 
     
 </body>

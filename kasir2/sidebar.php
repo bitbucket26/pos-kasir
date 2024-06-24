@@ -76,7 +76,6 @@
                         <a class="collapse-item" href="kywkls1vip.php">KELAS 1 NAIK VIP</a>
                         <a class="collapse-item" href="kywkls2vip.php">KELAS 2 NAIK VIP</a>
                         <a class="collapse-item" href="kywkls21.php">KELAS 2 NAIK KELAS 1</a>
-                        <!-- <a class="collapse-item" href="404.php">KELAS 2 NAIK KELAS 1</a> -->
                         <div class="collapse-divider"></div>
                     </div>
                 </div>
@@ -93,25 +92,43 @@
                 Transaksi Ambulan
             </div>
             <hr class="sidebar-divider d-none d-md-block">
-
-            <li class="nav-item active">
-                <a class="nav-link collapsed" href="homeabl.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>DASHBOARD AMBULAN</span></a>
-                </a>
-            </li>
-            <hr class="sidebar-divider d-none d-md-block">
-
             <li class="nav-item">
-                <a class="nav-link collapsed" href="ablkasir2.php">
-                    <i class="fas fa-ambulance"></i>
-                    <span>INPUT AMBULAN</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>AMBULAN</span>
                 </a>
+                <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="homeabl.php">DASHBOARD AMBULAN</a>
+                        <a class="collapse-item" href="ablkasir2.php">INPUT AMBULAN</a>
+                        <a class="collapse-item" href="laporanabl.php">LAPORAN AMBULAN</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="laporanabl.php">
-                    <i class="fa fa-ambulance"></i>
-                    <span>LAPORAN AMBULAN</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages3"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>DIKLAT</span>
+                </a>
+                <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="homemagang.php">DASHBOARD MAGANG</a>
+                        <!-- <a class="collapse-item" href="ablkasir1.php">INPUT MAGANG</a> -->
+                        <a class="collapse-item" href="laporanmagang.php">LAPORAN MAGANG</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </div>
+                <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="homepraktek.php">DASHBOARD PRAKTEK</a>
+                        <!-- <a class="collapse-item" href="ablkasir1.php">INPUT PRAKTEK</a> -->
+                        <a class="collapse-item" href="laporanpraktek.php">LAPORAN PRAKTEK</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </div>
             </li>
 
                         <!-- Divider -->
@@ -141,4 +158,4 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-        </ul>
+</ul>

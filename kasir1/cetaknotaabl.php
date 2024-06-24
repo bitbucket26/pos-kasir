@@ -143,10 +143,10 @@ if($_SESSION['role']==""){
                 Jasa Perawat Pendamping
                 </div>
                 <div class="col-3 text-start border border-dark" id="na" name="rc">
-                <!-- <?=$d['nilai']?> -->0
+                <?=$d['nilai']?>
                 </div>
                 <div class="col-3 text-end border border-dark" >
-                <!-- <?=$d['nilai']?> -->0
+                <?=$d['nilai']?>
                 </div>
             </div>
             <!-- baris 7  -->
@@ -155,7 +155,7 @@ if($_SESSION['role']==""){
                 Jumlah</b>
                 </div>
                 <div class="col-3 text-end border border-dark" id="totale"><b>
-                <?php echo number_format ($d['total'])?></b>
+                <?php echo number_format ($d['nilai']+$d['total'])?></b>
                 </div>
             </div>
             <br> 

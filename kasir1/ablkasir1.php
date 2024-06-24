@@ -155,15 +155,8 @@ if($_SESSION['role']==""){
                                                             
                                                         }
                                                         </script>
-                                                    <label class="labeldata" hidden>Perawat</label>
-                                                                <select name="perawat" class="form-control" id="perawat" required hidden>
-                                                                    <option value="-">-</option>
-                                                                    <option value="1">1</option>
-                                                                    <option value="2">2</option>
-                                                                    <option value="3">3</option>
-                                                                    <option value="4">4</option>
-                                                                    <option value="5">5</option>
-                                                                </select>
+                                                    <label class="labeldata">Nama Perawat</label>
+                                                    <input type="text" class="form-control" name="perawat" id="perawat">
                                                     <label class="labeldata">Ruangan</label>
                                                     <select name="ruangan" class="form-control" id="ruangan" required>
                                                         <option value="x"></option>
