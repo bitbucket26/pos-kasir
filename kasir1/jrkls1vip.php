@@ -156,12 +156,14 @@ if($_SESSION['role']==""){
                                                        echo '<input type="date" name="tanggalbayar" class="form-control" id="tanggalbayar" value="' .$dt->format('Y-m-d'). '" readonly>'
                                                     ?>
                                                         
-                                                        <!-- <script>
-                                                        document.getElementById("tanggalbayar").valueAsDate = new Date();
-                                                        </script> -->
+                                                        <!-- <input type="text" id="temp_price_1" class="form-control textright" onkeypress="input_rupiah('temp_price_1');$('#price_1').val(price_to_number(this.value));amount_counter(1);" onchange="amount_counter(1);$('#price_1').val(price_to_number(this.value));" onkeyup="$('#price_1').val(price_to_number(this.value));amount_counter(1);"  min="0" value="{{number_format(0,2,'.','')}}">
+                                                        <input type="hidden" name="price[]" id="price_1" >
+                                                        <small><strong hidden>Price (IDR)</strong></small>
+                                                        <input type="text" class="form-control textright" value="{{number_format(0,2,'.','')}}" name="price_idr[]" id="price_idr_1" readonly hidden> -->
+                                                                                            
                                                     <label class="labeldata" >Real Coast BPJS</label>
 
-                                                        <input type="number" name="realcoastbpjs" class="form-control" id="rcbpjs" onchange="jumlahjr1vip()" required>
+                                                        <input type="number" name="realcoastbpjs" class="form-control" id="rcbpjs" onchange="jumlahjr1vip()" required>                                                   
 
                                                     <label class="labeldata" >Ditanggung JR</label>
 
@@ -191,7 +193,7 @@ if($_SESSION['role']==""){
                                                         
                                                         <input type="text" name="iduser" id="iduser" class="form-control" value="2" readonly hidden>
                                                         
-                                                        <input type="text" name="kategori" id="kategori" class="form-control" value="jr1vip" hidden>
+                                                        <!-- <input type="text" name="kategori" id="kategori" class="form-control" value="jr1vip" hidden> -->
                                                         <br>       
                                             </div>
                                            

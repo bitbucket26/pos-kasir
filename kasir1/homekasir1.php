@@ -155,7 +155,7 @@ if($_SESSION['role']==""){
                                             
                                             <td>
                                                 <a href="update.php?id=<?php echo $d['nomornota']; ?>" type="button" class=" fa fa-edit btn btn-primary btn-md" data-toggle="modal" data-target="#myModal<?php echo $d['nomornota']; ?>"></a>
-                                                <!-- <a href="sortir.php?id=<?php echo $d['nomornota']; ?>" target="_blank" class="btn btn-info btn-md"> -->
+                                                <a href="cetaklaporan.php?id=<?php echo $d['nomornota']; ?>" target="_blank" class="btn btn-info btn-md">
                                                 <i class="fa fa-print fa-lg" aria-hidden="true" style="color: white;"></i>
                                                 </a>
                                             </td>

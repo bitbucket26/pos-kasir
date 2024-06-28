@@ -6,7 +6,6 @@ session_start();
 if($_SESSION['role']==""){
     header("location:index.php?pesan=gagal");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -151,28 +150,23 @@ if($_SESSION['role']==""){
                                                     <?php $dt = new DateTime();
                                                        echo '<input type="date" name="tanggalbayar" class="form-control" id="tanggalbayar" value="' .$dt->format('Y-m-d'). '" readonly>'
                                                     ?>
-                                                    <label class="labeldata" >Real Coast</label>
 
+                                                    <label class="labeldata" >Real Coast</label>
                                                         <input type="number" name="realcoast" class="form-control" id="2viprealcoast" onchange="jumlah2vip()" required>
 
                                                     <label class="labeldata" >Tarif INA CBG Kelas 1</label>
-
                                                         <input type="number" name="tarifkelas1" class="form-control" id="2vipkls1" onchange="jumlah2vip()" required>
 
                                                     <label class="labeldata" style="color: red;">Tarif INA CBG Kelas 2 (Enter)</label>
-
                                                         <input type="number" style="border:2px solid Tomato;" name="tarifkelas2" class="form-control" id="2vipkls2" onkeypress="jumlah2vip()" required>
 
                                                     <label class="labeldata" >TOTAL</label>
-
-                                                        <input type="text" name="total" class="form-control" id="2viptotal" >
+                                                        <input type="number" name="total" class="form-control" id="2viptotal" >
                                                     
                                                     <label class="labeldata" >Terbilang</label>           
-
                                                         <textarea type="text" name="bilang" class="form-control" id="2vipterbilang" required></textarea>
                                                     
                                                         <input type="text" name="nota1" id="nota12vip" class="form-control" onkeypress="jumlah2vip()" readonly hidden>
-                                                    
                                                         <input type="text" name="nota2" id="nota22vip" class="form-control" onkeypress="jumlah2vip()" readonly hidden>
                                                         <input type="text" name="iduser" id="iduser" class="form-control" value="2" hidden>
                                                         <input type="number" name="realcoastbpjs" class="form-control" value="0" hidden>
@@ -280,7 +274,7 @@ if($_SESSION['role']==""){
         }
         });
     </script>
-    <script>
+    <!-- <script>
         Math.fmod = function (a,b) { return Number((a - (Math.floor(a / b) * b)).toPrecision(8)); };
         function terbilang(nilai) {
             const huruf = ["", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas"];
@@ -317,7 +311,7 @@ if($_SESSION['role']==""){
               document.getElementById("2vipterbilang").value = hasil1;
         }
         });
-    </script>
+    </script> -->
 
 </body>
 
