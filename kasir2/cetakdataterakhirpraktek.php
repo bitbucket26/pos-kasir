@@ -233,7 +233,7 @@ if($_SESSION['role']==""){
     </div>
         <script>
             window.print()
-            header("location:homeabl.php");
+            header("location:homeablpraktek.php");
         </script>
 
 </body>
