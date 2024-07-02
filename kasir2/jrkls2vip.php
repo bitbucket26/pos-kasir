@@ -176,7 +176,7 @@ if($_SESSION['role']==""){
 
                                                     <label class="labeldata" >TOTAL</label>
 
-                                                        <input type="text" name="total" class="form-control" id="jr2viptotal">
+                                                        <input type="text" name="total" class="form-control" id="jr2viptotal" >
                                                     
                                                     <label class="labeldata" >Terbilang</label>           
 
@@ -186,7 +186,7 @@ if($_SESSION['role']==""){
                                                     
                                                         <input type="text" name="nota2" id="nota2jr2vip" class="form-control" onkeypress="jumlahjr2vip()" readonly hidden>
                                                         <input type="text" name="iduser" id="iduser" class="form-control" value="2" hidden>
-
+                                                        <input type="text" name="kategori" id="kategori" class="form-control" value="jr2vip" hidden>
                                                         <br>
                                             </div>
                                             
@@ -287,7 +287,6 @@ if($_SESSION['role']==""){
         }
         });
     </script>
-
     <script>
         Math.fmod = function (a,b) { return Number((a - (Math.floor(a / b) * b)).toPrecision(8)); };
         function terbilang(nilai) {

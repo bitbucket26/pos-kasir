@@ -28,8 +28,9 @@ if($_SESSION['role']==""){
            echo "Koneksi database gagal : " . mysqli_connect_error();
        }
         
-        $sql=mysqli_query($koneksi, "SELECT * FROM kasir1 WHERE nomornota='$_GET[id]'");
+        $sql=mysqli_query($koneksi, "SELECT * FROM kasir1 WHERE nomornota='$_GET[idi]'");
         $d=mysqli_fetch_array($sql);
+        
     ?>
 <section class="sheet padding-10mm" style="font-size:14px;">
     <div class="container-xxl">
@@ -141,7 +142,7 @@ if($_SESSION['role']==""){
                 </div>
                 <div class="col-1"></div>
                 <div class="col-4 text-center">
-                Paling Besar 75%
+                <!-- Paling Besar 75% -->
                 </div>
             </div>
 
@@ -157,7 +158,7 @@ if($_SESSION['role']==""){
                 </div>
                 <!-- <div class="col-1"></div> -->
                 <div class="col-5 text-end">
-                <u>Tarif INA CBG Kelas 1 = Rp. <?php echo number_format ($d['nota2'])?>,-</u>
+                <!-- <u>Tarif INA CBG Kelas 1 = Rp. <?php echo number_format ($d['nota2'])?>,-</u> -->
                 </div>
             </div>
 
@@ -167,10 +168,10 @@ if($_SESSION['role']==""){
                 
                 </div>
                 <div class="col-3 text-end">
-                Terif INA CBG Kelas 2
+                <!-- Terif INA CBG Kelas 2 -->
                 </div>
                 <div class="col-3" name="" >
-                = Rp. <?php echo number_format ($d['tarifkelas2'])?>,-
+                <!-- = Rp. <?php echo number_format ($d['tarifkelas2'])?>,- -->
                 </div>
                 <div class="col-1"></div>
                 <div class="col-4 text-center"><u>
@@ -184,8 +185,8 @@ if($_SESSION['role']==""){
                 </div>
                 <div class="col-3 fw-bold">
                 </div>
-                
-                <div class="col-3"><u>&emsp;Rp. <?php echo number_format ($d['nota1'])?>,-</u>
+                <div class="col-3">
+                    <u>&emsp;Rp. <?php echo number_format ($d['nota1'])?>,-</u>
                 </div>
                 <div class="col-5 fw-bold fst-italic">
                 Terbilang : 
@@ -272,5 +273,6 @@ if($_SESSION['role']==""){
             header("location:homekasir1.php");
         </script>
 </section>
+
 </body>
 </html>

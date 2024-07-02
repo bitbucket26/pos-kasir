@@ -159,11 +159,11 @@ if($_SESSION['role']==""){
 
                                                     <label class="labeldata" style="color: red;">Tarif INA CBG Kelas 1 (Enter)</label>
 
-                                                        <input type="number" name="tarifkelas1" class="form-control" id="1vipkls1" onkeypress="jumlah1vip()" required>
+                                                        <input type="number" style="border:2px solid Tomato;" name="tarifkelas1" class="form-control" id="1vipkls1" onkeypress="jumlah1vip()" required>
 
                                                     <label class="labeldata" >TOTAL</label>
 
-                                                        <input type="text" style="border:2px solid Tomato;" name="total" class="form-control" id="1viptotal" >
+                                                        <input type="text" name="total" class="form-control" id="1viptotal" >
 
                                                     <label class="labeldata" >Terbilang</label>           
 
@@ -178,6 +178,7 @@ if($_SESSION['role']==""){
                                                     <input type="number" name="ditanggungjr" class="form-control" value="0" hidden>
                                                     <input type="number" name="tarifkelas2" class="form-control"  value="0" hidden>
                                                     <input type="text" name="iduser" class="form-control" value="2" hidden>
+                                                    <input type="text" name="kategori" id="kategori" class="form-control" value="bpjs1vip" hidden>
 
 
                                             </div>
@@ -283,7 +284,6 @@ if($_SESSION['role']==""){
         }
         });
     </script>
-
     <script>
         Math.fmod = function (a,b) { return Number((a - (Math.floor(a / b) * b)).toPrecision(8)); };
         function terbilang(nilai) {

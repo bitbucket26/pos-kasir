@@ -159,11 +159,11 @@ if($_SESSION['role']==""){
 
                                                     <label class="labeldata" style="color: red;">Tarif INA CBG Kelas 1 (Enter)</label>
 
-                                                        <input type="number"style="border:2px solid Tomato;"  name="tarifkelas1" class="form-control" id="tr1kry1vip" onkeypress="jumlahkyw1vip()" required>
+                                                        <input type="number" style="border:2px solid Tomato;" name="tarifkelas1" class="form-control" id="tr1kry1vip" onkeypress="jumlahkyw1vip()" required>
 
                                                     <label class="labeldata" >TOTAL</label>
 
-                                                        <input type="text"  name="total" class="form-control" id="kry1viptotal" >
+                                                        <input type="text" name="total" class="form-control" id="kry1viptotal" >
                                                     
                                                     <label class="labeldata" >Terbilang</label>           
 
@@ -176,6 +176,7 @@ if($_SESSION['role']==""){
                                                         <input type="number" name="realcoastbpjs" class="form-control" value="0" hidden>
                                                     <input type="number" name="ditanggungjr" class="form-control" value="0" hidden>
                                                     <input type="number" name="tarifkelas2" class="form-control"  value="0" hidden>
+                                                    <input type="text" name="kategori" id="kategori" class="form-control" value="kyw1vip" hidden>
 
                                                         <br>
                                             </div>
@@ -240,45 +241,6 @@ if($_SESSION['role']==""){
     <script src="../js/demo/chart-area-demo.js"></script>
     <script src="../js/demo/chart-pie-demo.js"></script>
 
-    <script>
-        Math.fmod = function (a,b) { return Number((a - (Math.floor(a / b) * b)).toPrecision(8)); };
-        function terbilang(nilai) {
-            const huruf = ["", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas"];
-            let temp = "";
-            if (nilai < 12) {
-                temp = " "+ huruf[nilai];
-            } else if (nilai <20) {
-                temp = terbilang(nilai - 10)+ " Belas";
-            } else if (nilai < 100) {
-                temp = terbilang(Math.floor(nilai/10))+" Puluh"+ terbilang(nilai % 10);
-            } else if (nilai < 200) {
-                temp = " Seratus" + terbilang(nilai - 100);
-            } else if (nilai < 1000) {
-                temp = terbilang(Math.floor(nilai/100)) + " Ratus" + terbilang(nilai % 100);
-            } else if (nilai < 2000) {
-                temp = " Seribu" + terbilang(nilai - 1000);
-            } else if (nilai < 1000000) {
-                temp = terbilang(Math.floor(nilai/1000)) + " Ribu" + terbilang(nilai % 1000);
-            } else if (nilai < 1000000000) {
-                temp = terbilang(Math.floor(nilai/1000000)) + " Juta" + terbilang(nilai % 1000000);
-            } else if (nilai < 1000000000000) {
-                temp = terbilang(Math.floor(nilai/1000000000)) + " Milyar" + terbilang(Math.fmod(nilai,1000000000));
-            } else if (nilai < 1000000000000000) {
-                temp = terbilang(Math.floor(nilai/1000000000000)) + " Trilyun" + terbilang(Math.fmod(nilai,1000000000000));
-            }     
-            return temp;
-        }
-
-        var input = document.getElementById("tr1kry1vip");
-        input.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
-           event.preventDefault();
-              const nilai = document.getElementById("kry1viptotal").value;
-              let hasil = terbilang(nilai) + "Rupiah";
-              document.getElementById("1vipterbilang").value = hasil;
-        }
-        });
-    </script>
     <script>
         Math.fmod = function (a,b) { return Number((a - (Math.floor(a / b) * b)).toPrecision(8)); };
         function terbilang(nilai) {

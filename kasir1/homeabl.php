@@ -149,11 +149,11 @@ if($_SESSION['role']==""){
                                             <td class="text-center"><?php echo $d['kasir']; ?></td>
                                             
                                             <td>
-                                                <a href="updateabl.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
-                                                <i class="fa fa-edit fa-lg"></i>
+                                                <a href="updateabl.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-sm" data-target="#myModal<?php echo $d['nomor']; ?>">
+                                                <i class="fa fa-edit fa-sm"></i>
                                                 </a>
-                                                <a href="cetaklaporanabl.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-md">
-                                                <i class="fa fa-print fa-lg" aria-hidden="true" style="color: white;"></i>
+                                                <a href="cetaklaporanabl.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-sm">
+                                                <i class="fa fa-print fa-sm" aria-hidden="true" style="color: white;"></i>
                                                 </a>
                                             </td>
                                     </tr>

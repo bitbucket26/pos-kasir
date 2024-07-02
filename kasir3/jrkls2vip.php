@@ -168,7 +168,7 @@ if($_SESSION['role']==""){
 
                                                     <label class="labeldata" >Tarif INA CBG Kelas 1</label>
 
-                                                        <input type="number"  name="tarifkelas1" class="form-control" id="jrkls12vip" onchange="jumlahjr2vip()" required>
+                                                        <input type="number" name="tarifkelas1" class="form-control" id="jrkls12vip" onchange="jumlahjr2vip()" required>
 
                                                     <label class="labeldata" style="color: red;">Tarif INA CBG Kelas 2 (Enter)</label>
 
@@ -186,7 +186,7 @@ if($_SESSION['role']==""){
                                                     
                                                         <input type="text" name="nota2" id="nota2jr2vip" class="form-control" onkeypress="jumlahjr2vip()" readonly hidden>
                                                         <input type="text" name="iduser" id="iduser" class="form-control" value="2" hidden>
-
+                                                        <input type="text" name="kategori" id="kategori" class="form-control" value="jr2vip" hidden>
                                                         <br>
                                             </div>
                                             

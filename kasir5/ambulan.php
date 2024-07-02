@@ -71,7 +71,7 @@ if($_SESSION['role']==""){
 
 
                     <!-- Input Data -->
-                <form action="simpanabl4.php" method="post">
+                <form action="simpanabl1.php" method="post">
                     <?php
                         include "../koneksi.php";
          
@@ -182,7 +182,7 @@ if($_SESSION['role']==""){
                                                         <option value="Malgova">Malgova</option>
                                                     </select>
                                                     <label class="labeldata">Yang Membayar</label>
-                                                    <input type="text" class="form-control" name="yangmembayar" id="yangmembayar">
+                                                    <input type="text" class="form-control" name="yangmembayar" id="yangmembayar">			
                                                     <label class="labeldata">Kasir</label>
                                                     <input type="text" class="form-control" name="kasir" id="kasir" value="<?php echo $_SESSION['username']; ?>" readonly>			
                                                 </div>

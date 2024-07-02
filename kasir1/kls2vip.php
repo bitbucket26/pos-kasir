@@ -152,16 +152,16 @@ if($_SESSION['role']==""){
                                                     ?>
 
                                                     <label class="labeldata" >Real Coast</label>
-                                                        <input type="number" name="realcoast" class="form-control" id="2viprealcoast" onchange="jumlah2vip()" required>
+                                                        <input type="number" name="realcoast" class="form-control" id="2viprealcoast" required>
 
                                                     <label class="labeldata" >Tarif INA CBG Kelas 1</label>
-                                                        <input type="number" name="tarifkelas1" class="form-control" id="2vipkls1" onchange="jumlah2vip()" required>
+                                                        <input type="number" name="tarifkelas1" class="form-control" id="2vipkls1" required>
 
                                                     <label class="labeldata" style="color: red;">Tarif INA CBG Kelas 2 (Enter)</label>
                                                         <input type="number" style="border:2px solid Tomato;" name="tarifkelas2" class="form-control" id="2vipkls2" onkeypress="jumlah2vip()" required>
 
                                                     <label class="labeldata" >TOTAL</label>
-                                                        <input type="number" name="total" class="form-control" id="2viptotal" >
+                                                        <input type="number" name="total" class="form-control" id="2viptotal">
                                                     
                                                     <label class="labeldata" >Terbilang</label>           
                                                         <textarea type="text" name="bilang" class="form-control" id="2vipterbilang" required></textarea>
@@ -171,6 +171,7 @@ if($_SESSION['role']==""){
                                                         <input type="text" name="iduser" id="iduser" class="form-control" value="2" hidden>
                                                         <input type="number" name="realcoastbpjs" class="form-control" value="0" hidden>
                                                     <input type="number" name="ditanggungjr" class="form-control" value="0" hidden>
+                                                    <input type="text" name="kategori" id="kategori" class="form-control" value="bpjs2vip" hidden>
                                                     
 
                                                         <br>

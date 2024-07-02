@@ -174,7 +174,7 @@ if (mysqli_connect_error()){
                             $total7[] = $row7['total'];
                         ?>
                         <div>
-                        <canvas id="myCharts" style="position: relative; height:100vh; width:80vw; padding: 10px 10px;"></canvas>
+                        <canvas id="myCharts" style="position: relative; height:110vh; width:80vw; padding: 10px 10px;"></canvas>
                         </div>
                         
                         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

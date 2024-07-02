@@ -176,6 +176,7 @@ if($_SESSION['role']==""){
                                                         <input type="number" name="realcoastbpjs" class="form-control" value="0" hidden>
                                                     <input type="number" name="ditanggungjr" class="form-control" value="0" hidden>
                                                     <input type="number" name="tarifkelas2" class="form-control"  value="0" hidden>
+                                                    <input type="text" name="kategori" id="kategori" class="form-control" value="kyw1vip" hidden>
 
                                                         <br>
                                             </div>
@@ -279,7 +280,6 @@ if($_SESSION['role']==""){
         }
         });
     </script>
-
     <script>
         Math.fmod = function (a,b) { return Number((a - (Math.floor(a / b) * b)).toPrecision(8)); };
         function terbilang(nilai) {

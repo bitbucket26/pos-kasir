@@ -31,10 +31,11 @@ if (mysqli_connect_error()){
   $nota1 = $_POST['nota1'];
   $nota2 = $_POST['nota2'];
   $bilang = $_POST['bilang'];
+  $kategori = $_POST['kategori'];
   
 // menginput data ke database
-  $sql = "INSERT INTO kasir4 VALUES('$iduser','$nomornota','$nomorsep','$nomormedrec','$namapasien','$alamat','$ruangperawatan','$hakrawatkelas','$mulaitanggal','$sampaitanggal','$dirawatkelas','$yangmembayar','$yangmenerima','$tanggalbayar','$realcoastbpjs','$ditanggungjr','$realcoast','$tarifkelas1','$tarifkelas2','$total','$nota1','$nota2','$bilang')";
-  $sql_admin = "INSERT INTO admin VALUES('$iduser','$nomornota','$nomorsep','$nomormedrec','$namapasien','$alamat','$ruangperawatan','$hakrawatkelas','$mulaitanggal','$sampaitanggal','$dirawatkelas','$yangmembayar','$yangmenerima','$tanggalbayar','$realcoastbpjs','$ditanggungjr','$realcoast','$tarifkelas1','$tarifkelas2','$total','$nota1','$nota2','$bilang')";
+  $sql = "INSERT INTO kasir4 VALUES('$iduser','$nomornota','$nomorsep','$nomormedrec','$namapasien','$alamat','$ruangperawatan','$hakrawatkelas','$mulaitanggal','$sampaitanggal','$dirawatkelas','$yangmembayar','$yangmenerima','$tanggalbayar','$realcoastbpjs','$ditanggungjr','$realcoast','$tarifkelas1','$tarifkelas2','$total','$nota1','$nota2','$bilang','$kategori')";
+  $sql_admin = "INSERT INTO admin VALUES('$iduser','$nomornota','$nomorsep','$nomormedrec','$namapasien','$alamat','$ruangperawatan','$hakrawatkelas','$mulaitanggal','$sampaitanggal','$dirawatkelas','$yangmembayar','$yangmenerima','$tanggalbayar','$realcoastbpjs','$ditanggungjr','$realcoast','$tarifkelas1','$tarifkelas2','$total','$nota1','$nota2','$bilang','$kategori')";
   mysqli_query($koneksi, $sql);
   mysqli_query($koneksi, $sql_admin);
   header ("location: homekasir4.php");

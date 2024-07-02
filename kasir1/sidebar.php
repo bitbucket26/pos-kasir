@@ -101,7 +101,7 @@
                 <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="homeabl.php">DASHBOARD AMBULAN</a>
-                        <a class="collapse-item" href="ablkasir1.php">INPUT AMBULAN</a>
+                        <a class="collapse-item" href="ambulan.php">INPUT AMBULAN</a>
                         <a class="collapse-item" href="laporanabl.php">LAPORAN AMBULAN</a>
                         <div class="collapse-divider"></div>
                     </div>

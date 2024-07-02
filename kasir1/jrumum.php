@@ -188,6 +188,7 @@ if($_SESSION['role']==""){
                                                     <input type="number" name="tarifkelas1" class="form-control" value="0" hidden>
                                                     <input type="number" name="tarifkelas2" class="form-control"  value="0" hidden>
                                                     <input type="text" name="iduser" class="form-control" value="2" hidden>
+                                                    <input type="text" name="kategori" id="kategori" class="form-control" value="jrumum" hidden>
                                                         <br>
                                             </div>
                                                                               

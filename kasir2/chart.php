@@ -56,7 +56,7 @@
                                 // $total7[] = $row7['total'];
                             ?>
                             <div>
-                            <canvas id="myCharts" style="position: relative; height:100vh; width:50vw; padding: 20px 20px;"></canvas>
+                            <canvas id="myCharts" style="position: relative; height:70vh; width:50vw; padding: 20px 20px;"></canvas>
                             </div>
                             
                             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

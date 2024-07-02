@@ -86,7 +86,7 @@ if($_SESSION['role']==""){
                                             <label for="" >s/d</label>
                                             <input type="date" class="rounded" name="sampaitgl" style="border: solid 1px;" required>
                                             <input class="btn btn-primary btn-md" type="submit" name="filter" value="Tampilkan" >
-                                            <a href="cetaknota.php" target="_blank">
+                                            <a href="sortirlast.php" target="_blank">
                                             <button type="button" name="btnyes" class="btn btn-danger btn-md" value="Cetak1">Cetak Data Terakhir Input</button>
                                             </a>
                                         </div>
@@ -115,7 +115,7 @@ if($_SESSION['role']==""){
                         </div>
                         <div class="card-body">
                             <!-- <div class="table-responsive"> -->
-                                <table class="DataTable table-sm table-striped table-bordered text-capitalize" id="DataTable" width="100%" cellspacing="0" style="text-align: center; font-size: 12px;">
+                                <table class="DataTable table-striped table-bordered text-capitalize" id="DataTable" width="100%" cellspacing="0" style="text-align: center; font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th class="text-center">No.Nota</th>
@@ -144,7 +144,7 @@ if($_SESSION['role']==""){
                                     ?>
                                     <!-- <tbody> -->
                                     <tr>
-                                    <td class="text-center"><?php echo $d['nomornota']; ?></td>
+                                            <td class="text-center"><?php echo $d['nomornota']; ?></td>
                                             <td class="text-center"><?php echo $d['nomorsep']; ?></td>
                                             <td class="text-center"><?php echo $d['nomormedrec']; ?></td>
                                             <td class="text-center"><?php echo $d['namapasien']; ?></td>
@@ -154,9 +154,9 @@ if($_SESSION['role']==""){
                                             <td class="text-center"><?php echo $d['yangmenerima']; ?></td>
                                             
                                             <td>
-                                                <a href="update.php?id=<?php echo $d['nomornota']; ?>" type="button" class=" fa fa-edit btn btn-primary btn-md" data-toggle="modal" data-target="#myModal<?php echo $d['nomornota']; ?>"></a>
-                                                <a href="cetaklaporan.php?id=<?php echo $d['nomornota']; ?>" target="_blank" class="btn btn-info btn-md">
-                                                <i class="fa fa-print fa-lg" aria-hidden="true" style="color: white;"></i>
+                                                <a href="update.php?id=<?php echo $d['nomornota']; ?>" type="button" class=" fa fa-edit btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal<?php echo $d['nomornota']; ?>"></a>
+                                                <a href="sortir.php?id=<?php echo $d['nomornota']; ?>" target="_blank" class="btn btn-info btn-sm">
+                                                <i class="fa fa-print fa-sm" aria-hidden="true" style="color: white;"></i>
                                                 </a>
                                             </td>
                                     </tr>

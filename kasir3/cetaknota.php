@@ -170,7 +170,7 @@ if($_SESSION['role']==""){
                 Terif INA CBG Kelas 2
                 </div>
                 <div class="col-3" name="" >
-                = Rp. <?php echo number_format ($d['nota1'])?>,-
+                = Rp. <?php echo number_format ($d['tarifkelas2'])?>,-
                 </div>
                 <div class="col-1"></div>
                 <div class="col-4 text-center"><u>
@@ -270,6 +270,6 @@ if($_SESSION['role']==""){
             window.print()
             header("location:homekasir3.php");
         </script>
-</section>  
+</section>    
 </body>
 </html>

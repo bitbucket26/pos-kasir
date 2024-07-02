@@ -101,7 +101,7 @@
                 <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="homeabl.php">DASHBOARD AMBULAN</a>
-                        <a class="collapse-item" href="ablkasir3.php">INPUT AMBULAN</a>
+                        <a class="collapse-item" href="ambulan.php">INPUT AMBULAN</a>
                         <a class="collapse-item" href="laporanabl.php">LAPORAN AMBULAN</a>
                         <div class="collapse-divider"></div>
                     </div>
@@ -116,7 +116,7 @@
                 <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="homemagang.php">DASHBOARD MAGANG</a>
-                        <!-- <a class="collapse-item" href="ablkasir1.php">INPUT MAGANG</a> -->
+                        <!-- <a class="collapse-item" href="ablkasir3.php">INPUT MAGANG</a> -->
                         <a class="collapse-item" href="laporanmagang.php">LAPORAN MAGANG</a>
                         <div class="collapse-divider"></div>
                     </div>
@@ -124,7 +124,7 @@
                 <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="homepraktek.php">DASHBOARD PRAKTEK</a>
-                        <!-- <a class="collapse-item" href="ablkasir1.php">INPUT PRAKTEK</a> -->
+                        <!-- <a class="collapse-item" href="ablkasir3.php">INPUT PRAKTEK</a> -->
                         <a class="collapse-item" href="laporanpraktek.php">LAPORAN PRAKTEK</a>
                         <div class="collapse-divider"></div>
                     </div>

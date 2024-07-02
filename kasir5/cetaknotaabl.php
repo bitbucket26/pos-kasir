@@ -31,7 +31,7 @@ if($_SESSION['role']==""){
         $data=mysqli_query($koneksi, "SELECT * FROM ablkasir5 WHERE nomor IN (SELECT MAX(nomor) FROM ablkasir5)");
         while($d=mysqli_fetch_array($data)){
     ?>
-
+<section class="sheet padding-10mm" style="font-size:14px;">
     <div class="container-xxl">
         <!-- KOP -->
         <div class="d-flex justify-content-center w-100%" >
@@ -222,6 +222,6 @@ if($_SESSION['role']==""){
             window.print()
             header("location:homeabl.php");
         </script>
-
+</section>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<section?php 
+<?php 
 session_start();
 
 // cek apakah yang mengakses halaman ini sudah login
@@ -16,7 +16,7 @@ if($_SESSION['role']==""){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Nota</title>
 </head>
-<bs class="notaprint" style="background-color: white;">  
+<body class="notaprint" style="background-color: white;">  
 
     <?php
         
@@ -170,7 +170,7 @@ if($_SESSION['role']==""){
                 Terif INA CBG Kelas 2
                 </div>
                 <div class="col-3" name="" >
-                = Rp. <?php echo number_format ($d['nota1'])?>,-
+                = Rp. <?php echo number_format ($d['tarifkelas2'])?>,-
                 </div>
                 <div class="col-1"></div>
                 <div class="col-4 text-center"><u>
@@ -270,6 +270,6 @@ if($_SESSION['role']==""){
             window.print()
             header("location:homekasir2.php");
         </script>
-</section>
+</section>    
 </body>
 </html>

@@ -158,11 +158,11 @@ if($_SESSION['role']==""){
 
                                                     <label class="labeldata" style="color: red;">Tarif INA CBG Kelas 2 (Enter)</label>
 
-                                                        <input type="number" name="tarifkelas2" class="form-control" id="21kls2" onkeypress="jumlah21()" required>
+                                                        <input type="number" style="border:2px solid Tomato;" name="tarifkelas2" class="form-control" id="21kls2" onkeypress="jumlah21()" required>
 
                                                     <label class="labeldata" >TOTAL</label>
 
-                                                        <input type="text" style="border:2px solid Tomato;" name="total" class="form-control" id="21total" >
+                                                        <input type="text" name="total" class="form-control" id="21total" >
                                                     
                                                     <label class="labeldata" >Terbilang</label>           
 
@@ -175,6 +175,7 @@ if($_SESSION['role']==""){
                                                         <input type="number" name="realcoastbpjs" class="form-control" value="0" hidden>
                                                     <input type="number" name="ditanggungjr" class="form-control" value="0" hidden>
                                                     <input type="number" name="realcoast" class="form-control"  value="0" hidden>
+                                                    <input type="text" name="kategori" id="kategori" class="form-control" value="bpjs21" hidden>
 
                                                         <br>
                                             </div>
