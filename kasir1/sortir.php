@@ -15,8 +15,8 @@
 	}else if($e['kategori']=="jr2vip"){
 		header('location:cetak2vip.php?idi=' .$e['nomornota']);
 
-	// }else if($e['kategori']=="jrumum"){
-	// 	header('location:cetakjrumum.php?idi=' .$e['nomornota']);
+	}else if($e['kategori']=="jrumum"){
+		header('location:cetakumum.php?idi=' .$e['nomornota']);
 
 	}else if($e['kategori']=="bpjs1vip"){
 		header('location:cetak1vip.php?idi=' .$e['nomornota']);
