@@ -71,7 +71,7 @@ if($_SESSION['role']==""){
 
 
                     <!-- Input Data -->
-                <form action="simpanabl1.php" method="post">
+                <form action="simpanabl.php" method="post">
                     <?php
                         include "../koneksi.php";
          
