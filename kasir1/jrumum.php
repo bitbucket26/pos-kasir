@@ -103,8 +103,8 @@ if($_SESSION['role']==""){
                                                 <div class="col">
                                                     <label class="labeldata" for="">No.Nota</label>
                                                         <input type="text" value="<?php echo $kodeauto;?>" name="nomornota" class="form-control" id="nomornota" readonly>
-                                                    <label class="labeldata" for="">No.SEP</label>
-                                                        <input type="text" name="nomorsep" class="form-control" id="nomorsep" required>					
+                                                    <!-- <label class="labeldata" for="">No.SEP</label> -->
+                                                        <input type="text" name="nomorsep" class="form-control" id="nomorsep" value="0" required hidden>					
                                                     <label class="labeldata" for="">Nama Pasien</label>
                                                         <input type="text" name="namapasien" class="form-control" id="namapasien" required>				
                                                     <label class="labeldata" for="">Alamat</label>
@@ -115,8 +115,8 @@ if($_SESSION['role']==""){
                                                         <?php 
                                                             include "ruangan.php";
                                                         ?>
-                                                    <label class="labeldata" for="hakrawatkelas">Hak Rawat Kelas</label>
-                                                                <select name="hakrawatkelas" class="form-control" id="hakrawatkelas" required>
+                                                    <!-- <label class="labeldata" for="hakrawatkelas">Hak Rawat Kelas</label> -->
+                                                                <select name="hakrawatkelas" class="form-control" id="hakrawatkelas" value="0" required hidden>
                                                                     <option value="X"></option>
                                                                     <option value="VIP">VIP</option>
                                                                     <option value="1">1</option>
