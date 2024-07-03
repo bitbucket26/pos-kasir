@@ -162,6 +162,17 @@ if($_SESSION['role']==""){
                                                        echo '<input type="date" name="tanggalbayar" class="form-control" id="tanggalbayar" value="' .$dt->format('Y-m-d'). '" readonly>'
                                                     ?>
 
+
+
+                                                    <!-- <input type="text" id="temp_price_1" class="form-control textright" onkeypress="input_rupiah('temp_price_1');$('#price_1').val(price_to_number(this.value));amount_counter(1);" onchange="amount_counter(1);$('#price_1').val(price_to_number(this.value));" onkeyup="$('#price_1').val(price_to_number(this.value));amount_counter(1);"  min="0" value="{{number_format(0,2,'.','')}}" placeholder="Nilai">
+                                                    <input type="hidden" name="price[]" id="price_1">
+                                                    <small><strong>Price (IDR)</strong></small>
+                                                    <input type="text" class="form-control textright" value="{{number_format(0,2,'.','')}}" name="price_idr[]" id="price_idr_1" placeholder="0" readonly> -->
+                                                    
+                    
+                    
+                    
+                    
                                                     <label class="labeldata" for="">Real Coast</label>
 
                                                         <input type="number" name="realcoast" class="form-control" id="jrumumrealcoast" onchange="jumlahjrumum()" required>
