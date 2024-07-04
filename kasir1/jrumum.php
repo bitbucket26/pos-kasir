@@ -168,8 +168,7 @@ if($_SESSION['role']==""){
                                                     <input type="hidden" name="price[]" id="price_1">
                                                     <small><strong>Price (IDR)</strong></small>
                                                     <input type="text" class="form-control textright" value="{{number_format(0,2,'.','')}}" name="price_idr[]" id="price_idr_1" placeholder="0" readonly> -->
-                                                    
-                    
+                                                                        
                     
                     
                     

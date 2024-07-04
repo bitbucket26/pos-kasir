@@ -191,7 +191,7 @@ if($_SESSION['role']==""){
                                                     
                                                         <input type="text" name="nota2" id="nota2jr1vip" class="form-control" onkeypress="jumlahjr1vip()" readonly hidden>
                                                         
-                                                        <input type="text" name="iduser" id="iduser" class="form-control" value="2" readonly hidden>
+                                                        <input type="text" name="iduser" id="iduser" class="form-control" value="3" readonly hidden>
                                                         
                                                         <input type="text" name="kategori" id="kategori" class="form-control" value="jr1vip" hidden>
                                                         
