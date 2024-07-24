@@ -192,13 +192,13 @@ if (mysqli_connect_error()){
                                     echo "Koneksi database gagal : " . mysqli_connect_error();
                                 }
                                 
-                                $day = date ('d-m-Y'); 
-                                $day1 = date ('d-m-Y',strtotime("-1 days"));
-                                $day2 = date ('d-m-Y',strtotime("-2 days"));
-                                $day3 = date ('d-m-Y',strtotime("-3 days"));
-                                $day4 = date ('d-m-Y',strtotime("-4 days"));
-                                $day5 = date ('d-m-Y',strtotime("-5 days"));
-                                $day6 = date ('d-m-Y',strtotime("-6 days"));
+                                $day = date ('Y-m-d'); 
+                                $day1 = date ('Y-m-d',strtotime("-1 days"));
+                                $day2 = date ('Y-m-d',strtotime("-2 days"));
+                                $day3 = date ('Y-m-d',strtotime("-3 days"));
+                                $day4 = date ('Y-m-d',strtotime("-4 days"));
+                                $day5 = date ('Y-m-d',strtotime("-5 days"));
+                                $day6 = date ('Y-m-d',strtotime("-6 days"));
 
                                 if (empty($a)) {
                                     echo "";
@@ -206,36 +206,36 @@ if (mysqli_connect_error()){
                                 } 
                                 
 
-                                    $query = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day' group by date(tanggal)");
+                                    $query = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where (tanggal)= '$day' group by date(tanggal)");
                                     $row = $query->fetch_array();
                                     $totals[] = $row['total'];
                                     // echo json_encode($total);
 
-                                    $query1 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day1' group by date(tanggal)");
+                                    $query1 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where (tanggal)= '$day1' group by date(tanggal)");
                                     $row1 = $query1->fetch_array();
                                     $total1[] = $row1['total'];
 
-                                    $query2 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day2' group by date(tanggal)");
+                                    $query2 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where (tanggal)= '$day2' group by date(tanggal)");
                                     $row2 = $query2->fetch_array();
                                     $total2[] = $row2['total'];
 
-                                    $query3 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day3' group by date(tanggal)");
+                                    $query3 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where (tanggal)= '$day3' group by date(tanggal)");
                                     $row3 = $query3->fetch_array();
                                     $total3[] = $row3['total'];
 
-                                    $query4 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day4' group by date(tanggal)");
+                                    $query4 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where (tanggal)= '$day4' group by date(tanggal)");
                                     $row4 = $query4->fetch_array();
                                     $total4[] = $row4['total'];
 
-                                    $query5 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day5' group by date(tanggal)");
+                                    $query5 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where (tanggal)= '$day5' group by date(tanggal)");
                                     $row5 = $query5->fetch_array();
                                     $total5[] = $row5['total'];
 
-                                    $query6 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day6' group by date(tanggal)");
+                                    $query6 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where (tanggal)= '$day6' group by date(tanggal)");
                                     $row6 = $query6->fetch_array();
                                     $total6[] = $row6['total'];
 
-                                    $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day6' group by date(tanggal)");
+                                    $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where (tanggal)= '$day6' group by date(tanggal)");
                                     $row7 = $query7->fetch_array();
                                     $total7[] = $row7['total'];
                                 ?>
