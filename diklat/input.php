@@ -77,7 +77,8 @@ if($_SESSION['role']==""){
 <!-- Input Data -->
 <form action="simpan.php" method="post">
 <?php
-    include "koneksi.php";
+
+    include "../koneksi.php";
 
     // Check connection
     if (mysqli_connect_error()){
@@ -120,32 +121,32 @@ if($_SESSION['role']==""){
                                                 <option value="KARYAWAN / UMUM">KARYAWAN / UMUM</option>
                                             </select>		
                                             <label class="labeldata">Nilai</label>
-                                    <input type="number" name="nilai" class="form-control" id="nilai" readonly>				
-                                            <script>
-                                                        function nilaim(e) {
+                                    <input type="number" name="nilai" class="form-control" id="nilai" required>				
+                                            <!--<script>-->
+                                            <!--            function nilaim(e) {-->
                                                             
-                                                            // var e = (a) + (c);
-                                                            // var a = document.getElementById("perawatpendamping").value;
-                                                            console.log(e)
-                                                            // minimal 2 = om
-                                                            if (e == "SMU / D1"){
-                                                            $("#nilai").val(175000);
-                                                            } else if(e == "D III"){
-                                                            $("#nilai").val(225000);
-                                                            } else if(e == "D IV / S1"){
-                                                            $("#nilai").val(300000);
-                                                            } else if(e == "PROFESI"){
-                                                            $("#nilai").val(350000);
-                                                            } else if(e == "MAHASISWA ASING"){
-                                                            $("#nilai").val(500000);
-                                                            } else if(e == "KARYAWAN / UMUM"){
-                                                            $("#nilai").val(275000);
-                                                            } else {
-                                                            $("#nilai").val(0);
-                                                            }
+                                            <!--                // var e = (a) + (c);-->
+                                            <!--                // var a = document.getElementById("perawatpendamping").value;-->
+                                            <!--                console.log(e)-->
+                                            <!--                // minimal 2 = om-->
+                                            <!--                if (e == "SMU / D1"){-->
+                                            <!--                $("#nilai").val(175000);-->
+                                            <!--                } else if(e == "D III"){-->
+                                            <!--                $("#nilai").val(225000);-->
+                                            <!--                } else if(e == "D IV / S1"){-->
+                                            <!--                $("#nilai").val(300000);-->
+                                            <!--                } else if(e == "PROFESI"){-->
+                                            <!--                $("#nilai").val(350000);-->
+                                            <!--                } else if(e == "MAHASISWA ASING"){-->
+                                            <!--                $("#nilai").val(500000);-->
+                                            <!--                } else if(e == "KARYAWAN / UMUM"){-->
+                                            <!--                $("#nilai").val(275000);-->
+                                            <!--                } else {-->
+                                            <!--                $("#nilai").val(0);-->
+                                            <!--                }-->
                                                             
-                                                        }
-                                                        </script>   
+                                            <!--            }-->
+                                            <!--            </script>   -->
                             <label class="labeldata">Mulai Tanggal</label>
                                 <input type="date" name="tanggalmulai" class="form-control" id="tanggalmulai" required>				
                             <label class="labeldata">Sampai Tanggal</label>

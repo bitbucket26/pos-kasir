@@ -73,7 +73,7 @@ if($_SESSION['role']==""){
                 <?php 
                     include "../koneksi.php";
                     $tahun1 = date ('Y', strtotime("-1 years"));
-                    mysqli_query($koneksi, "delete from abladmin where tanggal='$tahun1'")
+                    mysqli_query($koneksi, "delete from abladmin where tanggal like '$tahun1'")
                                                     or die(mysqli_error($koneksi));
                 ?>
                     <div class="col-xl-6 mb-4 float-none">

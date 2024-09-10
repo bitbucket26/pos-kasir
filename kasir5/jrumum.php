@@ -322,8 +322,8 @@ if($_SESSION['role']==""){
         }
 
         var input = document.getElementById("jrumumtotal");
-        input.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
+        input.addEventListener("keyup", function(event) {
+        if (event.key === "keyup") {
            event.preventDefault();
               const nilai = document.getElementById("jrumumtotal").value;
               let hasil = terbilang(nilai) + "Rupiah";

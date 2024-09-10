@@ -9,8 +9,9 @@ if($_SESSION['role']==""){
 
 ?>
 <?php
-include "koneksi.php";
- 
+
+include "../koneksi.php";
+
 // Check connection
 if (mysqli_connect_error()){
 	echo "Koneksi database gagal : " . mysqli_connect_error();
@@ -121,18 +122,18 @@ if (mysqli_connect_error()){
                         <div class="card shadow mb-4">
                             <?php
 
-                                include "koneksi.php";
+                                include "../koneksi.php";
                                 if (mysqli_connect_error()){
                                     echo "Koneksi database gagal : " . mysqli_connect_error();
                                 }
                                 
-                                $day = date ('Y-m-d'); 
-                                $day1 = date ('Y-m-d',strtotime("-1 days"));
-                                $day2 = date ('Y-m-d',strtotime("-2 days"));
-                                $day3 = date ('Y-m-d',strtotime("-3 days"));
-                                $day4 = date ('Y-m-d',strtotime("-4 days"));
-                                $day5 = date ('Y-m-d',strtotime("-5 days"));
-                                $day6 = date ('Y-m-d',strtotime("-6 days"));
+                                $day = date ('d-m-Y'); 
+                                $day1 = date ('d-m-Y',strtotime("-1 days"));
+                                $day2 = date ('d-m-Y',strtotime("-2 days"));
+                                $day3 = date ('d-m-Y',strtotime("-3 days"));
+                                $day4 = date ('d-m-Y',strtotime("-4 days"));
+                                $day5 = date ('d-m-Y',strtotime("-5 days"));
+                                $day6 = date ('d-m-Y',strtotime("-6 days"));
 
                                 if (empty($a)) {
                                     echo "";
@@ -140,36 +141,36 @@ if (mysqli_connect_error()){
                                 } 
                                 
 
-                                    $query = mysqli_query($koneksi,"SELECT sum(total) as total from magang where (tanggalpembayaran)= '$day' group by date(tanggalpembayaran)");
+                                    $query = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day' group by date(tanggalpembayaran)");
                                     $row = $query->fetch_array();
                                     $totals[] = $row['total'];
                                     // echo json_encode($total);
 
-                                    $query1 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where (tanggalpembayaran)= '$day1' group by date(tanggalpembayaran)");
+                                    $query1 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day1' group by date(tanggalpembayaran)");
                                     $row1 = $query1->fetch_array();
                                     $total1[] = $row1['total'];
 
-                                    $query2 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where (tanggalpembayaran)= '$day2' group by date(tanggalpembayaran)");
+                                    $query2 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day2' group by date(tanggalpembayaran)");
                                     $row2 = $query2->fetch_array();
                                     $total2[] = $row2['total'];
 
-                                    $query3 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where (tanggalpembayaran)= '$day3' group by date(tanggalpembayaran)");
+                                    $query3 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day3' group by date(tanggalpembayaran)");
                                     $row3 = $query3->fetch_array();
                                     $total3[] = $row3['total'];
 
-                                    $query4 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where (tanggalpembayaran)= '$day4' group by date(tanggalpembayaran)");
+                                    $query4 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day4' group by date(tanggalpembayaran)");
                                     $row4 = $query4->fetch_array();
                                     $total4[] = $row4['total'];
 
-                                    $query5 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where (tanggalpembayaran)= '$day5' group by date(tanggalpembayaran)");
+                                    $query5 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day5' group by date(tanggalpembayaran)");
                                     $row5 = $query5->fetch_array();
                                     $total5[] = $row5['total'];
 
-                                    $query6 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where (tanggalpembayaran)= '$day6' group by date(tanggalpembayaran)");
+                                    $query6 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day6' group by date(tanggalpembayaran)");
                                     $row6 = $query6->fetch_array();
                                     $total6[] = $row6['total'];
 
-                                    $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where (tanggalpembayaran)= '$day6' group by date(tanggalpembayaran)");
+                                    $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day6' group by date(tanggalpembayaran)");
                                     $row7 = $query7->fetch_array();
                                     $total7[] = $row7['total'];
                                 ?>
@@ -230,8 +231,8 @@ if (mysqli_connect_error()){
                             </div>
                             <div class="card-body">
                                 <?php
-                                    include "koneksi.php";
- 
+                                    include "../koneksi.php";
+
                                     // Check connection
                                     if (mysqli_connect_error()){
                                         echo "Koneksi database gagal : " . mysqli_connect_error();

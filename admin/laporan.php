@@ -167,8 +167,8 @@ if (mysqli_connect_error()){
                         </div>
                     </div>
                 </div>
-                <?php
-                    include 'chart.php';    
+                <?php 
+                include "chart.php";
                 ?>
                 </div>
                 <div class="col-xl-6">

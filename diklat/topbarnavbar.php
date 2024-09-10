@@ -1,5 +1,5 @@
  <?
- include "koneksi.php";
+ include "../koneksi.php";
  
  // Check connection
  if (mysqli_connect_error()){

@@ -77,7 +77,7 @@ if($_SESSION['role']==""){
 <!-- Input Data -->
 <form action="simpanpraktek.php" method="post">
 <?php
-    include "koneksi.php";
+    include "../koneksi.php";
 
     // Check connection
     if (mysqli_connect_error()){
@@ -122,6 +122,7 @@ if($_SESSION['role']==""){
                                                 <option value="S2 / SEDERAJAT">S2 / SEDERAJAT</option>
                                                 <option value="MAHASISWA ASING 2">MAHASISWA ASING</option>
                                             </select>		
+
                                             <label class="labeldata">Nilai</label>
                                     <input type="number" name="nilai" class="form-control" id="nilai" readonly>				
                                             <script>
@@ -178,7 +179,7 @@ if($_SESSION['role']==""){
                                     </div>	
                                     <div class="col-md">
                                         <div class="form-floating">
-                                        <label for="floatingInputGrid" style="color: red;">Jumlah Bulan (Enter)</label>
+                                        <label for="floatingInputGrid" style="color: red;">Jumlah Hari (Enter)</label>
                                         <input type="number" style="border:2px solid Tomato;" class="form-control" name="jumlahbulan" id="jumlahbulan" onkeypress="totale()" required>
                                         </div>
                                     </div>	

@@ -96,7 +96,7 @@ if($_SESSION['role']==""){
                             </form>
                         </div>
                     <?php 
-                        include 'koneksi.php';
+                        include '../koneksi.php';
                         if(isset($_GET['filter'])) {
                                 $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
                                 $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
@@ -128,7 +128,7 @@ if($_SESSION['role']==""){
                                     </thead>
 
                                     <?php 
-                                        include 'koneksi.php';
+                                        include '../koneksi.php';
                                         $no = 1;
                                         if(isset($_GET['filter'])) {
                                             $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
@@ -176,7 +176,7 @@ if($_SESSION['role']==""){
 
                                     <form action="updatepraktek.php" method="GET">
                                                 <?php
-                                                include 'koneksi.php';
+                                                include '../koneksi.php';
                                                 $id = $d['nomor']; 
                                                 $query_edit = mysqli_query($koneksi,"SELECT * FROM praktek WHERE nomor='$id'");
                                                 while ($row = mysqli_fetch_array($query_edit)) {

@@ -235,9 +235,9 @@ if (mysqli_connect_error()){
                                     $row6 = $query6->fetch_array();
                                     $total6[] = $row6['total'];
 
-                                    $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where (tanggal)= '$day6' group by date(tanggal)");
-                                    $row7 = $query7->fetch_array();
-                                    $total7[] = $row7['total'];
+                                    // $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from abladmin where DAY(tanggal)= '$day6' group by date(tanggal)");
+                                    // $row7 = $query7->fetch_array();
+                                    // $total7[] = $row7['total'];
                                 ?>
                                 <div>
                                 <canvas id="myCharts" style="position: relative; height:80vh; width:50vw; padding: 20px 20px;"></canvas>
