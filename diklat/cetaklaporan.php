@@ -107,7 +107,7 @@ if($_SESSION['role']==""){
                 <div class="col-1 text-end">:
                 </div>
                 <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                Rp. <?php echo number_format ($d['nilai'])?> + <?php echo number_format ($d['jumlahpeserta'])?> Orang + <?php echo number_format ($d['jumlahbulan'])?> Bulan
+                Rp. <?php echo number_format ($d['nilai'])?> x <?php echo number_format ($d['jumlahpeserta'])?> Orang x <?php echo number_format ($d['jumlahbulan'])?> Bulan
                 </div>
                 <div class="col-1 ">
             </div>
@@ -172,7 +172,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 text-center">
-            Indramayu, <?=$d['tanggalpembayaran'];?>
+            Indramayu, <?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?>
             </div>
             <div class="col-1 ">
             </div>      

@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Magang</title>
+    <title>Penelitian</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -95,7 +95,7 @@ if($_SESSION['role']==""){
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Magang</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Penelitian</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -108,10 +108,17 @@ if($_SESSION['role']==""){
                             <div class="col">
                                 <label class="labeldata">Nomor</label>
                                     <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>				
-                                <label class="labeldata">Instansi</label>
-                                    <input type="text" name="instansi" class="form-control" id="instansi" >	
+                                <label class="labeldata">Jenis Kegiatan</label>
+                                            <select name="jeniskegiatan" class="form-control" id="jeniskegiatan" required>
+                                                <option value="a">-pilih-</option>
+                                                <option value="b">Studi Pendahuluan</option>
+                                                <option value="c">Penelitian</option>
+                                            </select>	
+                                <label class="labeldata">Nama</label>
+                                    <input type="text" name="nama" class="form-control" id="instansi" >	
                                 <label class="labeldata">Kategori Pendidikan</label>
-                                            <select name="pendidikan" class="form-control" id="pendidikan" onchange="nilaim(this.value)" required>
+                                    <input type="text" name="kategoripendidikan" class="form-control" id="kategoripendidikan" >
+                                            <!-- <select name="pendidikan" class="form-control" id="pendidikan" onchange="nilaim(this.value)" required>
                                                 <option value="p">-pilih-</option>
                                                 <option value="SMU / D1">SMU / D1</option>
                                                 <option value="D III">D III</option>
@@ -119,9 +126,13 @@ if($_SESSION['role']==""){
                                                 <option value="PROFESI">PROFESI</option>
                                                 <option value="MAHASISWA ASING">MAHASISWA ASING</option>
                                                 <option value="KARYAWAN / UMUM">KARYAWAN / UMUM</option>
-                                            </select>		
-                                            <label class="labeldata">Nilai</label>
-                                    <input type="number" name="nilai" class="form-control" id="nilai" required>				
+                                            </select>		 -->
+                                <label class="labeldata">Institusi</label>
+                                    <input type="text" name="institusi" class="form-control" id="institusi" >
+                                <label class="labeldata">Program Study</label>
+                                    <input type="text" name="programstudy" class="form-control" id="programstudy" >
+                                <!-- <label class="labeldata">Nilai</label>
+                                    <input type="number" name="nilai" class="form-control" id="nilai" required>				 -->
                                             <!--<script>-->
                                             <!--            function nilaim(e) {-->
                                                             
@@ -147,33 +158,37 @@ if($_SESSION['role']==""){
                                                             
                                             <!--            }-->
                                             <!--            </script>   -->
-                                <div class="row g-2">
-                                    <div class="col-md">
-                                        <div class="form-floating">
-                                        <label class="labeldata">Mulai Tanggal</label>
-                                        <input type="date" name="tanggalmulai" class="form-control" id="tanggalmulai" required>
-                                        </div>
-                                    </div>	
-                                    <div class="col-md">
-                                        <div class="form-floating">
-                                        <label class="labeldata">Sampai Tanggal</label>
-                                <input type="date" name="tanggalselesai" class="form-control" id="tanggalselesai" required>
-                                        </div>
-                                    </div>	
-                                </div>
-                                    
+                            <label class="labeldata">Judul Penelitian</label>
+                                <input type="text" name="judulpenelitian" class="form-control" id="judulpenelitian" >
+                                   
                             </div>
                             <div class="col">
                             
                                 
-                                			
-                                <label class="labeldata">Ruangan</label>
-                                <input type="text" class="form-control" name="ruangmagang" id="ruangmagang" required>
+                            <label class="labeldata">Tempat Penelitian</label>
+                                <input type="text" name="tempatpenelitian" class="form-control" id="tempatpenelitian" >
+
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating">
-                                        <label for="floatingInputGrid">Jumlah Peserta</label>
-                                        <input type="number" class="form-control" name="jumlahpeserta" id="jumlahpeserta" required>
+                                        <label for="floatingInputGrid">Mulai Tanggal</label>
+                                        <input type="date" class="form-control" name="tanggalmulai" id="tanggalmulai" required>
+                                        </div>
+                                    </div>	
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                        <label for="floatingInputGrid">Jumlah Bulan (Enter)</label>
+                                        <input type="date" class="form-control" name="tanggalselesai" id="tanggalselesai" onkeypress="totale()" required>
+                                        </div>
+                                    </div>	
+                                </div>			
+                                <label class="labeldata">Jumlah Bayar</label>
+                                <input type="number" class="form-control" name="jumlahbayar" id="jumlahbayar" required>
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                        <label for="floatingInputGrid">Jumlah Les (Enter)</label>
+                                        <input type="number" class="form-control" name="jumlahles" id="jumlahles" required>
                                         </div>
                                     </div>	
                                     <div class="col-md">
@@ -190,7 +205,7 @@ if($_SESSION['role']==""){
                                 
                                 <div class="form-floating">
                                     <label for="floatingTextarea2">Keterangan</label>
-                                    <textarea class="form-control" name="keterangan" style="height: 180px"></textarea>
+                                    <textarea class="form-control" name="keterangan" style="height: 120px"></textarea>
                                 </div>		
                             </div>
                         </div>
@@ -336,8 +351,6 @@ if($_SESSION['role']==""){
         }
         });
     </script>
-
-
 
     
 </body>

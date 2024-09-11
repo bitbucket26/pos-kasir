@@ -152,7 +152,7 @@ if($_SESSION['role']==""){
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?></td>
                                             <td class="text-center"><?php echo number_format($d['total']); ?></td>
 
-                                            <td>
+                                            <td class="text-center">
                                                 <a href="updatepraktek.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
                                                 <i class="fa fa-edit fa-lg"></i>
                                                 </a>

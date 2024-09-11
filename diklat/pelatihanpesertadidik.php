@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Magang</title>
+    <title>Data Praktek</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -87,7 +87,7 @@ if($_SESSION['role']==""){
                                             <label for="" >s/d</label>
                                             <input type="date" class="rounded" name="sampaitgl" style="border: solid 1px;" required>
                                             <input class="btn btn-primary btn-md" type="submit" name="filter" value="Tampilkan" >
-                                            <a href="cetakdataterakhir.php" target="_blank">
+                                            <a href="cetakdataterakhirpraktek.php" target="_blank">
                                             <button type="button" name="btnyes" class="btn btn-danger btn-md" value="Cetak1">Cetak Data Terakhir Input</button>
                                             </a>
                                         </div>
@@ -107,20 +107,20 @@ if($_SESSION['role']==""){
             </div>
             <div class="card shadow mb-4" style="margin-left: 20px; margin-right: 20px;">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Data Magang</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Data Praktek</h5>
                             </div>
                             <div class="card-body">
                                 <table class="DataTable table-striped" id="Tables" style="width: 100%; font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th class="text-center">No.</th>
-                                            <th class="text-center">Instansi</th>
+                                            <th class="text-center">Institusi</th>
                                             <th class="text-center">Pendidikan</th>
                                             <th class="text-center">Tgl.Mulai</th>
                                             <th class="text-center">Tgl.Selesai</th>
                                             <th class="text-center">Jml.Bulan</th>
                                             <th class="text-center">Jml.Peserta</th>
-                                            <th class="text-center">R.Magang</th>
+                                            <th class="text-center">R.Praktek</th>
                                             <th class="text-center">Tgl.Transaksi</th>
                                             <th class="text-center">Total</th>
                                             <th class="text-center">Aksi</th>
@@ -133,30 +133,30 @@ if($_SESSION['role']==""){
                                         if(isset($_GET['filter'])) {
                                             $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
                                             $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
-                                            $data = mysqli_query($koneksi,"SELECT * from magang where tanggalmulai BETWEEN '$daritgl' AND '$sampaitgl'");
+                                            $data = mysqli_query($koneksi,"SELECT * from praktek where tanggalmulai BETWEEN '$daritgl' AND '$sampaitgl'");
                                         }else{
-                                            $data = mysqli_query($koneksi,"SELECT * from magang");
+                                            $data = mysqli_query($koneksi,"SELECT * from praktek");
                                         }
                                             while($d = mysqli_fetch_array($data)){
                                     ?>
                                     <!-- <tbody> -->
                                     <tr>
                                             <td class="text-center"><?php echo $d['nomor']; ?></td>
-                                            <td class="text-center"><?php echo $d['instansi']; ?></td>
+                                            <td class="text-center"><?php echo $d['institusi']; ?></td>
                                             <td class="text-center"><?php echo $d['pendidikan']; ?></td>
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalmulai'])); ?></td>
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalselesai'])); ?></td>
                                             <td class="text-center"><?php echo $d['jumlahbulan']; ?></td>
                                             <td class="text-center"><?php echo $d['jumlahpeserta']; ?></td>
-                                            <td class="text-center"><?php echo $d['ruangmagang']; ?></td>
+                                            <td class="text-center"><?php echo $d['ruangpraktek']; ?></td>
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?></td>
                                             <td class="text-center"><?php echo number_format($d['total']); ?></td>
 
-                                            <td class="text-center">
-                                                <a href="update.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
+                                            <td>
+                                                <a href="updatepraktek.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
                                                 <i class="fa fa-edit fa-lg"></i>
                                                 </a>
-                                                <a href="cetaklaporan.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-md">
+                                                <a href="cetaklaporanpraktek.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-md">
                                                 <i class="fa fa-print fa-lg" aria-hidden="true" style="color: white;"></i>
                                                 </a>
                                             </td>
@@ -169,24 +169,24 @@ if($_SESSION['role']==""){
                                             <!-- Modal content -->
                                             <div class="modal-content">
                                             <div class="modal-header">
-                                            <h4 class="modal-title">Ubah Data Magang</h4>
+                                            <h4 class="modal-title">Ubah Data Praktek</h4>
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body">
 
-                                    <form action="update.php" method="GET">
+                                    <form action="updatepraktek.php" method="GET">
                                                 <?php
                                                 include '../koneksi.php';
                                                 $id = $d['nomor']; 
-                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM magang WHERE nomor='$id'");
+                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM praktek WHERE nomor='$id'");
                                                 while ($row = mysqli_fetch_array($query_edit)) {
                                                 ?>
 
                                             <input type="hidden" name="nomor" value="<?php echo $row['nomor']; ?>">
 
                                             <div class="form-group">
-                                            <label>Instansi</label>
-                                            <input type="text" name="instansi" class="form-control" value="<?php echo $row['instansi']; ?>">      
+                                            <label>Institusi</label>
+                                            <input type="text" name="institusi" class="form-control" value="<?php echo $row['institusi']; ?>">      
                                             </div> 
 
                                             <div class="form-group">
@@ -196,7 +196,7 @@ if($_SESSION['role']==""){
 
                                             <div class="form-group">
                                             <label>Nilai</label>
-                                            <input type="text" name="nilai" class="form-control" value="<?php echo $row['nilai']; ?>">      
+                                            <input type="text" name="nilain" class="form-control" value="<?php echo $row['nilai']; ?>">      
                                             </div>
 
                                             <div class="form-group">
@@ -220,8 +220,13 @@ if($_SESSION['role']==""){
                                             </div>
 
                                             <div class="form-group">
-                                            <label>Ruang Magang</label>
-                                            <input type="text" name="ruangmagang" class="form-control" value="<?php echo $row['ruangmagang']; ?>">      
+                                            <label>Nama Praktek</label>
+                                            <input type="text" name="namapraktek" class="form-control" value="<?php echo $row['namapraktek']; ?>">      
+                                            </div> 
+
+                                            <div class="form-group">
+                                            <label>Ruang Praktek</label>
+                                            <input type="text" name="ruangpraktek" class="form-control" value="<?php echo $row['ruangpraktek']; ?>">      
                                             </div> 
 
                                             <div class="form-group">
@@ -231,7 +236,7 @@ if($_SESSION['role']==""){
 
                                             <div class="form-group">
                                             <label>Keterangan</label>
-                                            <input type="text" name="keterangan" class="form-control" value="<?php echo $row['keterangan']; ?>" style="height: 100px">    
+                                            <input type="text" name="keterangan" class="form-control" value="<?php echo $row['keterangan']; ?>" style="height: 100px">      
                                             </div> 
 
                                             <div class="form-group">
@@ -246,7 +251,7 @@ if($_SESSION['role']==""){
 
                                             <div class="modal-footer">  
                                             <button type="submit" name="update" value="simpan" class="btn btn-info">Update</button>
-                                            <a href="hapus.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
+                                            <a href="hapuspraktek.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                                             </div>
                                             <?php 

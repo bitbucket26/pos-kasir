@@ -13,6 +13,8 @@ if($_SESSION['role']==""){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+    <style>@page { size: 215mm 140mm }</style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Nota</title>
 </head>
@@ -26,13 +28,11 @@ if($_SESSION['role']==""){
            echo "Koneksi database gagal : " . mysqli_connect_error();
        }
         
-        
-        $no=1;
-        $data=mysqli_query($koneksi, "SELECT * FROM magang WHERE nomor IN (SELECT MAX(nomor) FROM magang)");
-        while($d=mysqli_fetch_array($data)){
+        $sql=mysqli_query($koneksi, "SELECT * FROM sewa WHERE nomor='$_GET[id]'");
+        $d=mysqli_fetch_array($sql);
     ?>
-
-<div class="container-xxl">
+<section class="sheet padding-10mm">
+    <div class="container-xxl" style="">
         <!-- KOP -->
         <div class="d-flex justify-content-center w-100%" >
             <img src="../img/kop.png">
@@ -40,24 +40,28 @@ if($_SESSION['role']==""){
             <br>
         <!-- Judul Nota -->
         <div class="d-flex justify-content-center">
-            <label class="fs-5"><u><b>NOTA PENGANTAR TAGIHAN JASA DIKLAT</b></u></label>
+            <label class="fs-5"><u><b>NOTA PENGANTAR TAGIHAN JASA SEWA</b></u></label>
         </div>
         <br>
-        
-        <div class="d-flex justify-content-end">
-            <label class=""><b>Nomor : <?=$d['nomor']?></b></label>
+        <div class="row">
+            <div class="col-11 d-flex justify-content-end">
+                <label class=""><b>Nomor : <?=$d['nomor']?></b></label>
+            </div>
+            <div class="col-1">
+                
+            </div>
         </div>
        
         <!-- Isi Kolom Nota -->
         
         
-        <div class="row">  
+    <div class="row">  
         <div class="card" style="border: none;">
                 <div class="row">
                     <div class="col-1">
                     </div>
                     <div class="col-11">
-                        <b>Rincian Tagihan Biaya Magang</b>
+                        <b>Rincian Tagihan Biaya Sewa</b>
                     </div>
                 </div>  
                 <br>
@@ -71,7 +75,7 @@ if($_SESSION['role']==""){
                     <div class="col-1 text-end">:
                     </div>
                     <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                    <?=$d['instansi']?>
+                    <?=$d['namainstitusi']?>
                     </div>
                     <div class="col-1 ">
                     </div>
@@ -82,12 +86,12 @@ if($_SESSION['role']==""){
                     <div class="col-1">
                     </div>
                     <div class="col-3">
-                    Kategori Pendidikan
+                    Tanggal Sewa
                     </div>
                     <div class="col-1 text-end">:
                     </div>
                     <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                    <?=$d['pendidikan']?>
+                    <?php echo date('d-M-Y', strtotime($d['tanggalmulai'])); ?> S/D <?php echo date('d-M-Y', strtotime($d['tanggalselesai'])); ?>
                     </div>
                     <div class="col-1 ">
                     </div>
@@ -98,50 +102,18 @@ if($_SESSION['role']==""){
                 <div class="col-1">
                 </div>
                 <div class="col-3">
-                Rincian Biaya
+                Biaya
                 </div>
                 <div class="col-1 text-end">:
                 </div>
                 <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                Rp. <?php echo number_format ($d['nilai'])?> + <?php echo number_format ($d['jumlahpeserta'])?> Orang + <?php echo number_format ($d['jumlahbulan'])?> Bulan
+                Rp. <?php echo number_format ($d['total'])?>
                 </div>
                 <div class="col-1 ">
             </div>
-            </div>
-
-            <!-- baris 4 -->
-            <div class="row" >
-                <div class="col-1">
-                    </div>
-                <div class="col-3">
-                Jumlah Biaya
-                </div>
-                <div class="col-1 text-end">:
-                </div>
-                <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                Rp. <?php echo number_format ($d['total'])?>,-
-                </div>
-                <div class="col-1 ">
-            </div>
-            </div>
-
-            <!-- Baris 5 -->
-            <div class="row" >
-                <div class="col-1">
-                </div>
-                <div class="col-3">
-                Tempat Magang
-                </div>
-                <div class="col-1 text-end">:
-                </div>
-                <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                <?=$d['ruangmagang']?>
-                </div>
-                <div class="col-1 ">
-            </div>
-            </div>
-<br><br>
-            <!-- <-- Baris 6 -->
+            </div> 
+            
+      <!-- <-- Baris 6 -->
             <div class="row">
                 <div class="col-1">
                 </div>
@@ -151,7 +123,7 @@ if($_SESSION['role']==""){
                 <div class="col-1 text-end">:
                 </div>
                 <div class="col-6 fst-italic text-capitalize" style="border-bottom: 1px solid">
-                <b><?=$d['bilang']?></b>
+                <b><?=$d['terbilang']?></b>
                 </div>
                 <div class="col-1 ">
                 </div>
@@ -211,13 +183,13 @@ if($_SESSION['role']==""){
     </div>
     <br>
     <?php
-        }
+        
     ?>
     </div>
         <script>
             window.print()
-            header("location:home.php");
+            header("location:homesewa.php");
         </script>
-
+</section>
 </body>
 </html>

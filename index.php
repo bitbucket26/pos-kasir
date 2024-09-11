@@ -53,7 +53,7 @@
             <br>
             <br>
               <div class="row">
-              <video autoplay muted loop id="myVideo" class="col-lg-6 d-none d-lg-block float-sm-start">
+              <video autoplay muted loop id="myVideo" class="col-lg-12">
                 <source src="img/logook.mp4" type="video/mp4">
               </video>
               <br><br>

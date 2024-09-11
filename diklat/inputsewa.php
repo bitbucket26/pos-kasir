@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Magang</title>
+    <title>Sewa</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -75,7 +75,7 @@ if($_SESSION['role']==""){
 
 
 <!-- Input Data -->
-<form action="simpan.php" method="post">
+<form action="simpansewa.php" method="post">
 <?php
 
     include "../koneksi.php";
@@ -85,7 +85,7 @@ if($_SESSION['role']==""){
         echo "Koneksi database gagal : " . mysqli_connect_error();
     }
 
-    $sql = mysqli_query($koneksi, "select max(nomor) as maxID from adminmagang");
+    $sql = mysqli_query($koneksi, "select max(nomor) as maxID from adminsewa");
     $data = mysqli_fetch_array($sql) or die( mysqli_error($data));
     $kode = $data['maxID'];
     $kode++;
@@ -95,58 +95,66 @@ if($_SESSION['role']==""){
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Magang</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Sewa</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
 
             <div class="row">
                 <!-- Awal Kolom 1 -->
-                <div class="col-sm-9">
+                <div class="col-sm-6">
                     <div class="card">
                         <div class="row" style="padding: 10px 10px;">
                             <div class="col">
-                                <label class="labeldata">Nomor</label>
-                                    <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>				
-                                <label class="labeldata">Instansi</label>
-                                    <input type="text" name="instansi" class="form-control" id="instansi" >	
-                                <label class="labeldata">Kategori Pendidikan</label>
-                                            <select name="pendidikan" class="form-control" id="pendidikan" onchange="nilaim(this.value)" required>
-                                                <option value="p">-pilih-</option>
-                                                <option value="SMU / D1">SMU / D1</option>
-                                                <option value="D III">D III</option>
-                                                <option value="D IV / S1">D IV / S1</option>
-                                                <option value="PROFESI">PROFESI</option>
-                                                <option value="MAHASISWA ASING">MAHASISWA ASING</option>
-                                                <option value="KARYAWAN / UMUM">KARYAWAN / UMUM</option>
-                                            </select>		
-                                            <label class="labeldata">Nilai</label>
-                                    <input type="number" name="nilai" class="form-control" id="nilai" required>				
-                                            <!--<script>-->
-                                            <!--            function nilaim(e) {-->
-                                                            
-                                            <!--                // var e = (a) + (c);-->
-                                            <!--                // var a = document.getElementById("perawatpendamping").value;-->
-                                            <!--                console.log(e)-->
-                                            <!--                // minimal 2 = om-->
-                                            <!--                if (e == "SMU / D1"){-->
-                                            <!--                $("#nilai").val(175000);-->
-                                            <!--                } else if(e == "D III"){-->
-                                            <!--                $("#nilai").val(225000);-->
-                                            <!--                } else if(e == "D IV / S1"){-->
-                                            <!--                $("#nilai").val(300000);-->
-                                            <!--                } else if(e == "PROFESI"){-->
-                                            <!--                $("#nilai").val(350000);-->
-                                            <!--                } else if(e == "MAHASISWA ASING"){-->
-                                            <!--                $("#nilai").val(500000);-->
-                                            <!--                } else if(e == "KARYAWAN / UMUM"){-->
-                                            <!--                $("#nilai").val(275000);-->
-                                            <!--                } else {-->
-                                            <!--                $("#nilai").val(0);-->
-                                            <!--                }-->
-                                                            
-                                            <!--            }-->
-                                            <!--            </script>   -->
+                            <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                        <label class="labeldata">Nomor</label>
+                                    <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>
+                                        </div>
+                                    </div>	
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                        <label class="labeldata" >Tanggal</label>
+                                        <?php $dt = new DateTime();
+                                            echo '<input type="date" name="tanggalpembayaran" class="form-control" id="tanggalpembayaran" value="' .$dt->format('Y-m-d'). '" readonly>'
+                                        ?>
+                                        </div>
+                                    </div>	
+                                </div>
+                                
+                                <label class="labeldata">Nama Institusi</label>
+                                    <input type="text" name="namainstitusi" class="form-control" id="namainstitusi" required>	
+                                <!-- <label class="labeldata">Jumlah Peserta</label>
+                                    <input type="text" name="jumlahpeserta" class="form-control" id="jumlahpeserta" >
+                                            <select name="jumlahpeserta" class="form-control" id="jumlahpeserta" onchange="nilaif(this.value)" required>
+                                                <option value="0">-pilih-</option>
+                                                <option value="<15"><= 15 Orang / Hari</option>
+                                                <option value="15 - 40">15 - 40 Orang / Hari</option>
+                                                <option value=">40">>= 40 Orang / Hari</option>
+                                            </select>	 -->
+                                <!-- <label class="labeldata">Nilai</label>	
+                                    <input type="number" name="nilais" class="form-control" id="nilais" required> -->
+                                            <!-- <script>
+                                                            function nilaif(e) {
+                                                            console.log(e)
+                                                            // minimal 2 = om
+                                                            if (e == "<15"){
+                                                            // $("#nilais").val(200000);
+                                                            document.getElementById("total").value = 200000;
+
+                                                            } else if(e == "15 - 40"){
+                                                            // $("#nilais").val(300000);
+                                                            document.getElementById("total").value = 300000;
+                                                            } else if(e == ">40"){
+                                                            // $("#nilais").val(400000);
+                                                            document.getElementById("total").value = 400000;
+                                                            } else if(e == "0"){
+                                                            // $("#nilais").val(0);
+                                                            document.getElementById("total").value = 0;
+                                                            }                                                             
+                                                        }
+                                            </script>   -->
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating">
@@ -161,75 +169,40 @@ if($_SESSION['role']==""){
                                         </div>
                                     </div>	
                                 </div>
-                                    
-                            </div>
-                            <div class="col">
-                            
-                                
-                                			
-                                <label class="labeldata">Ruangan</label>
-                                <input type="text" class="form-control" name="ruangmagang" id="ruangmagang" required>
-                                <div class="row g-2">
-                                    <div class="col-md">
-                                        <div class="form-floating">
-                                        <label for="floatingInputGrid">Jumlah Peserta</label>
-                                        <input type="number" class="form-control" name="jumlahpeserta" id="jumlahpeserta" required>
-                                        </div>
-                                    </div>	
-                                    <div class="col-md">
-                                        <div class="form-floating">
-                                        <label for="floatingInputGrid" style="color: red;">Jumlah Bulan (Enter)</label>
-                                        <input type="number" style="border:2px solid Tomato;" class="form-control" name="jumlahbulan" id="jumlahbulan" onkeypress="totale()" required>
-                                        </div>
-                                    </div>	
-                                </div>
-                                <label class="labeldata">Tanggal</label>
+
+            
+                                <!-- <label class="labeldata">Tanggal</label>
                                 <?php $dt = new DateTime();
                                     echo '<input type="date" name="tanggalpembayaran" class="form-control" id="tanggalpembayaran" value="' .$dt->format('Y-m-d'). '" readonly>'
-                                ?>	
+                                ?>	 -->
+                                		
                                 
-                                <div class="form-floating">
-                                    <label for="floatingTextarea2">Keterangan</label>
-                                    <textarea class="form-control" name="keterangan" style="height: 180px"></textarea>
-                                </div>		
                             </div>
                         </div>
                     </div>
                     <br>
+                   
                 </div>
                 <!-- Akhir Kolom 1 -->
 
                 <!-- Awal Kolom 2 -->
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <div class="card" style="padding: 10px 10px;">
-                        
-                            <label class="labeldata">Total Bayar</label>
-
-                                <input type="number" name="total" class="form-control" id="total" required>
-
-                            <label class="labeldata">Terbilang</label>
-                                <textarea type="text" name="bilang" class="form-control" id="bilang" required></textarea>
-<br>
-                                <!-- <input type="button" name="btntotal" class="btn btn-primary" id="btntotal" onclick="totale()" value="HITUNG"> -->
-                                            <script>
-                                                function totale(){
-                                                    var a = document.getElementById("jumlahbulan").value;
-                                                    var b = document.getElementById("jumlahpeserta").value;
-                                                    var c = document.getElementById("nilai").value;
-                                                    var d = parseInt(a) * parseInt(b) * parseInt(c);
-                                                    document.getElementById("total").value = (d);
-                                                }
-                                            </script>
-                            <!-- Modal simpan -->
+                    <label class="labeldata">Biaya</label>
+                                <input type="text" name="total" class="form-control" id="total" required>
+                                <label class="labeldata">Terbilang</label>
+                                <textarea type="text" name="terbilang" class="form-control" id="terbilang" required></textarea>
+                                <div class="form-floating">
+                                    <label for="floatingTextarea2">Keterangan</label>
+                                    <textarea class="form-control" name="keterangan" style="height: 120px"></textarea>
+                                </div>
+                                <br>
                         <?php
                             include "simpandata.php" 
                         ?>
-                        <!-- Akhir MODAL SIMPAN-->
-                        </div>
-                                                          
-                        
-                    </div>
+                    </div>      
                 </div>
+            </div>
                   
                 <!-- Akhir Kolom 2 -->
 
@@ -297,7 +270,7 @@ if($_SESSION['role']==""){
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.print.min.js"></script> 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.colVis.min.js"></script> 
 
-    <script>
+    <!-- <script>
         Math.fmod = function (a,b) { return Number((a - (Math.floor(a / b) * b)).toPrecision(8)); };
         function terbilang(nilai) {
             const huruf = ["", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas"];
@@ -326,19 +299,96 @@ if($_SESSION['role']==""){
             return temp;
         }
 
-        var input = document.getElementById("jumlahbulan");
-        input.addEventListener("keypress", function(event) {
-        if (event.key === "Enter") {
+        var input = document.getElementById("jumlahpeserta");
+        input.addEventListener("onchange", function(event) {
+        if (event.click === "onclick") {
            event.preventDefault();
               const nilai = document.getElementById("total").value;
               let hasil = terbilang(nilai) + "Rupiah";
-              document.getElementById("bilang").value = hasil;
+              document.getElementById("terbilang").value = hasil;
         }
         });
-    </script>
+    </script> -->
 
 
 
+<script type="text/javascript">
+ 
+    // www.malasngoding.com
+    function terbilang(nilai) {
+      // deklarasi variabel nilai sebagai angka matemarika
+      // Objek Math bertujuan agar kita bisa melakukan tugas matemarika dengan javascript
+      nilai = Math.floor(Math.abs(nilai));
+ 
+      // deklarasi nama angka dalam bahasa indonesia
+      var huruf = [
+        '',
+        'Satu',
+        'Dua',
+        'Tiga',
+        'Empat',
+        'Lima',
+        'Enam',
+        'Tujuh',
+        'Delapan',
+        'Sembilan',
+        'Sepuluh',
+        'Sebelas',
+        ];
+ 
+      // menyimpan nilai default untuk pembagian
+      var bagi = 0;
+      // deklarasi variabel penyimpanan untuk menyimpan proses rumus terbilang
+      var penyimpanan = '';
+ 
+      // rumus terbilang
+      if (nilai < 12) {
+        penyimpanan = ' ' + huruf[nilai];
+      } else if (nilai < 20) {
+        penyimpanan = terbilang(Math.floor(nilai - 10)) + ' Belas';
+      } else if (nilai < 100) {
+        bagi = Math.floor(nilai / 10);
+        penyimpanan = terbilang(bagi) + ' Puluh' + terbilang(nilai % 10);
+      } else if (nilai < 200) {
+        penyimpanan = ' Seratus' + terbilang(nilai - 100);
+      } else if (nilai < 1000) {
+        bagi = Math.floor(nilai / 100);
+        penyimpanan = terbilang(bagi) + ' Ratus' + terbilang(nilai % 100);
+      } else if (nilai < 2000) {
+        penyimpanan = ' Seribu' + terbilang(nilai - 1000);
+      } else if (nilai < 1000000) {
+        bagi = Math.floor(nilai / 1000);
+        penyimpanan = terbilang(bagi) + ' Ribu' + terbilang(nilai % 1000);
+      } else if (nilai < 1000000000) {
+        bagi = Math.floor(nilai / 1000000);
+        penyimpanan = terbilang(bagi) + ' Juta' + terbilang(nilai % 1000000);
+      } else if (nilai < 1000000000000) {
+        bagi = Math.floor(nilai / 1000000000);
+        penyimpanan = terbilang(bagi) + ' Miliar' + terbilang(nilai % 1000000000);
+      } else if (nilai < 1000000000000000) {
+        bagi = Math.floor(nilai / 1000000000000);
+        penyimpanan = terbilang(nilai / 1000000000000) + ' Triliun' + terbilang(nilai % 1000000000000);
+      }
+ 
+      // mengambalikan nilai yang ada dalam variabel penyimpanan
+      return penyimpanan;
+    }
+ 
+    // membuat event pada saat form angka di ketik
+    document.getElementById("total").addEventListener("keyup", function(){
+ 
+        // deklarasi id angka ke variabel input
+        var input = document.getElementById("total").value;
+ 
+        // menyimpan hasil terbilang ke variabel huruf;
+        let huruf = terbilang(input) + " Rupiah" ;
+ 
+        // menampilkan hasil terbilang ke id huruf
+        document.getElementById("terbilang").innerHTML  = huruf;
+    });
+ 
+</script>
+ 
     
 </body>
 

@@ -59,6 +59,79 @@
                         <a class="collapse-item" href="inputpraktek.php">Input Praktek</a>
                         <a class="collapse-item" href="homepraktek.php">Data Praktek</a>
                         <a class="collapse-item" href="laporanpraktek.php">Laporan Praktek</a>
+                        <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
+                    aria-expanded="true" aria-controls="collapse3">
+                    <i class="fa fa-search"></i>
+                    <span>Penelitian</span>
+                </a>
+                <div id="collapse3" class="collapse" aria-labelledby="heading3"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        
+                        <a class="collapse-item" href="inputpenelitian.php">Input Penelitian</a>
+                        <a class="collapse-item" href="homepenelitian.php">Data Penelitian</a>
+                        <a class="collapse-item" href="laporanpenelitian.php">Laporan Penelitian</a>
+                        <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4"
+                    aria-expanded="true" aria-controls="collapse4">
+                    <i class="fa fa-building-o"></i>
+                    <span>Sewa</span>
+                </a>
+                <div id="collapse4" class="collapse" aria-labelledby="heading4"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        
+                        <a class="collapse-item" href="inputsewa.php">Input Sewa</a>
+                        <a class="collapse-item" href="homesewa.php">Data Sewa</a>
+                        <a class="collapse-item" href="laporansewa.php">Laporan Sewa</a>
+                        <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
+                    aria-expanded="true" aria-controls="collapse5">
+                    <i class="fa fa-graduation-cap"></i>
+                    <span>Pelatihan</span>
+                </a>
+                <div id="collapse5" class="collapse" aria-labelledby="heading5"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        
+                        <a class="collapse-item" href="inputpraktek.php">Input Pelatihan</a>
+                        <a class="collapse-item" href="homepraktek.php">Data Pelatihan</a>
+                        <a class="collapse-item" href="laporanpraktek.php">Laporan Pelatihan</a>
+                        <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6"
+                    aria-expanded="true" aria-controls="collapse6">
+                    <i class="fa fa-users"></i>
+                    <span>Study Banding</span>
+                </a>
+                <div id="collapse6" class="collapse" aria-labelledby="heading6"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        
+                        <a class="collapse-item" href="inputpraktek.php">Input Study Banding</a>
+                        <a class="collapse-item" href="homepraktek.php">Data Study Banding</a>
+                        <a class="collapse-item" href="laporanpraktek.php">Laporan Study Banding</a>
                         <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
                     </div>
                 </div>
