@@ -18,7 +18,7 @@ if (mysqli_connect_error()){
     $thn = date ('Y');
     for($bulan = 1;$bulan < 13;$bulan++)
     {
-        $query = mysqli_query($koneksi,"SELECT sum(total) as total from praktek where YEAR(tanggalmulai)='$thn'");
+        $query = mysqli_query($koneksi,"SELECT sum(total) as total from penelitian where YEAR(tanggalmulai)='$thn'");
         $row = $query->fetch_array();
         $total[] = $row['total'];
     }
@@ -35,7 +35,7 @@ if (mysqli_connect_error()){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Laporan Pendapatan Praktek</title>
+    <title>Laporan Pendapatan Penelitian</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -101,7 +101,7 @@ if (mysqli_connect_error()){
 
                 $day_sesi = date ('Y-m-d'); 
 
-                $query_sesi = mysqli_query($koneksi,"SELECT sum(total) as total from praktek where (tanggalmulai)= '$day_sesi'");
+                $query_sesi = mysqli_query($koneksi,"SELECT sum(total) as total from penelitian where (tanggalmulai)= '$day_sesi'");
                 $row_sesi = $query_sesi->fetch_array();
                 $total_sesi[] = $row_sesi['total'];
 
@@ -111,7 +111,7 @@ if (mysqli_connect_error()){
                 <div class="card border-left-danger shadow h-100 py-2 align-items-left" style="margin-left: 32px; margin-bottom: 20px; padding: 10px; width: 30%;">
                     <div class="card-body">
                         <h1 class="card-title text-primary"><?php echo $_SESSION['username'];?></h1>
-                        <h6 class="card-text">Total Pendapatan Praktek Hari Ini</h6>
+                        <h6 class="card-text">Total Pendapatan Penelitian Hari Ini</h6>
                         <h3 class="card-text text-end">Rp.<?php echo number_format($total_sesi[0]);?></h3>
                     </div>
                 </div>
@@ -140,36 +140,36 @@ if (mysqli_connect_error()){
                                 } 
                                 
 
-                                    $query = mysqli_query($koneksi,"SELECT sum(total) as total from praktek where DAY(tanggalmulai)= '$day' group by date(tanggalmulai)");
+                                    $query = mysqli_query($koneksi,"SELECT sum(total) as total from penelitian where DAY(tanggalmulai)= '$day' group by date(tanggalmulai)");
                                     $row = $query->fetch_array();
                                     $totals[] = $row['total'];
                                     // echo json_encode($total);
 
-                                    $query1 = mysqli_query($koneksi,"SELECT sum(total) as total from praktek where DAY(tanggalmulai)= '$day1' group by date(tanggalmulai)");
+                                    $query1 = mysqli_query($koneksi,"SELECT sum(total) as total from penelitian where DAY(tanggalmulai)= '$day1' group by date(tanggalmulai)");
                                     $row1 = $query1->fetch_array();
                                     $total1[] = $row1['total'];
 
-                                    $query2 = mysqli_query($koneksi,"SELECT sum(total) as total from praktek where DAY(tanggalmulai)= '$day2' group by date(tanggalmulai)");
+                                    $query2 = mysqli_query($koneksi,"SELECT sum(total) as total from penelitian where DAY(tanggalmulai)= '$day2' group by date(tanggalmulai)");
                                     $row2 = $query2->fetch_array();
                                     $total2[] = $row2['total'];
 
-                                    $query3 = mysqli_query($koneksi,"SELECT sum(total) as total from praktek where DAY(tanggalmulai)= '$day3' group by date(tanggalmulai)");
+                                    $query3 = mysqli_query($koneksi,"SELECT sum(total) as total from penelitian where DAY(tanggalmulai)= '$day3' group by date(tanggalmulai)");
                                     $row3 = $query3->fetch_array();
                                     $total3[] = $row3['total'];
 
-                                    $query4 = mysqli_query($koneksi,"SELECT sum(total) as total from praktek where DAY(tanggalmulai)= '$day4' group by date(tanggalmulai)");
+                                    $query4 = mysqli_query($koneksi,"SELECT sum(total) as total from penelitian where DAY(tanggalmulai)= '$day4' group by date(tanggalmulai)");
                                     $row4 = $query4->fetch_array();
                                     $total4[] = $row4['total'];
 
-                                    $query5 = mysqli_query($koneksi,"SELECT sum(total) as total from praktek where DAY(tanggalmulai)= '$day5' group by date(tanggalmulai)");
+                                    $query5 = mysqli_query($koneksi,"SELECT sum(total) as total from penelitian where DAY(tanggalmulai)= '$day5' group by date(tanggalmulai)");
                                     $row5 = $query5->fetch_array();
                                     $total5[] = $row5['total'];
 
-                                    $query6 = mysqli_query($koneksi,"SELECT sum(total) as total from praktek where DAY(tanggalmulai)= '$day6' group by date(tanggalmulai)");
+                                    $query6 = mysqli_query($koneksi,"SELECT sum(total) as total from penelitian where DAY(tanggalmulai)= '$day6' group by date(tanggalmulai)");
                                     $row6 = $query6->fetch_array();
                                     $total6[] = $row6['total'];
 
-                                    $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from praktek where DAY(tanggalmulai)= '$day6' group by date(tanggalmulai)");
+                                    $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from penelitian where DAY(tanggalmulai)= '$day6' group by date(tanggalmulai)");
                                     $row7 = $query7->fetch_array();
                                     $total7[] = $row7['total'];
                                 ?>
@@ -226,7 +226,7 @@ if (mysqli_connect_error()){
                     <!-- Tabel Rekap Pendapatan -->
                     <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Tabel Rekap Pendapatan Praktek Per-Bulan</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Tabel Rekap Pendapatan Penelitian Per-Bulan</h5>
                             </div>
                             <div class="card-body">
                                 <?php
@@ -237,7 +237,7 @@ if (mysqli_connect_error()){
                                         echo "Koneksi database gagal : " . mysqli_connect_error();
                                     }
                                     $result = mysqli_query($koneksi,"select year(tanggalmulai) as year, month(tanggalmulai) as month, sum(total) as total
-                                                                    from praktek group by year(tanggalmulai), month(tanggalmulai)");
+                                                                    from penelitian group by year(tanggalmulai), month(tanggalmulai)");
                                 ?>
                                 <table id="example" class="DataTable table-striped" style="width:100%;">
                                     <thead>

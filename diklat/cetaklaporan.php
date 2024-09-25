@@ -13,10 +13,10 @@ if($_SESSION['role']==""){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-    <style>@page { size: 215mm 140mm }</style>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css"> -->
+    <!-- <style>@page { size: 215mm 140mm }</style> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Nota</title>
+    <title>Nota Magang</title>
 </head>
 <body class="notaprint" style="background-color: white;">
     
@@ -40,7 +40,7 @@ if($_SESSION['role']==""){
             <br>
         <!-- Judul Nota -->
         <div class="d-flex justify-content-center">
-            <label class="fs-5"><u><b>NOTA PENGANTAR TAGIHAN JASA DIKLAT</b></u></label>
+            <label class="fs-5"><u><b>NOTA PENGANTAR PEMBAYARAN</b></u></label>
         </div>
         <br>
         <div class="row">
@@ -106,8 +106,8 @@ if($_SESSION['role']==""){
                 </div>
                 <div class="col-1 text-end">:
                 </div>
-                <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                Rp. <?php echo number_format ($d['nilai'])?> x <?php echo number_format ($d['jumlahpeserta'])?> Orang x <?php echo number_format ($d['jumlahbulan'])?> Bulan
+                <div class="col-6" style="border-bottom: 1px solid">
+                Rp. <?php echo number_format ($d['nilai'])?>,- x <?php echo number_format ($d['jumlahpeserta'])?> Orang x <?php echo number_format ($d['jumlahbulan'])?> Bulan
                 </div>
                 <div class="col-1 ">
             </div>
@@ -144,13 +144,13 @@ if($_SESSION['role']==""){
                 <div class="col-1 ">
             </div>
             </div>
-<br><br>
+            <br>
             <!-- <-- Baris 6 -->
             <div class="row">
                 <div class="col-1">
                 </div>
                 <div class="col-3">
-                Banyaknya Uang
+                Banyaknya
                 </div>
                 <div class="col-1 text-end">:
                 </div>
@@ -172,7 +172,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 text-center">
-            Indramayu, <?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?>
+            Indramayu, <?php echo date('d-M-Y'); ?>
             </div>
             <div class="col-1 ">
             </div>      

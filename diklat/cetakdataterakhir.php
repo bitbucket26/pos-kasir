@@ -168,7 +168,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 text-center">
-            Indramayu, <?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?>
+            Indramayu, <<?php echo date('d-M-Y'); ?>
             </div>
             <div class="col-1 ">
             </div>      

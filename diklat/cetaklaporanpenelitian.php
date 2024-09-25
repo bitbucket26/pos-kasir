@@ -5,7 +5,7 @@ session_start();
 if($_SESSION['role']==""){
     header("location:index.php?pesan=gagal");
 }
-
+$day = date ('Y-m-d',strtotime("days"));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@ if($_SESSION['role']==""){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Nota</title>
+    <title>Nota Penelitian</title>
 </head>
 <body class="notaprint" style="background-color: white;">
     
@@ -26,13 +26,11 @@ if($_SESSION['role']==""){
            echo "Koneksi database gagal : " . mysqli_connect_error();
        }
         
-        
-        $no=1;
-        $data=mysqli_query($koneksi, "SELECT * FROM praktek WHERE nomor IN (SELECT MAX(nomor) FROM praktek)");
-        while($d=mysqli_fetch_array($data)){
+        $sql=mysqli_query($koneksi, "SELECT * FROM penelitian WHERE nomor='$_GET[id]'");
+        $d=mysqli_fetch_array($sql);
     ?>
 
-<div class="container-xxl">
+    <div class="container-xxl">
         <!-- KOP -->
         <div class="d-flex justify-content-center w-100%" >
             <img src="../img/kop.png">
@@ -40,33 +38,82 @@ if($_SESSION['role']==""){
             <br>
         <!-- Judul Nota -->
         <div class="d-flex justify-content-center">
-            <label class="fs-5"><u><b>NOTA PENGANTAR TAGIHAN JASA DIKLAT</b></u></label>
+            <label class="fs-5"><u><b>NOTA PENGANTAR PEMBAYARAN PENELITIAN</b></u></label>
         </div>
         <br>
-        
-        <div class="d-flex justify-content-end">
-            <label class=""><b>Nomor : <?=$d['nomor']?></b></label>
+        <div class="row">
+            <div class="col-11 d-flex justify-content-end">
+                <label class=""><b>Nomor : <?=$d['nomor']?></b></label>
+            </div>
+            <div class="col-1">
+                
+            </div>
         </div>
        
         <!-- Isi Kolom Nota -->
         
         
-        <div class="row">  
+    <div class="row">  
         <div class="card" style="border: none;">
                 <div class="row">
                     <div class="col-1">
                     </div>
                     <div class="col-11">
-                        <b>Rincian Tagihan Biaya Praktek</b>
+                        <b>Rincian Tagihan Biaya Penelitian</b>
                     </div>
                 </div>  
                 <br>
             <!-- Baris 1 -->
-                <div class="row">
+            <div class="row">
                     <div class="col-1">
                     </div>
                     <div class="col-3">
-                    Nama Institusi
+                    Jenis Kegiatan
+                    </div>
+                    <div class="col-1 text-end">:
+                    </div>
+                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
+                    <?=$d['jeniskegiatan']?>
+                    </div>
+                    <div class="col-1 ">
+                    </div>
+                </div>
+                
+
+            <!-- Baris 2 -->
+            <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-3">
+                    Nama
+                    </div>
+                    <div class="col-1 text-end">:
+                    </div>
+                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
+                    <?=$d['nama']?>
+                    </div>
+                    <div class="col-1 ">
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-3">
+                    Pendidikan/Prodi
+                    </div>
+                    <div class="col-1 text-end">:
+                    </div>
+                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
+                    <?=$d['pendidikan']?> / <?=$d['programstudy']?>
+                    </div>
+                    <div class="col-1 ">
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-3">
+                    Institusi
                     </div>
                     <div class="col-1 text-end">:
                     </div>
@@ -76,68 +123,78 @@ if($_SESSION['role']==""){
                     <div class="col-1 ">
                     </div>
                 </div>
-
-            <!-- Baris 2 -->
-                <div class="row">
+            <!-- <div class="row">
                     <div class="col-1">
                     </div>
                     <div class="col-3">
-                    Nama Praktek
+                    Program Study
                     </div>
                     <div class="col-1 text-end">:
                     </div>
                     <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                    <?=$d['namapraktek']?>
+                    <?=$d['programstudy']?>
                     </div>
                     <div class="col-1 ">
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-1">
-                    </div>
-                    <div class="col-3">
-                    Tempat Praktek
-                    </div>
-                    <div class="col-1 text-end">:
-                    </div>
-                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                    <?=$d['ruangpraktek']?>
-                    </div>
-                    <div class="col-1 ">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-1">
-                    </div>
-                    <div class="col-3">
-                    Kategori Pendidikan
-                    </div>
-                    <div class="col-1 text-end">:
-                    </div>
-                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                    <?=$d['pendidikan']?>
-                    </div>
-                    <div class="col-1 ">
-                    </div>
-                </div>
-
-            <!-- Baris 3 -->
+                </div> -->
             <div class="row">
-                <div class="col-1">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-3">
+                    Judul Penelitian
+                    </div>
+                    <div class="col-1 text-end">:
+                    </div>
+                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
+                    <?=$d['judulpenelitian']?>
+                    </div>
+                    <div class="col-1 ">
+                    </div>
                 </div>
-                <div class="col-3">
-                Rincian Biaya
+            <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-3">
+                    Tempat Penelitian
+                    </div>
+                    <div class="col-1 text-end">:
+                    </div>
+                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
+                    <?=$d['tempatpenelitian']?>
+                    </div>
+                    <div class="col-1 ">
+                    </div>
                 </div>
-                <div class="col-1 text-end">:
+
+                <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-3">
+                    Waktu Penelitian
+                    </div>
+                    <div class="col-1 text-end">:
+                    </div>
+                    <div class="col-6 " style="border-bottom: 1px solid">
+                    <?php echo date('d-M-Y', strtotime($d['tanggalmulai'])); ?> s/d <?php echo date('d-M-Y', strtotime($d['tanggalselesai'])); ?>
+                    </div>
+                    <div class="col-1 ">
+                    </div>
                 </div>
-                <div class="col-6" style="border-bottom: 1px solid">
-                Biaya Praktek Rp. <?php echo number_format ($d['nilai'])?> + <?php echo number_format ($d['jumlahpeserta'])?> Orang + <?php echo number_format ($d['jumlahbulan'])?> Bulan
+
+                <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-3">
+                    Rincian Biaya
+                    </div>
+                    <div class="col-1 text-end">:
+                    </div>
+                    <div class="col-6" style="border-bottom: 1px solid">
+                    Rp. <?php echo number_format ($d['nilai'])?>,- x <?=$d['bulan']?> Bulan
+                    </div>
+                    <div class="col-1 ">
+                    </div>
                 </div>
-                <div class="col-1 ">
-            </div>
-            </div>
 
             <!-- baris 4 -->
             <div class="row" >
@@ -154,10 +211,7 @@ if($_SESSION['role']==""){
                 <div class="col-1 ">
             </div>
             </div>
-
-            <!-- Baris 5 -->
-            
-<br><br>
+<br>
             <!-- <-- Baris 6 -->
             <div class="row">
                 <div class="col-1">
@@ -168,7 +222,7 @@ if($_SESSION['role']==""){
                 <div class="col-1 text-end">:
                 </div>
                 <div class="col-6 fst-italic text-capitalize" style="border-bottom: 1px solid">
-                <b><?=$d['bilang']?></b>
+                <b><?=$d['terbilang']?></b>
                 </div>
                 <div class="col-1 ">
                 </div>
@@ -228,12 +282,12 @@ if($_SESSION['role']==""){
     </div>
     <br>
     <?php
-        }
+        
     ?>
     </div>
         <script>
             window.print()
-            header("location:homeabl.php");
+            header("location:homeujianpraktek.php");
         </script>
 
 </body>

@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="homelainnya.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <!-- <i class="fas fa-laugh-wink"></i> -->
                     <img class="img-profile rounded-circle"
@@ -15,7 +15,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="home.php">
+                <a class="nav-link" href="homelainnya.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>DASHBOARD</span></a>
             </li>
@@ -28,6 +28,24 @@
                 Kategori
             </div>
 
+             <!-- Nav Item - Utilities Collapse Menu -->
+             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
+                    aria-expanded="true" aria-controls="collapse5">
+                    <i class="fa fa-users"></i>
+                    <span>Diklat Lainnya</span>
+                </a>
+                <div id="collapse5" class="collapse" aria-labelledby="heading5"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        
+                        <a class="collapse-item" href="inputlainnya.php">Input</a>
+                        <a class="collapse-item" href="homelainnya.php">Data</a>
+                        <a class="collapse-item" href="laporanlainnya.php">Laporan</a>
+                        <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
+                    </div>
+                </div>
+            </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -50,16 +68,73 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fa fa-cogs"></i>
-                    <span>Praktek</span>
+                    <span>Praktik</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         
-                        <a class="collapse-item" href="inputpraktek.php">Input Praktek</a>
-                        <a class="collapse-item" href="homepraktek.php">Data Praktek</a>
-                        <a class="collapse-item" href="laporanpraktek.php">Laporan Praktek</a>
-                        <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a>
+                        <a class="collapse-item" href="inputpraktek.php">Input Praktik</a>
+                        <a class="collapse-item" href="homepraktek.php">Data Praktik</a>
+                        <a class="collapse-item" href="laporanpraktek.php">Laporan Praktik</a>
+                        <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
+                    </div>
+                </div>
+            </li>
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities3"
+                    aria-expanded="true" aria-controls="collapseUtilities3">
+                    <i class="fa fa-cogs"></i>
+                    <span>Pelatihan Peserta Didik</span>
+                </a>
+                <div id="collapseUtilities3" class="collapse" aria-labelledby="headingUtilities3"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        
+                        <a class="collapse-item" href="inputppd.php">Input</a>
+                        <a class="collapse-item" href="homeppd.php">Data</a>
+                        <a class="collapse-item" href="laporanppd.php">Laporan</a>
+                        <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities7"
+                    aria-expanded="true" aria-controls="collapseUtilities7">
+                    <i class="fa fa-pencil-square"></i>
+                    <span>Ujian Praktik</span>
+                </a>
+                <div id="collapseUtilities7" class="collapse" aria-labelledby="headingUtilities7"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        
+                        <a class="collapse-item" href="inputujianpraktek.php">Input Ujian Praktik</a>
+                        <a class="collapse-item" href="homeujianpraktek.php">Data Ujian Praktik</a>
+                        <a class="collapse-item" href="laporanujianpraktek.php">Laporan Ujian Praktik</a>
+                        <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
+                    </div>
+                </div>
+            </li>
+
+            
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4"
+                    aria-expanded="true" aria-controls="collapse4">
+                    <i class="fa fa-building-o"></i>
+                    <span>Sewa Ruangan</span>
+                </a>
+                <div id="collapse4" class="collapse" aria-labelledby="heading4"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        
+                        <a class="collapse-item" href="inputsewa.php">Input Sewa</a>
+                        <a class="collapse-item" href="homesewa.php">Data Sewa</a>
+                        <a class="collapse-item" href="laporansewa.php">Laporan Sewa</a>
+                        <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
                     </div>
                 </div>
             </li>
@@ -82,44 +157,10 @@
                     </div>
                 </div>
             </li>
+
+           
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4"
-                    aria-expanded="true" aria-controls="collapse4">
-                    <i class="fa fa-building-o"></i>
-                    <span>Sewa</span>
-                </a>
-                <div id="collapse4" class="collapse" aria-labelledby="heading4"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        
-                        <a class="collapse-item" href="inputsewa.php">Input Sewa</a>
-                        <a class="collapse-item" href="homesewa.php">Data Sewa</a>
-                        <a class="collapse-item" href="laporansewa.php">Laporan Sewa</a>
-                        <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5"
-                    aria-expanded="true" aria-controls="collapse5">
-                    <i class="fa fa-graduation-cap"></i>
-                    <span>Pelatihan</span>
-                </a>
-                <div id="collapse5" class="collapse" aria-labelledby="heading5"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        
-                        <a class="collapse-item" href="inputpraktek.php">Input Pelatihan</a>
-                        <a class="collapse-item" href="homepraktek.php">Data Pelatihan</a>
-                        <a class="collapse-item" href="laporanpraktek.php">Laporan Pelatihan</a>
-                        <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6"
                     aria-expanded="true" aria-controls="collapse6">
                     <i class="fa fa-users"></i>
@@ -132,10 +173,10 @@
                         <a class="collapse-item" href="inputpraktek.php">Input Study Banding</a>
                         <a class="collapse-item" href="homepraktek.php">Data Study Banding</a>
                         <a class="collapse-item" href="laporanpraktek.php">Laporan Study Banding</a>
-                        <!-- <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a> -->
+                        <a class="collapse-item" href="pelatihanpesertadidik.php">Pelatihan Peserta Didik</a>
                     </div>
                 </div>
-            </li>
+            </li> -->
 
 
             <!-- Nav Item - Pages Collapse Menu -->

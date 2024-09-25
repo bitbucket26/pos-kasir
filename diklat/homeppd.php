@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Sewa Ruangan</title>
+    <title>Data Pelatihan Peserta Didik</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -87,7 +87,7 @@ if($_SESSION['role']==""){
                                             <label for="" >s/d</label>
                                             <input type="date" class="rounded" name="sampaitgl" style="border: solid 1px;" required>
                                             <input class="btn btn-primary btn-md" type="submit" name="filter" value="Tampilkan" >
-                                            <a href="cetakdataterakhirsewa.php" target="_blank">
+                                            <a href="cetakdataterakhirppd.php" target="_blank">
                                             <button type="button" name="btnyes" class="btn btn-danger btn-md" value="Cetak1">Cetak Data Terakhir Input</button>
                                             </a>
                                         </div>
@@ -107,7 +107,7 @@ if($_SESSION['role']==""){
             </div>
             <div class="card shadow mb-4" style="margin-left: 20px; margin-right: 20px;">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Data Sewa Ruangan</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Data Pelatihan Peserta Didik</h5>
                             </div>
                             <div class="card-body">
                                 <table class="DataTable table-striped" id="Tables" style="width: 100%; font-size: 12px;">
@@ -115,9 +115,10 @@ if($_SESSION['role']==""){
                                         <tr>
                                             <th class="text-center">No.</th>
                                             <th class="text-center">Nama Institusi</th>
-                                            <th class="text-center">Tanggal Mulai</th>
-                                            <th class="text-center">Tanggal Selesai</th>
-                                            <th class="text-center">Biaya</th>
+                                            <th class="text-center">Sewa Aula</th>
+                                            <th class="text-center">Konsumsi</th>
+                                            <th class="text-center">Honor Narasumber</th>
+                                            <th class="text-center">Total</th>
                                             <th class="text-center">Keterangan</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
@@ -129,25 +130,26 @@ if($_SESSION['role']==""){
                                         if(isset($_GET['filter'])) {
                                             $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
                                             $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
-                                            $data = mysqli_query($koneksi,"SELECT * from sewa where tanggalmulai BETWEEN '$daritgl' AND '$sampaitgl'");
+                                            $data = mysqli_query($koneksi,"SELECT * from ppd where tanggalproses BETWEEN '$daritgl' AND '$sampaitgl'");
                                         }else{
-                                            $data = mysqli_query($koneksi,"SELECT * from sewa");
+                                            $data = mysqli_query($koneksi,"SELECT * from ppd");
                                         }
                                             while($d = mysqli_fetch_array($data)){
                                     ?>
                                     <!-- <tbody> -->
                                     <tr>
                                             <td class="text-center"><?php echo $d['nomor']; ?></td>
-                                            <td class="text-center"><?php echo $d['namainstitusi']; ?></td>
-                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalmulai'])); ?></td>
-                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalselesai'])); ?></td>
+                                            <td class="text-center"><?php echo $d['institusi']; ?></td>
+                                            <td class="text-center"><?php echo number_format($d['sewaaula']); ?></td>
+                                            <td class="text-center"><?php echo number_format($d['konsumsi']); ?></td>
+                                            <td class="text-center"><?php echo number_format($d['honornarsum']); ?></td>
                                             <td class="text-center"><?php echo number_format($d['total']); ?></td>
                                             <td class="text-center"><?php echo $d['keterangan']; ?></td>
                                             <td class="text-center">
-                                                <a href="updatesewa.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
+                                                <a href="updateppd.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
                                                 <i class="fa fa-edit fa-lg"></i>
                                                 </a>
-                                                <a href="cetaklaporansewa.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-md">
+                                                <a href="cetaklaporanppd.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-md">
                                                 <i class="fa fa-print fa-lg" aria-hidden="true" style="color: white;"></i>
                                                 </a>
                                             </td>
@@ -165,11 +167,11 @@ if($_SESSION['role']==""){
                                             </div>
                                             <div class="modal-body">
 
-                                    <form action="updatesewa.php" method="GET">
+                                    <form action="updateppd.php" method="GET">
                                                 <?php
                                                 include '../koneksi.php';
                                                 $id = $d['nomor']; 
-                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM sewa WHERE nomor='$id'");
+                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM ppd WHERE nomor='$id'");
                                                 while ($row = mysqli_fetch_array($query_edit)) {
                                                 ?>
 
@@ -177,37 +179,41 @@ if($_SESSION['role']==""){
 
                                             <div class="form-group">
                                             <label>Nama Institusi</label>
-                                            <input type="text" name="namainstitusi" class="form-control" value="<?php echo $row['namainstitusi']; ?>">      
+                                            <input type="text" name="institusi" class="form-control" value="<?php echo $row['institusi']; ?>">      
                                             </div> 
 
                                             <div class="form-group">
-                                            <label>Tanggal Mulai</label>
-                                            <input type="date" name="tanggalmulai" class="form-control" value="<?php echo $row['tanggalmulai']; ?>">      
+                                            <label>Sewa Aula</label>
+                                            <input type="number" name="sewaaula" class="form-control" value="<?php echo $row['sewaaula']; ?>">      
                                             </div>
 
                                             <div class="form-group">
-                                            <label>Tanggal Selesai</label>
-                                            <input type="date" name="tanggalselesai" class="form-control" value="<?php echo $row['tanggalselesai']; ?>">      
+                                            <label>Konsumsi</label>
+                                            <input type="number" name="konsumsi" class="form-control" value="<?php echo $row['konsumsi']; ?>">      
                                             </div> 
+
+                                            <div class="form-group">
+                                            <label>Honor Narasumber</label>
+                                            <input type="number" name="honornarsum" class="form-control" value="<?php echo $row['honornarsum']; ?>">      
+                                            </div>
 
                                             <div class="form-group">
                                             <label>Total</label>
                                             <input type="number" name="total" class="form-control" value="<?php echo $row['total']; ?>">      
-                                            </div>
-
+                                            </div> 
                                             <div class="form-group">
                                             <label>Terbilang</label>
                                             <input type="text" name="terbilang" class="form-control" value="<?php echo $row['terbilang']; ?>">      
                                             </div> 
 
                                             <div class="form-group">
-                                            <label>Keterangan</label>
-                                            <input type="text" name="keterangan" class="form-control" value="<?php echo $row['keterangan']; ?>">      
+                                            <label for="floatingTextarea2">Keterangan</label>
+                                            <input type="text" class="form-control" name="keterangan" value="<?php echo $row['keterangan']; ?>" style="height: 100px">      
                                             </div> 
 
                                             <div class="modal-footer">  
                                                 <button type="submit" name="update" value="simpan" class="btn btn-info">Update</button>
-                                                <a href="hapussewa.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
+                                                <a href="hapusppd.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                                             </div>
                                             <?php 
@@ -293,13 +299,13 @@ if($_SESSION['role']==""){
                     {
                         extend: 'print',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5, 6]
                     }
                     },
                     {
                         extend: 'excel',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5, 6]
                     
                     }
                     },

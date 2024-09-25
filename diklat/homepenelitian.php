@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Data Sewa Ruangan</title>
+    <title>Data Penelitian</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -87,7 +87,7 @@ if($_SESSION['role']==""){
                                             <label for="" >s/d</label>
                                             <input type="date" class="rounded" name="sampaitgl" style="border: solid 1px;" required>
                                             <input class="btn btn-primary btn-md" type="submit" name="filter" value="Tampilkan" >
-                                            <a href="cetakdataterakhirsewa.php" target="_blank">
+                                            <a href="cetakdataterakhirpenelitian.php" target="_blank">
                                             <button type="button" name="btnyes" class="btn btn-danger btn-md" value="Cetak1">Cetak Data Terakhir Input</button>
                                             </a>
                                         </div>
@@ -107,17 +107,24 @@ if($_SESSION['role']==""){
             </div>
             <div class="card shadow mb-4" style="margin-left: 20px; margin-right: 20px;">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Data Sewa Ruangan</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Data Penelitian</h5>
                             </div>
                             <div class="card-body">
                                 <table class="DataTable table-striped" id="Tables" style="width: 100%; font-size: 12px;">
                                     <thead>
                                         <tr>
                                             <th class="text-center">No.</th>
-                                            <th class="text-center">Nama Institusi</th>
-                                            <th class="text-center">Tanggal Mulai</th>
-                                            <th class="text-center">Tanggal Selesai</th>
-                                            <th class="text-center">Biaya</th>
+                                            <th class="text-center">Jenis Kegiatan</th>
+                                            <th class="text-center">Nama</th>
+                                            <th class="text-center">Pendidikan</th>
+                                            <th class="text-center">ProgramStudy</th>
+                                            <th class="text-center">Institusi</th>
+                                            <th class="text-center">Judul penelitian</th>
+                                            <th class="text-center">Tempat Penelitian</th>
+                                            <th class="text-center">Tgl.Mulai</th>
+                                            <th class="text-center">Tgl.Selesai</th>
+                                            <!-- <th class="text-center">Bulan</th> -->
+                                            <th class="text-center">Total</th>
                                             <th class="text-center">Keterangan</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
@@ -129,25 +136,33 @@ if($_SESSION['role']==""){
                                         if(isset($_GET['filter'])) {
                                             $daritgl = mysqli_real_escape_string($koneksi, $_GET['daritgl']);
                                             $sampaitgl = mysqli_real_escape_string($koneksi, $_GET['sampaitgl']);
-                                            $data = mysqli_query($koneksi,"SELECT * from sewa where tanggalmulai BETWEEN '$daritgl' AND '$sampaitgl'");
+                                            $data = mysqli_query($koneksi,"SELECT * from penelitian where tanggalmulai BETWEEN '$daritgl' AND '$sampaitgl'");
                                         }else{
-                                            $data = mysqli_query($koneksi,"SELECT * from sewa");
+                                            $data = mysqli_query($koneksi,"SELECT * from penelitian");
                                         }
                                             while($d = mysqli_fetch_array($data)){
                                     ?>
                                     <!-- <tbody> -->
                                     <tr>
                                             <td class="text-center"><?php echo $d['nomor']; ?></td>
-                                            <td class="text-center"><?php echo $d['namainstitusi']; ?></td>
+                                            <td class="text-center"><?php echo $d['jeniskegiatan']; ?></td>
+                                            <td class="text-center"><?php echo $d['nama']; ?></td>
+                                            <td class="text-center"><?php echo $d['pendidikan']; ?></td>
+                                            <td class="text-center"><?php echo $d['programstudy']; ?></td>
+                                            <td class="text-center"><?php echo $d['institusi']; ?></td>
+                                            <td class="text-center"><?php echo $d['judulpenelitian']; ?></td>
+                                            <td class="text-center"><?php echo $d['tempatpenelitian']; ?></td>
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalmulai'])); ?></td>
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalselesai'])); ?></td>
+                                            <!-- <td class="text-center"><?php echo $d['bulan']; ?></td> -->
                                             <td class="text-center"><?php echo number_format($d['total']); ?></td>
                                             <td class="text-center"><?php echo $d['keterangan']; ?></td>
+
                                             <td class="text-center">
-                                                <a href="updatesewa.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
+                                                <a href="updatepenelitian.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-sm" data-target="#myModal<?php echo $d['nomor']; ?>">
                                                 <i class="fa fa-edit fa-lg"></i>
                                                 </a>
-                                                <a href="cetaklaporansewa.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-md">
+                                                <a href="cetaklaporanpenelitian.php?id=<?php echo $d['nomor']; ?>" target="_blank" class="btn btn-info btn-sm">
                                                 <i class="fa fa-print fa-lg" aria-hidden="true" style="color: white;"></i>
                                                 </a>
                                             </td>
@@ -160,30 +175,55 @@ if($_SESSION['role']==""){
                                             <!-- Modal content -->
                                             <div class="modal-content">
                                             <div class="modal-header">
-                                            <h4 class="modal-title">Ubah Data Sewa Ruangan</h4>
+                                            <h4 class="modal-title">Ubah Data Penelitian</h4>
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             </div>
                                             <div class="modal-body">
 
-                                    <form action="updatesewa.php" method="GET">
+                                    <form action="updatpenelitian.php" method="GET">
                                                 <?php
                                                 include '../koneksi.php';
                                                 $id = $d['nomor']; 
-                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM sewa WHERE nomor='$id'");
+                                                $query_edit = mysqli_query($koneksi,"SELECT * FROM penelitian WHERE nomor='$id'");
                                                 while ($row = mysqli_fetch_array($query_edit)) {
                                                 ?>
 
                                             <input type="hidden" name="nomor" value="<?php echo $row['nomor']; ?>">
 
                                             <div class="form-group">
-                                            <label>Nama Institusi</label>
-                                            <input type="text" name="namainstitusi" class="form-control" value="<?php echo $row['namainstitusi']; ?>">      
+                                            <label>Jenis Kegiatan</label>
+                                            <input type="text" name="jeniskegiatan" class="form-control" value="<?php echo $row['jeniskegiatan']; ?>">      
+                                            </div> 
+
+                                            <div class="form-group">
+                                            <label>Nama</label>
+                                            <input type="text" name="nama" class="form-control" value="<?php echo $row['nama']; ?>">      
+                                            </div> 
+                                            <div class="form-group">
+                                            <label>Kategori Pendidikan</label>
+                                            <input type="text" name="pendidikan" class="form-control" value="<?php echo $row['pendidikan']; ?>">      
+                                            </div> 
+                                            <div class="form-group">
+                                            <label>Institusi</label>
+                                            <input type="text" name="institusi" class="form-control" value="<?php echo $row['institusi']; ?>">      
+                                            </div> 
+                                            <div class="form-group">
+                                            <label>Program Study</label>
+                                            <input type="text" name="programstudy" class="form-control" value="<?php echo $row['programstudy']; ?>">      
+                                            </div> 
+                                            <div class="form-group">
+                                            <label>Judul Penelitian</label>
+                                            <input type="text" name="judulpenelitian" class="form-control" value="<?php echo $row['judulpenelitian']; ?>">      
+                                            </div> 
+                                            <div class="form-group">
+                                            <label>Tempat Penelitian</label>
+                                            <input type="text" name="tempatpenelitian" class="form-control" value="<?php echo $row['tempatpenelitian']; ?>">      
                                             </div> 
 
                                             <div class="form-group">
                                             <label>Tanggal Mulai</label>
                                             <input type="date" name="tanggalmulai" class="form-control" value="<?php echo $row['tanggalmulai']; ?>">      
-                                            </div>
+                                            </div> 
 
                                             <div class="form-group">
                                             <label>Tanggal Selesai</label>
@@ -191,24 +231,34 @@ if($_SESSION['role']==""){
                                             </div> 
 
                                             <div class="form-group">
+                                            <label>Nilai</label>
+                                            <input type="number" name="nilai" class="form-control" value="<?php echo $row['nilai']; ?>">      
+                                            </div>
+
+                                            <div class="form-group">
+                                            <label>Bulan</label>
+                                            <input type="number" name="bulan" class="form-control" value="<?php echo $row['bulan']; ?>">      
+                                            </div>
+
+                                            <div class="form-group">
+                                            <label>Keterangan</label>
+                                            <input type="text" name="keterangan" class="form-control" value="<?php echo $row['keterangan']; ?>" style="height: 100px">      
+                                            </div>
+
+                                            <div class="form-group">
                                             <label>Total</label>
                                             <input type="number" name="total" class="form-control" value="<?php echo $row['total']; ?>">      
-                                            </div>
+                                            </div> 
 
                                             <div class="form-group">
                                             <label>Terbilang</label>
                                             <input type="text" name="terbilang" class="form-control" value="<?php echo $row['terbilang']; ?>">      
-                                            </div> 
-
-                                            <div class="form-group">
-                                            <label>Keterangan</label>
-                                            <input type="text" name="keterangan" class="form-control" value="<?php echo $row['keterangan']; ?>">      
-                                            </div> 
+                                            </div>
 
                                             <div class="modal-footer">  
-                                                <button type="submit" name="update" value="simpan" class="btn btn-info">Update</button>
-                                                <a href="hapussewa.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                            <button type="submit" name="update" value="simpan" class="btn btn-info">Update</button>
+                                            <a href="hapuspenelitian.php?id=<?php echo $d['nomor']; ?>" Onclick="alert('Data Berhasil Dihapus !')" class="btn btn-danger">Hapus</a>
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
                                             </div>
                                             <?php 
                                             }
@@ -274,7 +324,6 @@ if($_SESSION['role']==""){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.0/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.0/js/dataTables.bootstrap5.js"></script>
-
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/dataTables.buttons.js"></script> 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.bootstrap5.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script> 
@@ -293,13 +342,13 @@ if($_SESSION['role']==""){
                     {
                         extend: 'print',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
                     }
                     },
                     {
                         extend: 'excel',
                         exportOptions: {
-                            columns: [0, 1, 2, 3, 4, 5]
+                            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
                     
                     }
                     },

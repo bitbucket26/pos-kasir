@@ -10,13 +10,12 @@ if (mysqli_connect_errno()){
   $id = $_GET['nomor'];
   $instansi = $_GET['instansi'];
   $pendidikan = $_GET['pendidikan'];
-  $nilai   = $_POST['nilai'];
+  $nilai   = $_GET['nilai'];
   $tanggalmulai = $_GET['tanggalmulai'];
   $tanggalselesai = $_GET['tanggalselesai'];
   $jumlahbulan = $_GET['jumlahbulan'];
   $jumlahpeserta = $_GET['jumlahpeserta'];
   $ruangmagang = $_GET['ruangmagang'];
-  $tanggalpembayaran = $_GET['tanggalpembayaran'];
   $total = $_GET['total'];
   $bilang = $_GET['bilang'];
   $keterangan = $_GET['keterangan'];
@@ -32,7 +31,6 @@ mysqli_query($koneksi, "UPDATE magang
                                 jumlahbulan='$jumlahbulan',
                                 jumlahpeserta='$jumlahpeserta',
                                 ruangmagang='$ruangmagang',
-                                tanggalpembayaran='$tanggalpembayaran',
                                 total='$total',
                                 bilang='$bilang',
                                 keterangan='$keterangan'
@@ -47,7 +45,6 @@ mysqli_query($koneksi, "UPDATE adminmagang
                                 jumlahbulan='$jumlahbulan',
                                 jumlahpeserta='$jumlahpeserta',
                                 ruangmagang='$ruangmagang',
-                                tanggalpembayaran='$tanggalpembayaran',
                                 total='$total',
                                 bilang='$bilang',
                                 keterangan='$keterangan'

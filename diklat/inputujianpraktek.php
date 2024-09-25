@@ -19,7 +19,7 @@ if($_SESSION['role']==""){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Penelitian</title>
+    <title>Ujian Praktek</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -75,9 +75,8 @@ if($_SESSION['role']==""){
 
 
 <!-- Input Data -->
-<form action="simpanpenelitian.php" method="post">
+<form action="simpanujianpraktek.php" method="post">
 <?php
-
     include "../koneksi.php";
 
     // Check connection
@@ -85,7 +84,7 @@ if($_SESSION['role']==""){
         echo "Koneksi database gagal : " . mysqli_connect_error();
     }
 
-    $sql = mysqli_query($koneksi, "select max(nomor) as maxID from adminpenelitian");
+    $sql = mysqli_query($koneksi, "select max(nomor) as maxID from adminujianpraktek");
     $data = mysqli_fetch_array($sql) or die( mysqli_error($data));
     $kode = $data['maxID'];
     $kode++;
@@ -95,7 +94,7 @@ if($_SESSION['role']==""){
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Penelitian</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Ujian Praktek</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -110,7 +109,7 @@ if($_SESSION['role']==""){
                                     <div class="col-md">
                                         <div class="form-floating">
                                         <label class="labeldata">Nomor</label>
-                                        <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>	
+                                        <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>
                                         </div>
                                     </div>	
                                     <div class="col-md">
@@ -118,138 +117,85 @@ if($_SESSION['role']==""){
                                         <label class="labeldata">Tanggal</label>
                                         <?php $dt = new DateTime();
                                             echo '<input type="date" name="tanggalproses" class="form-control" id="tanggalproses" value="' .$dt->format('Y-m-d'). '" readonly>'
-                                        ?>
+                                        ?>  
                                         </div>
                                     </div>	
-                                </div>	
-                                			
-                                <label class="labeldata">Jenis Kegiatan</label>
-                                            <select name="jeniskegiatan" class="form-control" id="jeniskegiatan" onchange="nilaik(this.value)" required>
-                                                <option value="P">-pilih-</option>
-                                                <option value="Studi Pendahuluan">Studi Pendahuluan</option>
-                                                <option value="Penelitian">Penelitian</option>
-                                            </select>	
-                                <label class="labeldata">Nama</label>
-                                    <input type="text" name="nama" class="form-control" id="instansi" >	
-                                <label class="labeldata">Kategori Pendidikan</label>
-                                    <!-- <input type="text" name="pendidikan" class="form-control" id="pendidikan" > -->
-                                            <select name="pendidikan" class="form-control" id="pendidikan" onchange="nilaik(this.value)" required>
-                                                <option value="P">-pilih-</option>
-                                                <option value="SMU / D1">SMU / D1</option>
-                                                <option value="D III">D III</option>
-                                                <option value="D IV / S1">D IV / S1</option>
-                                                <option value="PROFESI">PROFESI</option>
-                                                <option value="S2">S2</option>
-                                                <option value="S3">S3</option>
-                                                <option value="MAHASISWA ASING">MAHASISWA ASING</option>
-                                                <option value="KARYAWAN / UMUM">KARYAWAN / UMUM</option>
-                                                <option value="PEMINJAMAN STATUS PASIEN / LES">PEMINJAMAN STATUS PASIEN / LES</option>
-                                            </select>
-                                				
-                                                     <script>
-                                                        function nilaik(e) {
-                                                            
-                                                            const a = document.getElementById("jeniskegiatan").value;
-                                                            // var b = document.getElementById("jeniskegiatan").value;
-                                                            // // var a = document.getElementById("perawatpendamping").value;
-                                                            console.log(e)
-                                                            // minimal 2 = om
-                                                            if (a == "Studi Pendahuluan" && e == "SMU / D1"){
-                                                            $("#nilai").val(50000);
-                                                            } else if(a == "Studi Pendahuluan" && e == "D III"){
-                                                            $("#nilai").val(125000);
-                                                            } else if(a == "Studi Pendahuluan" && e == "D IV / S1"){
-                                                            $("#nilai").val(150000);
-                                                            } else if(a == "Studi Pendahuluan" && e == "PROFESI"){
-                                                            $("#nilai").val(175000);
-                                                            } else if(a == "Studi Pendahuluan" && e == "S2"){
-                                                            $("#nilai").val(200000);
-                                                            } else if(a == "Studi Pendahuluan" && e == "S3"){
-                                                            $("#nilai").val(250000);
-                                                            } else if(a == "Studi Pendahuluan" && e == "MAHASISWA ASING"){
-                                                            $("#nilai").val(3250000);
-                                                            } else if(a == "Studi Pendahuluan" && e == "KARYAWAN / UMUM"){
-                                                            $("#nilai").val(250000);
-                                                            } else if(a == "Studi Pendahuluan" && e == "PEMINJAMAN STATUS PASIEN / LES"){
-                                                            $("#nilai").val(5000);
-                                                            } else if (a == "Penelitian" && e == "SMU / D1"){
-                                                            $("#nilai").val(100000);
-                                                            } else if(a == "Penelitian" && e == "D III"){
-                                                            $("#nilai").val(150000);
-                                                            } else if(a == "Penelitian" && e == "D IV / S1"){
-                                                            $("#nilai").val(250000);
-                                                            } else if(a == "Penelitian" && e == "PROFESI"){
-                                                            $("#nilai").val(275000);
-                                                            } else if(a == "Penelitian" && e == "S2"){
-                                                            $("#nilai").val(300000);
-                                                            } else if(a == "Penelitian" && e == "S3"){
-                                                            $("#nilai").val(350000);
-                                                            } else if(a == "Penelitian" && e == "MAHASISWA ASING"){
-                                                            $("#nilai").val(6000000);
-                                                            } else if(a == "Penelitian" && e == "KARYAWAN / UMUM"){
-                                                            $("#nilai").val(400000);
-                                                            } else {
-                                                            $("#nilai").val(0);
-                                                            }
-                                                        }
-                                                    </script>  		
+                                </div> 
+                                <label class="labeldata">Nama Ujian</label>
+                                <input type="text" class="form-control" name="namaujian" id="namaujian" required>				
                                 <label class="labeldata">Institusi</label>
-                                    <input type="text" name="institusi" class="form-control" id="institusi" >
-                                <label class="labeldata">Program Study</label>
-                                    <input type="text" name="programstudy" class="form-control" id="programstudy" >
-                                
-                           
-                                   
-                            </div>
-                            <div class="col">
-                            
-                            <label class="labeldata">Judul Penelitian</label>
-                            <input type="text" name="judulpenelitian" class="form-control" id="judulpenelitian" >    
-                            <label class="labeldata">Tempat Penelitian</label>
-                                <input type="text" name="tempatpenelitian" class="form-control" id="tempatpenelitian" >
-
+                                <input type="text" name="institusi" class="form-control" id="institusi" >	
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating">
-                                        <label for="floatingInputGrid">Mulai Tanggal</label>
-                                        <input type="date" class="form-control" name="tanggalmulai" id="tanggalmulai" required>
+                                        <label class="labeldata">Mulai Tanggal</label>
+                                        <input type="date" name="tanggalmulai" class="form-control" id="tanggalmulai" required>
                                         </div>
                                     </div>	
                                     <div class="col-md">
                                         <div class="form-floating">
-                                        <label for="floatingInputGrid">Sampai Tanggal</label>
-                                        <input type="date" class="form-control" name="tanggalselesai" id="tanggalselesai" onkeypress="totale()" required>
+                                        <label class="labeldata">Sampai Tanggal</label>
+                                        <input type="date" name="tanggalselesai" class="form-control" id="tanggalselesai" required>  
                                         </div>
                                     </div>	
-                                </div>
-                                <script>
-                                                function totalx(){
-                                                    var x = document.getElementById("nilai").value;
-                                                    var y = document.getElementById("bulan").value;
-                                                    document.getElementById("total").value = (x) * (y);
-                                                }
-                                            </script>	
+                                </div> 
+                                <label class="labeldata">Kategori Pendidikan</label>
+                                            <select name="pendidikan" class="form-control" id="pendidikan" onchange="nilaik(this.value)" required>
+                                                <option value="p">-pilih-</option>
+                                                <option value="SMU / D1">SMU / D1</option> 
+                                                <option value="D III">D III</option>
+                                                <option value="D IV / S1">D IV / S1</option>
+                                                <option value="S2 / PROFESI">S2 / PROFESI</option>
+                                                <option value="S3">S3</option>
+                                            </select>		
+                            </div>
+                            <div class="col">
+                            
+                                
+                                <label class="labeldata">Ruangan</label>
+                                <input type="text" class="form-control" name="ruangan" id="ruangan" required>
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating">
                                         <label class="labeldata">Nilai</label>
-                                    <input type="number" name="nilai" class="form-control" id="nilai" required readonly>
+                                        <input type="number" name="nilai" class="form-control" id="nilai" readonly>				
+                                            <script>
+                                                        function nilaik(e) {
+                                                            
+                                                            // var e = (a) + (c);
+                                                            // var a = document.getElementById("perawatpendamping").value;
+                                                            console.log(e)
+                                                            // minimal 2 = om
+                                                            if (e == "SMU / D1"){
+                                                            $("#nilai").val(50000);
+                                                            } else if(e == "D III"){
+                                                            $("#nilai").val(100000);
+                                                            } else if(e == "D IV / S1"){
+                                                            $("#nilai").val(125000);
+                                                            } else if(e == "S2 / PROFESI"){
+                                                            $("#nilai").val(150000);
+                                                            } else if(e == "S3"){
+                                                            $("#nilai").val(150000);
+                                                            } else {
+                                                            $("#nilai").val(0);
+                                                            }
+                                                            
+                                                        }
+                                                        </script>
                                         </div>
                                     </div>	
                                     <div class="col-md">
                                         <div class="form-floating">
-                                        <label class="labeldata" style="color: red;">Bulan ( Enter )</label>
-                                        <input type="number" class="form-control" style="border:2px solid Tomato;" name="bulan" id="bulan" onkeypress="totalx()">
+                                        <label for="floatingInputGrid" style="color: red;">Jumlah Peserta</label>
+                                        <input type="number" class="form-control" style="border:2px solid Tomato;" name="jumlahpeserta" id="jumlahpeserta" onkeypress="totale()"required>  
                                         </div>
                                     </div>	
-                                </div>		
-                                
-                                
+                                </div>   
                                 	
                                 
                                 <div class="form-floating">
                                     <label for="floatingTextarea2">Keterangan</label>
-                                    <textarea class="form-control" name="keterangan" style="height: 120px"></textarea>
+                                    <textarea class="form-control" name="keterangan" style="height: 100px"></textarea>
                                 </div>		
                             </div>
                         </div>
@@ -270,7 +216,14 @@ if($_SESSION['role']==""){
                                 <textarea type="text" name="terbilang" class="form-control" id="terbilang" required></textarea>
 <br>
                                 <!-- <input type="button" name="btntotal" class="btn btn-primary" id="btntotal" onclick="totale()" value="HITUNG"> -->
-                                            
+                                            <script>
+                                                function totale(){
+                                                    var a = document.getElementById("nilai").value;
+                                                    var b = document.getElementById("jumlahpeserta").value;
+                                                    var c = parseInt(a) * parseInt(b);
+                                                    document.getElementById("total").value = (c);
+                                                }
+                                            </script>
                             <!-- Modal simpan -->
                         <?php
                             include "simpandata.php" 
@@ -280,15 +233,13 @@ if($_SESSION['role']==""){
                                                           
                         
                     </div>
-                </div>
-                  
-                <!-- Akhir Kolom 2 -->
-
             </div>
+            <br>
         </div>
     </div>
-
+<br>
 </form>
+<br>
 </div>
 
 
@@ -377,7 +328,7 @@ if($_SESSION['role']==""){
             return temp;
         }
 
-        var input = document.getElementById("bulan");
+        var input = document.getElementById("jumlahpeserta");
         input.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
            event.preventDefault();

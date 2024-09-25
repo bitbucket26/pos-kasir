@@ -105,10 +105,29 @@ if($_SESSION['role']==""){
                     <div class="card">
                         <div class="row" style="padding: 10px 10px;">
                             <div class="col">
-                                <label class="labeldata">Nomor</label>
-                                    <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>				
-                                <label class="labeldata">Institusi Pendidikan</label>
-                                    <input type="text" name="institusi" class="form-control" id="institusi" >	
+                                <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                        <label class="labeldata">Nomor</label>
+                                        <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>
+                                        </div>
+                                    </div>	
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                        <label class="labeldata">Tanggal</label>
+                                        <?php $dt = new DateTime();
+                                            echo '<input type="date" name="tanggalproses" class="form-control" id="tanggalproses" value="' .$dt->format('Y-m-d'). '" readonly>'
+                                        ?>
+                                        </div>
+                                    </div>	
+                                </div>
+                                				
+                                <label class="labeldata">Nama Institusi</label>
+                                    <input type="text" name="institusi" class="form-control" id="institusi" >
+                                <label class="labeldata">Nama Praktek</label>
+                                    <input type="text" class="form-control" name="namapraktek" id="namapraktek" required>
+                                <label class="labeldata">Ruang Praktek</label>
+                                    <input type="text" class="form-control" name="ruangpraktek" id="ruangpraktek" required>	
                                 <label class="labeldata">Kategori Pendidikan</label>
                                             <select name="pendidikan" class="form-control" id="pendidikan" onchange="nilaik(this.value)" required>
                                                 <option value="p">-pilih-</option>
@@ -123,8 +142,7 @@ if($_SESSION['role']==""){
                                                 <option value="MAHASISWA ASING 2">MAHASISWA ASING</option>
                                             </select>		
 
-                                            <label class="labeldata">Nilai</label>
-                                    <input type="number" name="nilai" class="form-control" id="nilai" readonly>				
+                                    				
                                             <script>
                                                         function nilaik(e) {
                                                             
@@ -155,21 +173,32 @@ if($_SESSION['role']==""){
                                                             }
                                                             
                                                         }
-                                                        </script>   
-                            <label class="labeldata">Mulai Tanggal</label>
-                                <input type="date" name="tanggalmulai" class="form-control" id="tanggalmulai" required>				
-                            <label class="labeldata">Sampai Tanggal</label>
-                                <input type="date" name="tanggalselesai" class="form-control" id="tanggalselesai" required>     
+                                                        </script>  
+                                                        
+                                    
+                            				
+                                
                                     
                             </div>
                             <div class="col">
                             
                                 
-                                			
-                                <label class="labeldata">Nama Praktek</label>
-                                <input type="text" class="form-control" name="namapraktek" id="namapraktek" required>
-                                <label class="labeldata">Ruangan</label>
-                                <input type="text" class="form-control" name="ruangpraktek" id="ruangpraktek" required>
+                            <div class="row g-2">
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                        <label class="labeldata">Mulai Tanggal</label>
+                                        <input type="date" name="tanggalmulai" class="form-control" id="tanggalmulai" required>
+                                        </div>
+                                    </div>	
+                                    <div class="col-md">
+                                        <div class="form-floating">
+                                        <label class="labeldata">Sampai Tanggal</label>
+                                        <input type="date" name="tanggalselesai" class="form-control" id="tanggalselesai" required> 
+                                        </div>
+                                    </div>	
+                                </div>   			
+                            <label class="labeldata">Nilai</label>
+                            <input type="number" name="nilai" class="form-control" id="nilai" readonly>
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating">
@@ -180,18 +209,15 @@ if($_SESSION['role']==""){
                                     <div class="col-md">
                                         <div class="form-floating">
                                         <label for="floatingInputGrid" style="color: red;">Jumlah Hari (Enter)</label>
-                                        <input type="number" style="border:2px solid Tomato;" class="form-control" name="jumlahbulan" id="jumlahbulan" onkeypress="totale()" required>
+                                        <input type="number" style="border:2px solid Tomato;" class="form-control" name="jumlahhari" id="jumlahhari" onkeypress="totale()" required>
                                         </div>
                                     </div>	
                                 </div>
-                                <label class="labeldata">Tanggal</label>
-                                <?php $dt = new DateTime();
-                                    echo '<input type="date" name="tanggalpembayaran" class="form-control" id="tanggalpembayaran" value="' .$dt->format('Y-m-d'). '" readonly>'
-                                ?>	
+                                	
                                 
                                 <div class="form-floating">
                                     <label for="floatingTextarea2">Keterangan</label>
-                                    <textarea class="form-control" name="keterangan" style="height: 180px"></textarea>
+                                    <textarea class="form-control" name="keterangan" style="height: 100px"></textarea>
                                 </div>		
                             </div>
                         </div>
@@ -209,12 +235,12 @@ if($_SESSION['role']==""){
                                 <input type="number" name="total" class="form-control" id="total" required>
 
                             <label class="labeldata">Terbilang</label>
-                                <textarea type="text" name="bilang" class="form-control" id="bilang" required></textarea>
+                                <textarea type="text" name="terbilang" class="form-control" id="terbilang" required></textarea>
 <br>
                                 <!-- <input type="button" name="btntotal" class="btn btn-primary" id="btntotal" onclick="totale()" value="HITUNG"> -->
                                             <script>
                                                 function totale(){
-                                                    var a = document.getElementById("jumlahbulan").value;
+                                                    var a = document.getElementById("jumlahhari").value;
                                                     var b = document.getElementById("jumlahpeserta").value;
                                                     var c = document.getElementById("nilai").value;
                                                     var d = parseInt(a) * parseInt(b) * parseInt(c);
@@ -231,66 +257,7 @@ if($_SESSION['role']==""){
                         
                     </div>
             </div>
-            <div class="row">
-                <div class="col-sm-9">
-                        <div class="card">
-                            <div class="row" style="padding: 10px 10px;">
-                                <div class="col">
-                                        
-                                            <div class="row" >
-                                                <div class="col">
-                                                    
-                                                    <label class="labeldata">PELATIHAN PESERTA DIDIK</label>
-                                                                <select name="tambahan" class="form-control" id="tambahan" onchange="nilaii(this.value)" required>
-                                                                    <option value="O">-pilih-</option>
-                                                                    <option value="YA">YA</option>
-                                                                    <option value="TIDAK">TIDAK</option>
-                                                                </select>		
-                                                                
-                                                </div>
-                                                <script>
-                                                function nilaii(e) {
-                                                            
-                                                            // var e = (a) + (c);
-                                                            // var a = document.getElementById("perawatpendamping").value;
-                                                            console.log(e)
-                                                            // minimal 2 = om
-                                                            if (e == "YA"){
-                                                            $("#nilai1").val(300000),$("#nilai2").val(150000),$("#nilai3").val(150000);
-                                                            } else {
-                                                            if (e == "TIDAK"){
-                                                            $("#nilai1").val(0),$("#nilai2").val(0),$("#nilai3").val(0);
-                                                            } else {
-                                                            if (e == "O"){
-                                                            $("#nilai1").val(0),$("#nilai2").val(0),$("#nilai3").val(0);
-                                                            } else {
-                                                            $("#nilai1").val(0),$("#nilai2").val(0),$("#nilai3").val(0);
-                                                            }
-                                                            
-                                                        }
-                                                        </script>   
-                                            </div>
-                                    
-                                        <br>
-                                </div>
-                                <div class="col">  
-                                <label class="labeldata">Honor Narasumber</label>
-                                        <input type="text" name="nilai1" class="form-control" id="nilai1" >
-                                </div>
-                                <div class="col">
-                                <label class="labeldata">Sewa Aula</label>
-                                        <input type="text" name="nilai2" class="form-control" id="nilai2" >
-                                </div>
-                                <div class="col">
-                                <label class="labeldata">Konsumsi</label>
-                                        <input type="text" name="nilai3" class="form-control" id="nilai3" >
-                                </div>
-                                <div class="col">
-                                </div>
-                            </div>
-                        </div>
-                </div>
-            </div>
+            
             <br>
         </div>
     </div>
@@ -385,13 +352,13 @@ if($_SESSION['role']==""){
             return temp;
         }
 
-        var input = document.getElementById("jumlahbulan");
+        var input = document.getElementById("jumlahhari");
         input.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
            event.preventDefault();
               const nilai = document.getElementById("total").value;
               let hasil = terbilang(nilai) + "Rupiah";
-              document.getElementById("bilang").value = hasil;
+              document.getElementById("terbilang").value = hasil;
         }
         });
     </script>

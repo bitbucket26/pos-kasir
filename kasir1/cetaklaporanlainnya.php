@@ -5,7 +5,7 @@ session_start();
 if($_SESSION['role']==""){
     header("location:index.php?pesan=gagal");
 }
-
+$day = date ('Y-m-d',strtotime("days"));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,8 +13,6 @@ if($_SESSION['role']==""){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-    <style>@page { size: 215mm 140mm }</style> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Nota</title>
 </head>
@@ -28,11 +26,11 @@ if($_SESSION['role']==""){
            echo "Koneksi database gagal : " . mysqli_connect_error();
        }
         
-        $sql=mysqli_query($koneksi, "SELECT * FROM adminmagang WHERE nomor='$_GET[id]'");
+        $sql=mysqli_query($koneksi, "SELECT * FROM diklatlainnya WHERE nomor='$_GET[id]'");
         $d=mysqli_fetch_array($sql);
     ?>
-<section class="sheet padding-10mm">
-    <div class="container-xxl" style="">
+
+    <div class="container-xxl">
         <!-- KOP -->
         <div class="d-flex justify-content-center w-100%" >
             <img src="../img/kop.png">
@@ -40,7 +38,7 @@ if($_SESSION['role']==""){
             <br>
         <!-- Judul Nota -->
         <div class="d-flex justify-content-center">
-            <label class="fs-5"><u><b>NOTA PENGANTAR TAGIHAN JASA DIKLAT</b></u></label>
+            <label class="fs-5"><u><b>NOTA PENGANTAR PEMBAYARAN</b></u></label>
         </div>
         <br>
         <div class="row">
@@ -61,12 +59,29 @@ if($_SESSION['role']==""){
                     <div class="col-1">
                     </div>
                     <div class="col-11">
-                        <b>Rincian Tagihan Biaya Magang</b>
+                        <b>Rincian Tagihan Biaya Diklat Lainnya</b>
                     </div>
                 </div>  
                 <br>
             <!-- Baris 1 -->
-                <div class="row">
+            <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-3">
+                    Nama Kegiatan
+                    </div>
+                    <div class="col-1 text-end">:
+                    </div>
+                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
+                    <?=$d['namakegiatan']?>
+                    </div>
+                    <div class="col-1 ">
+                    </div>
+                </div>
+                
+
+            <!-- Baris 2 -->
+            <div class="row">
                     <div class="col-1">
                     </div>
                     <div class="col-3">
@@ -75,50 +90,61 @@ if($_SESSION['role']==""){
                     <div class="col-1 text-end">:
                     </div>
                     <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                    <?=$d['instansi']?>
+                    <?=$d['institusi']?>
                     </div>
                     <div class="col-1 ">
                     </div>
                 </div>
 
-            <!-- Baris 2 -->
                 <div class="row">
                     <div class="col-1">
                     </div>
                     <div class="col-3">
-                    Kategori Pendidikan
+                    Waktu Pelaksanaan
                     </div>
                     <div class="col-1 text-end">:
                     </div>
-                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                    <?=$d['pendidikan']?>
+                    <div class="col-6" style="border-bottom: 1px solid">
+                    <?php echo date('d-M-Y', strtotime($d['tanggalmulai'])); ?> s/d <?php echo date('d-M-Y', strtotime($d['tanggalselesai'])); ?>
                     </div>
                     <div class="col-1 ">
                     </div>
                 </div>
-
-            <!-- Baris 3 -->
-            <div class="row">
-                <div class="col-1">
+                <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-3">
+                    Ruangan
+                    </div>
+                    <div class="col-1 text-end">:
+                    </div>
+                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
+                    <?=$d['ruangan']?>
+                    </div>
+                    <div class="col-1 ">
+                    </div>
                 </div>
-                <div class="col-3">
-                Rincian Biaya
+                <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-3">
+                    Rincian Biaya
+                    </div>
+                    <div class="col-1 text-end">:
+                    </div>
+                    <div class="col-6" style="border-bottom: 1px solid">
+                    Rp. <?php echo number_format ($d['biaya'])?>,- x <?=$d['jumlahpeserta']?> Orang x <?=$d['jumlahhari']?> Hari
+                    </div>
+                    <div class="col-1 ">
+                    </div>
                 </div>
-                <div class="col-1 text-end">:
-                </div>
-                <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                Rp. <?php echo number_format ($d['nilai'])?> + <?php echo number_format ($d['jumlahpeserta'])?> Orang + <?php echo number_format ($d['jumlahbulan'])?> Bulan
-                </div>
-                <div class="col-1 ">
-            </div>
-            </div>
 
             <!-- baris 4 -->
             <div class="row" >
                 <div class="col-1">
                     </div>
                 <div class="col-3">
-                Jumlah Biaya
+                Total Biaya
                 </div>
                 <div class="col-1 text-end">:
                 </div>
@@ -128,34 +154,18 @@ if($_SESSION['role']==""){
                 <div class="col-1 ">
             </div>
             </div>
-
-            <!-- Baris 5 -->
-            <div class="row" >
-                <div class="col-1">
-                </div>
-                <div class="col-3">
-                Tempat Magang
-                </div>
-                <div class="col-1 text-end">:
-                </div>
-                <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                <?=$d['ruangmagang']?>
-                </div>
-                <div class="col-1 ">
-            </div>
-            </div>
-<br><br>
+<br>
             <!-- <-- Baris 6 -->
             <div class="row">
                 <div class="col-1">
                 </div>
                 <div class="col-3">
-                Banyaknya Uang
+                Terbilang
                 </div>
                 <div class="col-1 text-end">:
                 </div>
                 <div class="col-6 fst-italic text-capitalize" style="border-bottom: 1px solid">
-                <b><?=$d['bilang']?></b>
+                <b><?=$d['terbilang']?></b>
                 </div>
                 <div class="col-1 ">
                 </div>
@@ -172,7 +182,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 text-center">
-            Indramayu, <?=$d['tanggalpembayaran'];?>
+            Indramayu, <?php echo date('d-M-Y'); ?>
             </div>
             <div class="col-1 ">
             </div>      
@@ -189,7 +199,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 fw-bold text-center">
-            Pengelola Diklat
+            Yang Menerima
             </div>
             <div class="col-1 ">
             </div>      
@@ -207,7 +217,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 fw-bold text-center text-uppercase"><u>
-            Meli Filaeli</u>
+            <?php echo $_SESSION['username'];?></u>
             </div>
             <div class="col-1 ">
             </div>      
@@ -220,8 +230,8 @@ if($_SESSION['role']==""){
     </div>
         <script>
             window.print()
-            header("location:homemagang.php");
+            header("location:homelainnya.php");
         </script>
-</section>
+
 </body>
 </html>

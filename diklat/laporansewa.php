@@ -36,7 +36,7 @@ if (mysqli_connect_error()){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Laporan Pendapatan Sewa</title>
+    <title>Laporan Pendapatan Sewa Ruangan</title>
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -112,7 +112,7 @@ if (mysqli_connect_error()){
                 <div class="card border-left-danger shadow h-100 py-2 align-items-left" style="margin-left: 32px; margin-bottom: 20px; padding: 10px; width: 30%;">
                     <div class="card-body">
                         <h1 class="card-title text-primary"><?php echo $_SESSION['username'];?></h1>
-                        <h6 class="card-text">Total Pendapatan Sewa Hari Ini</h6>
+                        <h6 class="card-text">Total Pendapatan Sewa Ruangan Hari Ini</h6>
                         <h3 class="card-text text-end">Rp.<?php echo number_format($total_sesi[0]);?></h3>
                     </div>
                 </div>
@@ -227,7 +227,7 @@ if (mysqli_connect_error()){
                     <!-- Tabel Rekap Pendapatan -->
                     <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h5 class="m-0 font-weight-bold text-primary">Tabel Rekap Pendapatan Sewa Per-Bulan</h5>
+                                <h5 class="m-0 font-weight-bold text-primary">Tabel Rekap Pendapatan Sewa Ruangan Per-Bulan</h5>
                             </div>
                             <div class="card-body">
                                 <?php

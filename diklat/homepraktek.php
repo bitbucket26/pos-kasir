@@ -115,14 +115,17 @@ if($_SESSION['role']==""){
                                         <tr>
                                             <th class="text-center">No.</th>
                                             <th class="text-center">Institusi</th>
+                                            <th class="text-center">Nama Praktek</th>
+                                            <th class="text-center">Ruang Praktek</th>
                                             <th class="text-center">Pendidikan</th>
                                             <th class="text-center">Tgl.Mulai</th>
                                             <th class="text-center">Tgl.Selesai</th>
-                                            <th class="text-center">Jml.Bulan</th>
+                                            <th class="text-center">Jml.Hari</th>
                                             <th class="text-center">Jml.Peserta</th>
-                                            <th class="text-center">R.Praktek</th>
-                                            <th class="text-center">Tgl.Transaksi</th>
+                                            <!-- <th class="text-center">R.Praktek</th> -->
+                                            <!-- <th class="text-center">Tgl.Transaksi</th> -->
                                             <th class="text-center">Total</th>
+                                            <th class="text-center">Keterangan</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
@@ -143,14 +146,17 @@ if($_SESSION['role']==""){
                                     <tr>
                                             <td class="text-center"><?php echo $d['nomor']; ?></td>
                                             <td class="text-center"><?php echo $d['institusi']; ?></td>
+                                            <td class="text-center"><?php echo $d['namapraktek']; ?></td>
+                                            <td class="text-center"><?php echo $d['ruangpraktek']; ?></td>
                                             <td class="text-center"><?php echo $d['pendidikan']; ?></td>
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalmulai'])); ?></td>
                                             <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalselesai'])); ?></td>
-                                            <td class="text-center"><?php echo $d['jumlahbulan']; ?></td>
+                                            <td class="text-center"><?php echo $d['jumlahhari']; ?></td>
                                             <td class="text-center"><?php echo $d['jumlahpeserta']; ?></td>
-                                            <td class="text-center"><?php echo $d['ruangpraktek']; ?></td>
-                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?></td>
+                                            <!-- <td class="text-center"><?php echo $d['ruangpraktek']; ?></td> -->
+                                            <!-- <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?></td> -->
                                             <td class="text-center"><?php echo number_format($d['total']); ?></td>
+                                            <td class="text-center"><?php echo $d['keterangan']; ?></td>
 
                                             <td class="text-center">
                                                 <a href="updatepraktek.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
@@ -234,10 +240,7 @@ if($_SESSION['role']==""){
                                             <input type="date" name="tanggalpembayaran" class="form-control" value="<?php echo $row['tanggalpembayaran']; ?>">      
                                             </div> 
 
-                                            <div class="form-group">
-                                            <label>Keterangan</label>
-                                            <input type="text" name="keterangan" class="form-control" value="<?php echo $row['keterangan']; ?>" style="height: 100px">      
-                                            </div> 
+                                             
 
                                             <div class="form-group">
                                             <label>Total</label>
@@ -248,6 +251,11 @@ if($_SESSION['role']==""){
                                             <label>Terbilang</label>
                                             <input type="text" name="bilang" class="form-control" value="<?php echo $row['bilang']; ?>" style="height: 100px">      
                                             </div> 
+
+                                            <div class="form-group">
+                                            <label>Keterangan</label>
+                                            <input type="text" name="keterangan" class="form-control" value="<?php echo $row['keterangan']; ?>" style="height: 100px">      
+                                            </div>
 
                                             <div class="modal-footer">  
                                             <button type="submit" name="update" value="simpan" class="btn btn-info">Update</button>

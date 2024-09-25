@@ -121,8 +121,8 @@ if($_SESSION['role']==""){
                                             <th class="text-center">Jml.Bulan</th>
                                             <th class="text-center">Jml.Peserta</th>
                                             <th class="text-center">R.Magang</th>
-                                            <th class="text-center">Tgl.Transaksi</th>
                                             <th class="text-center">Total</th>
+                                            <th class="text-center">keterangan</th>
                                             <th class="text-center">Aksi</th>
                                         </tr>
                                     </thead>
@@ -149,8 +149,9 @@ if($_SESSION['role']==""){
                                             <td class="text-center"><?php echo $d['jumlahbulan']; ?></td>
                                             <td class="text-center"><?php echo $d['jumlahpeserta']; ?></td>
                                             <td class="text-center"><?php echo $d['ruangmagang']; ?></td>
-                                            <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?></td>
+                                            <!-- <td class="text-center"><?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?></td> -->
                                             <td class="text-center"><?php echo number_format($d['total']); ?></td>
+                                            <td class="text-center"><?php echo $d['keterangan']; ?></td>
 
                                             <td class="text-center">
                                                 <a href="update.php?id=<?php echo $d['nomor']; ?>" type="button" data-toggle="modal" class="btn btn-primary btn-md" data-target="#myModal<?php echo $d['nomor']; ?>">
@@ -196,7 +197,7 @@ if($_SESSION['role']==""){
 
                                             <div class="form-group">
                                             <label>Nilai</label>
-                                            <input type="text" name="nilai" class="form-control" value="<?php echo $row['nilai']; ?>">      
+                                            <input type="number" name="nilai" class="form-control" value="<?php echo $row['nilai']; ?>">      
                                             </div>
 
                                             <div class="form-group">
@@ -224,15 +225,6 @@ if($_SESSION['role']==""){
                                             <input type="text" name="ruangmagang" class="form-control" value="<?php echo $row['ruangmagang']; ?>">      
                                             </div> 
 
-                                            <div class="form-group">
-                                            <label>Tanggal Transaksi</label>
-                                            <input type="date" name="tanggalpembayaran" class="form-control" value="<?php echo $row['tanggalpembayaran']; ?>">      
-                                            </div> 
-
-                                            <div class="form-group">
-                                            <label>Keterangan</label>
-                                            <input type="text" name="keterangan" class="form-control" value="<?php echo $row['keterangan']; ?>" style="height: 100px">    
-                                            </div> 
 
                                             <div class="form-group">
                                             <label>Total</label>
@@ -243,6 +235,11 @@ if($_SESSION['role']==""){
                                             <label>Terbilang</label>
                                             <input type="text" name="bilang" class="form-control" value="<?php echo $row['bilang']; ?>" style="height: 100px">      
                                             </div> 
+
+                                            <div class="form-group">
+                                            <label>Keterangan</label>
+                                            <input type="text" name="keterangan" class="form-control" value="<?php echo $row['keterangan']; ?>" style="height: 100px">    
+                                            </div>
 
                                             <div class="modal-footer">  
                                             <button type="submit" name="update" value="simpan" class="btn btn-info">Update</button>

@@ -100,7 +100,7 @@
                 </a>
                 <div id="collapsePages2" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="homeabl.php">DASHBOARD AMBULAN</a>
+                        <a class="collapse-item" href="homeabl.php">AMBULAN</a>
                         <a class="collapse-item" href="ambulan.php">INPUT AMBULAN</a>
                         <a class="collapse-item" href="laporanabl.php">LAPORAN AMBULAN</a>
                         <div class="collapse-divider"></div>
@@ -115,17 +115,57 @@
                 </a>
                 <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="homemagang.php">DASHBOARD MAGANG</a>
+                        <a class="collapse-item" href="homelainnya.php">DIKLAT LAINNYA</a>
                         <!-- <a class="collapse-item" href="ablkasir1.php">INPUT MAGANG</a> -->
-                        <a class="collapse-item" href="laporanmagang.php">LAPORAN MAGANG</a>
+                        <a class="collapse-item" href="laporanlainnya.php">LAPORAN</a>
                         <div class="collapse-divider"></div>
                     </div>
                 </div>
                 <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="homepraktek.php">DASHBOARD PRAKTEK</a>
+                        <a class="collapse-item" href="homemagang.php">MAGANG</a>
                         <!-- <a class="collapse-item" href="ablkasir1.php">INPUT PRAKTEK</a> -->
-                        <a class="collapse-item" href="laporanpraktek.php">LAPORAN PRAKTEK</a>
+                        <a class="collapse-item" href="laporanmagang.php">LAPORAN</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </div>
+                <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="homepraktek.php">PRAKTIK</a>
+                        <!-- <a class="collapse-item" href="ablkasir1.php">INPUT PRAKTEK</a> -->
+                        <a class="collapse-item" href="laporanpraktek.php">LAPORAN</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </div>
+                <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="homeppd.php">PEL. PESERTA DIDIK</a>
+                        <!-- <a class="collapse-item" href="ablkasir1.php">INPUT PRAKTEK</a> -->
+                        <a class="collapse-item" href="laporanppd.php">LAPORAN</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </div>
+                <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="homepraktek.php">UJIAN PRAKTIK</a>
+                        <!-- <a class="collapse-item" href="ablkasir1.php">INPUT PRAKTEK</a> -->
+                        <a class="collapse-item" href="laporanpraktek.php">LAPORAN</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </div>
+                <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="homesewa.php">SEWA RUANGAN</a>
+                        <!-- <a class="collapse-item" href="ablkasir1.php">INPUT PRAKTEK</a> -->
+                        <a class="collapse-item" href="laporansewa.php">LAPORAN</a>
+                        <div class="collapse-divider"></div>
+                    </div>
+                </div>
+                <div id="collapsePages3" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="homepenelitian.php">PENELITIAN</a>
+                        <!-- <a class="collapse-item" href="ablkasir1.php">INPUT PRAKTEK</a> -->
+                        <a class="collapse-item" href="laporanpenelitian.php">LAPORAN</a>
                         <div class="collapse-divider"></div>
                     </div>
                 </div>

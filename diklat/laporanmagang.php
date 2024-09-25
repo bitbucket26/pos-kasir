@@ -19,7 +19,7 @@ if (mysqli_connect_error()){
     $thn = date ('Y');
     for($bulan = 1;$bulan < 13;$bulan++)
     {
-        $query = mysqli_query($koneksi,"SELECT sum(total) as total from magang where YEAR(tanggalpembayaran)='$thn'");
+        $query = mysqli_query($koneksi,"SELECT sum(total) as total from magang where YEAR(tanggalmulai)='$thn'");
         $row = $query->fetch_array();
         $total[] = $row['total'];
     }
@@ -102,7 +102,7 @@ if (mysqli_connect_error()){
 
                 $day_sesi = date ('Y-m-d'); 
 
-                $query_sesi = mysqli_query($koneksi,"SELECT sum(total) as total from magang where (tanggalpembayaran)= '$day_sesi'");
+                $query_sesi = mysqli_query($koneksi,"SELECT sum(total) as total from magang where (tanggalmulai)= '$day_sesi'");
                 $row_sesi = $query_sesi->fetch_array();
                 $total_sesi[] = $row_sesi['total'];
 
@@ -141,36 +141,36 @@ if (mysqli_connect_error()){
                                 } 
                                 
 
-                                    $query = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day' group by date(tanggalpembayaran)");
+                                    $query = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalmulai)= '$day' group by date(tanggalmulai)");
                                     $row = $query->fetch_array();
                                     $totals[] = $row['total'];
                                     // echo json_encode($total);
 
-                                    $query1 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day1' group by date(tanggalpembayaran)");
+                                    $query1 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalmulai)= '$day1' group by date(tanggalmulai)");
                                     $row1 = $query1->fetch_array();
                                     $total1[] = $row1['total'];
 
-                                    $query2 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day2' group by date(tanggalpembayaran)");
+                                    $query2 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalmulai)= '$day2' group by date(tanggalmulai)");
                                     $row2 = $query2->fetch_array();
                                     $total2[] = $row2['total'];
 
-                                    $query3 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day3' group by date(tanggalpembayaran)");
+                                    $query3 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalmulai)= '$day3' group by date(tanggalmulai)");
                                     $row3 = $query3->fetch_array();
                                     $total3[] = $row3['total'];
 
-                                    $query4 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day4' group by date(tanggalpembayaran)");
+                                    $query4 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalmulai)= '$day4' group by date(tanggalmulai)");
                                     $row4 = $query4->fetch_array();
                                     $total4[] = $row4['total'];
 
-                                    $query5 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day5' group by date(tanggalpembayaran)");
+                                    $query5 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalmulai)= '$day5' group by date(tanggalmulai)");
                                     $row5 = $query5->fetch_array();
                                     $total5[] = $row5['total'];
 
-                                    $query6 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day6' group by date(tanggalpembayaran)");
+                                    $query6 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalmulai)= '$day6' group by date(tanggalmulai)");
                                     $row6 = $query6->fetch_array();
                                     $total6[] = $row6['total'];
 
-                                    $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalpembayaran)= '$day6' group by date(tanggalpembayaran)");
+                                    $query7 = mysqli_query($koneksi,"SELECT sum(total) as total from magang where DAY(tanggalmulai)= '$day6' group by date(tanggalmulai)");
                                     $row7 = $query7->fetch_array();
                                     $total7[] = $row7['total'];
                                 ?>
@@ -237,8 +237,8 @@ if (mysqli_connect_error()){
                                     if (mysqli_connect_error()){
                                         echo "Koneksi database gagal : " . mysqli_connect_error();
                                     }
-                                    $result = mysqli_query($koneksi,"select year(tanggalpembayaran) as year, month(tanggalpembayaran) as month, sum(total) as total
-                                                                    from magang group by year(tanggalpembayaran), month(tanggalpembayaran)");
+                                    $result = mysqli_query($koneksi,"select year(tanggalmulai) as year, month(tanggalmulai) as month, sum(total) as total
+                                                                    from magang group by year(tanggalmulai), month(tanggalmulai)");
                                 ?>
                                 <table id="example" class="DataTable table-striped" style="width:100%;">
                                     <thead>

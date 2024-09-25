@@ -75,7 +75,7 @@ if($_SESSION['role']==""){
 
 
 <!-- Input Data -->
-<form action="simpansewa.php" method="post">
+<form action="simpanppd.php" method="post">
 <?php
 
     include "../koneksi.php";
@@ -85,7 +85,7 @@ if($_SESSION['role']==""){
         echo "Koneksi database gagal : " . mysqli_connect_error();
     }
 
-    $sql = mysqli_query($koneksi, "select max(nomor) as maxID from adminsewa");
+    $sql = mysqli_query($koneksi, "select max(nomor) as maxID from adminppd");
     $data = mysqli_fetch_array($sql) or die( mysqli_error($data));
     $kode = $data['maxID'];
     $kode++;
@@ -95,7 +95,7 @@ if($_SESSION['role']==""){
 
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Sewa Ruangan</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Pelatihan Peserta Didik</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -106,69 +106,65 @@ if($_SESSION['role']==""){
                     <div class="card">
                         <div class="row" style="padding: 10px 10px;">
                             <div class="col">
-                            <div class="row g-2">
+                                <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating">
                                         <label class="labeldata">Nomor</label>
-                                    <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>
+                                        <input type="number" value="<?php echo $kodeautoabl;?>" name="nomor" class="form-control" id="nomor" readonly>
                                         </div>
                                     </div>	
                                     <div class="col-md">
                                         <div class="form-floating">
                                         <label class="labeldata" >Tanggal</label>
                                         <?php $dt = new DateTime();
-                                            echo '<input type="date" name="tanggalpembayaran" class="form-control" id="tanggalpembayaran" value="' .$dt->format('Y-m-d'). '" readonly>'
+                                            echo '<input type="date" name="tanggalproses" class="form-control" id="tanggalproses" value="' .$dt->format('Y-m-d'). '" readonly>'
                                         ?>
                                         </div>
                                     </div>	
                                 </div>
-                                
+                                                <script>
+                                                // function nilaii(e) {
+                                                            
+                                                //             // var e = (a) + (c);
+                                                //             // var a = document.getElementById("perawatpendamping").value;
+                                                //             console.log(e)
+                                                //             // minimal 2 = om
+                                                //             if (e == "YA"){
+                                                //             $("#sewaaula").val(150000),$("#konsumsi").val(150000);
+                                                //             } else {
+                                                //             $("#honornarsum").val(0),$("#sewaaula").val(0),$("#konsumsi").val(0);
+                                                //             }
+                                                //         }
+                                                // </script>
+                                                <script>
+                                                function totales(){
+                                                    var a = document.getElementById("sewaaula").value;
+                                                    var b = document.getElementById("konsumsi").value;
+                                                    var c = document.getElementById("honornarsum").value;
+                                                    
+                                                    document.getElementById("total").value = parseInt(a) + parseInt(b) + parseInt(c);;
+                                                }
+                                            </script>
                                 <label class="labeldata">Nama Institusi</label>
-                                    <input type="text" name="namainstitusi" class="form-control" id="namainstitusi" required>	
-                                <!-- <label class="labeldata">Jumlah Peserta</label>
-                                    <input type="text" name="jumlahpeserta" class="form-control" id="jumlahpeserta" >
-                                            <select name="jumlahpeserta" class="form-control" id="jumlahpeserta" onchange="nilaif(this.value)" required>
-                                                <option value="0">-pilih-</option>
-                                                <option value="<15"><= 15 Orang / Hari</option>
-                                                <option value="15 - 40">15 - 40 Orang / Hari</option>
-                                                <option value=">40">>= 40 Orang / Hari</option>
-                                            </select>	 -->
-                                <!-- <label class="labeldata">Nilai</label>	
-                                    <input type="number" name="nilais" class="form-control" id="nilais" required> -->
-                                            <!-- <script>
-                                                            function nilaif(e) {
-                                                            console.log(e)
-                                                            // minimal 2 = om
-                                                            if (e == "<15"){
-                                                            // $("#nilais").val(200000);
-                                                            document.getElementById("total").value = 200000;
-
-                                                            } else if(e == "15 - 40"){
-                                                            // $("#nilais").val(300000);
-                                                            document.getElementById("total").value = 300000;
-                                                            } else if(e == ">40"){
-                                                            // $("#nilais").val(400000);
-                                                            document.getElementById("total").value = 400000;
-                                                            } else if(e == "0"){
-                                                            // $("#nilais").val(0);
-                                                            document.getElementById("total").value = 0;
-                                                            }                                                             
-                                                        }
-                                            </script>   -->
+                                <input type="text" name="institusi" class="form-control" id="institusi" required>
                                 <div class="row g-2">
                                     <div class="col-md">
                                         <div class="form-floating">
-                                        <label class="labeldata">Mulai Tanggal</label>
-                                        <input type="date" name="tanggalmulai" class="form-control" id="tanggalmulai" required>
+                                        <label class="labeldata">Sewa Aula</label>
+                                        <input type="number" name="sewaaula" class="form-control" value="150000" id="sewaaula" readonly>
                                         </div>
                                     </div>	
                                     <div class="col-md">
                                         <div class="form-floating">
-                                        <label class="labeldata">Sampai Tanggal</label>
-                                <input type="date" name="tanggalselesai" class="form-control" id="tanggalselesai" required>
+                                       
+                                        <label class="labeldata">Konsumsi</label>
+                                        <input type="number" name="konsumsi" class="form-control" value="150000" id="konsumsi" readonly>
                                         </div>
                                     </div>	
-                                </div>
+                                </div> 
+                                <label class="labeldata" style="color: red;">Honor Narasumber (Enter)</label>
+                                    <input type="number" name="honornarsum" style="border:2px solid Tomato;" class="form-control" id="honornarsum" onkeypress="totales()" required>
+                               
                                 		
                                 
                             </div>
@@ -182,13 +178,13 @@ if($_SESSION['role']==""){
                 <!-- Awal Kolom 2 -->
                 <div class="col-sm-6">
                     <div class="card" style="padding: 10px 10px;">
-                    <label class="labeldata">Biaya</label>
-                                <input type="text" name="total" class="form-control" id="total" required>
-                                <label class="labeldata">Terbilang</label>
-                                <textarea type="text" name="terbilang" class="form-control" id="terbilang" required></textarea>
+                    <label class="labeldata">Total</label>
+                            <input type="number" name="total" class="form-control" id="total" readonly>
+                    <label class="labeldata">Terbilang</label>
+                            <textarea type="text" name="terbilang" class="form-control" id="terbilang" required></textarea>
                                 <div class="form-floating">
                                     <label for="floatingTextarea2">Keterangan</label>
-                                    <textarea class="form-control" name="keterangan" style="height: 120px"></textarea>
+                                    <textarea class="form-control" name="keterangan" style="height: 100px"></textarea>
                                 </div>
                                 <br>
                         <?php
@@ -264,7 +260,7 @@ if($_SESSION['role']==""){
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.print.min.js"></script> 
     <script src="https://cdn.datatables.net/buttons/3.0.0/js/buttons.colVis.min.js"></script> 
 
-    <!-- <script>
+    <script>
         Math.fmod = function (a,b) { return Number((a - (Math.floor(a / b) * b)).toPrecision(8)); };
         function terbilang(nilai) {
             const huruf = ["", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas"];
@@ -293,20 +289,20 @@ if($_SESSION['role']==""){
             return temp;
         }
 
-        var input = document.getElementById("jumlahpeserta");
-        input.addEventListener("onchange", function(event) {
-        if (event.click === "onclick") {
+        var input = document.getElementById("honornarsum");
+        input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
            event.preventDefault();
               const nilai = document.getElementById("total").value;
               let hasil = terbilang(nilai) + "Rupiah";
               document.getElementById("terbilang").value = hasil;
         }
         });
-    </script> -->
+    </script>
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
  
     // www.malasngoding.com
     function terbilang(nilai) {
@@ -381,7 +377,7 @@ if($_SESSION['role']==""){
         document.getElementById("terbilang").innerHTML  = huruf;
     });
  
-</script>
+</script> -->
  
     
 </body>

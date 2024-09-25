@@ -38,7 +38,7 @@ if($_SESSION['role']==""){
             <br>
         <!-- Judul Nota -->
         <div class="d-flex justify-content-center">
-            <label class="fs-5"><u><b>NOTA PENGANTAR TAGIHAN JASA DIKLAT</b></u></label>
+            <label class="fs-5"><u><b>NOTA PENGANTAR TAGIHAN PRAKTEK</b></u></label>
         </div>
         <br>
         <div class="row">
@@ -135,7 +135,7 @@ if($_SESSION['role']==""){
                 <div class="col-1 text-end">:
                 </div>
                 <div class="col-6" style="border-bottom: 1px solid">
-                Biaya Praktek Rp. <?php echo number_format ($d['nilai'])?> x <?php echo number_format ($d['jumlahpeserta'])?> Orang x <?php echo number_format ($d['jumlahbulan'])?> Hari
+                Biaya Praktek Rp. <?php echo number_format ($d['nilai'])?>,- x <?php echo number_format ($d['jumlahpeserta'])?> Orang x <?php echo number_format ($d['jumlahhari'])?> Hari
                 </div>
                 <div class="col-1 ">
             </div>
@@ -150,16 +150,14 @@ if($_SESSION['role']==""){
                 </div>
                 <div class="col-1 text-end">:
                 </div>
-                <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
+                <div class="col-6" style="border-bottom: 1px solid">
                 Rp. <?php echo number_format ($d['total'])?>,-
                 </div>
                 <div class="col-1 ">
             </div>
             </div>
-
+<br>
             <!-- Baris 5 -->
-            
-<br><br>
             <!-- <-- Baris 6 -->
             <div class="row">
                 <div class="col-1">
@@ -170,7 +168,7 @@ if($_SESSION['role']==""){
                 <div class="col-1 text-end">:
                 </div>
                 <div class="col-6 fst-italic text-capitalize" style="border-bottom: 1px solid">
-                <b><?=$d['bilang']?></b>
+                <b><?=$d['terbilang']?></b>
                 </div>
                 <div class="col-1 ">
                 </div>
@@ -187,7 +185,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 text-center">
-            Indramayu, <?php echo date('d-M-Y', strtotime($d['tanggalpembayaran'])); ?>
+            Indramayu, <?php echo date('d-M-Y'); ?>
             </div>
             <div class="col-1 ">
             </div>      

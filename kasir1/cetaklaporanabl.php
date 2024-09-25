@@ -180,7 +180,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 fw-bold text-center">
-            Yang Membayar
+            Yang Menerima
             </div>
             <div class="col-1 ">
             </div>

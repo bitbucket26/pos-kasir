@@ -5,7 +5,7 @@ session_start();
 if($_SESSION['role']==""){
     header("location:index.php?pesan=gagal");
 }
-
+$day = date ('Y-m-d',strtotime("days"));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@ if($_SESSION['role']==""){
            echo "Koneksi database gagal : " . mysqli_connect_error();
        }
         
-        $sql=mysqli_query($koneksi, "SELECT * FROM praktek WHERE nomor='$_GET[id]'");
+        $sql=mysqli_query($koneksi, "SELECT * FROM diklatlainnya WHERE nomor='$_GET[id]'");
         $d=mysqli_fetch_array($sql);
     ?>
 
@@ -38,7 +38,7 @@ if($_SESSION['role']==""){
             <br>
         <!-- Judul Nota -->
         <div class="d-flex justify-content-center">
-            <label class="fs-5"><u><b>NOTA PENGANTAR TAGIHAN JASA DIKLAT</b></u></label>
+            <label class="fs-5"><u><b>NOTA PENGANTAR PEMBAYARAN</b></u></label>
         </div>
         <br>
         <div class="row">
@@ -59,12 +59,29 @@ if($_SESSION['role']==""){
                     <div class="col-1">
                     </div>
                     <div class="col-11">
-                        <b>Rincian Tagihan Biaya Praktek</b>
+                        <b>Rincian Tagihan Biaya Diklat Lainnya</b>
                     </div>
                 </div>  
                 <br>
             <!-- Baris 1 -->
-                <div class="row">
+            <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-3">
+                    Nama Kegiatan
+                    </div>
+                    <div class="col-1 text-end">:
+                    </div>
+                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
+                    <?=$d['namakegiatan']?>
+                    </div>
+                    <div class="col-1 ">
+                    </div>
+                </div>
+                
+
+            <!-- Baris 2 -->
+            <div class="row">
                     <div class="col-1">
                     </div>
                     <div class="col-3">
@@ -79,67 +96,48 @@ if($_SESSION['role']==""){
                     </div>
                 </div>
 
-            <!-- Baris 2 -->
                 <div class="row">
                     <div class="col-1">
                     </div>
                     <div class="col-3">
-                    Nama Praktek
+                    Waktu Pelaksanaan
                     </div>
                     <div class="col-1 text-end">:
                     </div>
-                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                    <?=$d['namapraktek']?>
+                    <div class="col-6" style="border-bottom: 1px solid">
+                    <?php echo date('d-M-Y', strtotime($d['tanggalmulai'])); ?> s/d <?php echo date('d-M-Y', strtotime($d['tanggalselesai'])); ?>
                     </div>
                     <div class="col-1 ">
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-1">
                     </div>
                     <div class="col-3">
-                    Tempat Praktek
+                    Ruangan
                     </div>
                     <div class="col-1 text-end">:
                     </div>
                     <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                    <?=$d['ruangpraktek']?>
+                    <?=$d['ruangan']?>
                     </div>
                     <div class="col-1 ">
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-1">
                     </div>
                     <div class="col-3">
-                    Kategori Pendidikan
+                    Rincian Biaya
                     </div>
                     <div class="col-1 text-end">:
                     </div>
-                    <div class="col-6 text-uppercase" style="border-bottom: 1px solid">
-                    <?=$d['pendidikan']?>
+                    <div class="col-6" style="border-bottom: 1px solid">
+                    Rp. <?php echo number_format ($d['biaya'])?>,- x <?=$d['jumlahpeserta']?> Orang x <?=$d['jumlahhari']?> Hari
                     </div>
                     <div class="col-1 ">
                     </div>
                 </div>
-
-            <!-- Baris 3 -->
-            <div class="row">
-                <div class="col-1">
-                </div>
-                <div class="col-3">
-                Rincian Biaya
-                </div>
-                <div class="col-1 text-end">:
-                </div>
-                <div class="col-6" style="border-bottom: 1px solid">
-                Biaya Praktek Rp. <?php echo number_format ($d['nilai'])?> + <?php echo number_format ($d['jumlahpeserta'])?> Orang + <?php echo number_format ($d['jumlahbulan'])?> Bulan
-                </div>
-                <div class="col-1 ">
-            </div>
-            </div>
 
             <!-- baris 4 -->
             <div class="row" >
@@ -156,10 +154,7 @@ if($_SESSION['role']==""){
                 <div class="col-1 ">
             </div>
             </div>
-
-            <!-- Baris 5 -->
-            
-<br><br>
+<br>
             <!-- <-- Baris 6 -->
             <div class="row">
                 <div class="col-1">
@@ -170,7 +165,7 @@ if($_SESSION['role']==""){
                 <div class="col-1 text-end">:
                 </div>
                 <div class="col-6 fst-italic text-capitalize" style="border-bottom: 1px solid">
-                <b><?=$d['bilang']?></b>
+                <b><?=$d['terbilang']?></b>
                 </div>
                 <div class="col-1 ">
                 </div>
@@ -187,7 +182,7 @@ if($_SESSION['role']==""){
             <div class="col-1 ">
             </div>
             <div class="col-4 text-center">
-            Indramayu, <?=$d['tanggalpembayaran'];?>
+            Indramayu, <?php echo date('d-M-Y'); ?>
             </div>
             <div class="col-1 ">
             </div>      
@@ -235,7 +230,7 @@ if($_SESSION['role']==""){
     </div>
         <script>
             window.print()
-            header("location:homepraktek.php");
+            header("location:homelainnya.php");
         </script>
 
 </body>
